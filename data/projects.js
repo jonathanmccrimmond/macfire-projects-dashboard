@@ -39,7 +39,7 @@ window.MACFIRE_PROJECTS = [
       "Public-source social content drafting pipeline for regulation and standards updates.",
     functionLine:
       "Turn verified regulation updates into LinkedIn and Facebook drafts with source links.",
-    repoUrl: "",
+    repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
         label: "Local Preview (this machine)",
