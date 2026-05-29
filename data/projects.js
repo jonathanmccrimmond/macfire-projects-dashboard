@@ -8,7 +8,7 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-05-29",
     summary:
-      "Daily automated lead generation for Scottish fire-safety opportunities using Companies House and planning applications sourcing through scoring and enrichment.",
+      "Automated daily lead generation for Scottish fire safety opportunities, leveraging public data sources with advanced lead scoring and data enrichment.",
     functionLine:
       "Find, score, and enrich credible fire-safety leads each day with Companies House and planning signals.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-scout",
