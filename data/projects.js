@@ -1,16 +1,16 @@
 window.MACFIRE_PROJECTS = [
   {
     id: "macfire-ai-scout",
-    name: "MacFire AI Scout",
+    name: "MacFire AI Lead Scout",
     category: "Lead Intelligence",
     status: "active",
-    progress: 82,
+    progress: 91,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-05-29",
     summary:
-      "Daily automated lead generation for Scottish fire-safety opportunities using Companies House scoring and enrichment.",
+      "Daily automated lead generation for Scottish fire-safety opportunities using Companies House and planning applications sourcing through scoring and enrichment.",
     functionLine:
-      "Find and rank credible fire-safety leads each day with minimal manual effort.",
+      "Find, score, and enrich credible fire-safety leads each day with Companies House and planning signals.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-scout",
     outputLinks: [
       {
@@ -23,9 +23,9 @@ window.MACFIRE_PROJECTS = [
       url: ""
     },
     notes:
-      "Planning-applications signal expansion is in progress. Current run remains stable in production.",
+      "Planning applications sourcing has shipped and is live. Current run remains stable in production.",
     confidentiality: "Confidential lead-level data remains private.",
-    nextMilestone: "Ship planning signal production path."
+    nextMilestone: "Add the next signal layer beyond planning."
   },
   {
     id: "macfire-content-radar",
