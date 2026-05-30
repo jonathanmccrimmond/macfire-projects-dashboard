@@ -42,8 +42,8 @@ window.MACFIRE_PROJECTS = [
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
-        label: "Local Preview (this machine)",
-        url: "file:///Users/jonathanmccrimmond/Documents/MacFire/macfire-content-radar/preview/index.html"
+        label: "Live Preview",
+        url: "https://jonathanmccrimmond.github.io/macfire-content-radar/preview/"
       }
     ],
     deckLink: {
