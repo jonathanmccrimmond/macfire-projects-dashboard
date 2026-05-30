@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- viewport NO LONGER blocks pinch-zoom (old site had maximum-scale=1, a WCAG 1.4.4 fail) -->
+
+  <title>MacFire Ltd — Fire Protection Specialists, Scotland-wide</title>
+  <meta name="description" content="BAFE-registered, ISO 9001:2015 certified fire protection for Scottish businesses. Fire alarms, extinguishers, risk assessments, signage and training across Renfrewshire, Lanarkshire, Glasgow and the rest of Scotland.">
+
+  <!-- Social link previews — old site had none -->
+  <meta property="og:title" content="MacFire Ltd — Fire Protection Specialists, Scotland-wide">
+  <meta property="og:description" content="BAFE-registered, ISO 9001:2015 certified fire protection for Scottish businesses since 2006.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.macfireltd.co.uk/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://www.macfireltd.co.uk/">
+
+  <!-- Type. Geist for display (modern, engineered), Inter for UI/body. Preconnect = ~150ms LCP saving. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- LocalBusiness schema — big SEO win for a regional trades business. Tells Google: address, hours, area served. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "MacFire Ltd",
+    "image": "https://www.macfireltd.co.uk/images/logo.png",
+    "telephone": "+44 141 881 5455",
+    "email": "info@macfireltd.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Unit 2, 3 Bowerwalls Place, Crossmill Business Park",
+      "addressLocality": "Barrhead",
+      "addressRegion": "East Renfrewshire",
+      "postalCode": "G78 1BF",
+      "addressCountry": "GB"
+    },
+    "areaServed": "Scotland",
+    "foundingDate": "2006",
+    "description": "Fire protection specialists. BAFE-registered and ISO 9001:2015 certified."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Skip link for keyboard users — WCAG 2.4.1, missing on old site -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="MacFire Ltd, home">
+        <!-- Logo as inline SVG so it scales sharp and inherits colour. Replace with client's real mark when supplied. -->
+        <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20 4c2 6 8 8 8 16a8 8 0 0 1-16 0c0-4 2-6 4-8-1 4 1 6 3 6 2 0 3-2 1-6 2 0 0-6 0-8z"/>
+        </svg>
+        <span class="logo-text">MacFire<span class="logo-dot">.</span></span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="sr-only">Menu</span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#sectors">Who we work with</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="tel:+441418815455" class="header-phone" aria-label="Call MacFire Ltd on 0141 881 5455">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
+          0141 881 5455
+        </a>
+        <a href="#contact" class="btn btn-primary">Request a quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <!-- Display-weight headline carries the brand. Two CTAs, primary = quote (the actual money action), secondary = call. -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Fire protection specialists · Scotland</p>
+        <h1 class="hero-headline">
+          Fire protection that keeps Scottish businesses
+          <span class="hero-emphasis">compliant — and safe.</span>
+        </h1>
+        <p class="hero-sub">
+          Independent, BAFE-registered fire protection for businesses across Renfrewshire, Lanarkshire, Glasgow and the rest of Scotland. Supply, installation, maintenance, training and risk assessments — from a team with over 75 years of combined experience.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-large">Request a free site survey</a>
+          <a href="tel:+441418815455" class="btn btn-ghost btn-large">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.25 1z"/></svg>
+            Call 0141 881 5455
+          </a>
+        </div>
+        <p class="hero-meta">No-obligation quote · Response within one working day</p>
+      </div>
+
+      <!-- Decorative shape lives below text so it doesn't take focus on mobile; CSS handles placement. -->
+      <div class="hero-decoration" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <!-- Replaces the buried "75 years of combined experience" line on the old site. Visible above the fold on desktop. -->
+    <section class="trust-strip" aria-label="At a glance">
+      <div class="container trust-grid">
+        <div class="trust-item"><span class="trust-number" data-count="2006">2006</span><span class="trust-label">Established</span></div>
+        <div class="trust-item"><span class="trust-number" data-count="75">75+</span><span class="trust-label">Years combined experience</span></div>
+        <div class="trust-item"><span class="trust-number">BAFE</span><span class="trust-label">SP101 registered</span></div>
+        <div class="trust-item"><span class="trust-number">ISO</span><span class="trust-label">9001:2015 certified</span></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">What we do</p>
+          <h2 class="section-title">Six services. One trusted partner.</h2>
+          <p class="section-lede">Everything you need to keep your premises compliant with current fire safety legislation and British Standards — under one roof, from one accountable team.</p>
+        </header>
+
+        <div class="service-grid">
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2c1.5 4 5 6 5 11a5 5 0 0 1-10 0c0-2.5 1-4 2-5 0 2 1 3 2 3s2-1 1-4c1 0 0-3 0-5z"/></svg>
+            </div>
+            <h3>Fire Alarm Systems</h3>
+            <p>Supply, installation and maintenance of high-quality fire alarm systems for commercial and industrial sites. Fully compliant with current British Standards.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M10 2h4l1 3h2v2h-2v13a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V7H7V5h2zM9 5h6V4H9z"/></svg>
+            </div>
+            <h3>Fire Extinguishers</h3>
+            <p>All extinguisher types supplied, installed and serviced by BAFE-registered technicians in accordance with BS5306 Part 3. Refills and repairs where possible — no wasteful replacements.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 3 2 8l10 5 10-5zM2 13l10 5 10-5M2 18l10 5 10-5"/></svg>
+            </div>
+            <h3>Fire Extinguisher Training</h3>
+            <p>On-site training delivered by qualified instructors so your staff have the knowledge and confidence to act in an emergency. Compliant with all relevant fire safety legislation.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M4 4h16v4H4zM6 10h12v10H6zm3 3v4m6-4v4"/></svg>
+            </div>
+            <h3>Dry Risers &amp; Fire Hydrants</h3>
+            <p>Statutory six-monthly testing of dry risers and fire hydrants by skilled engineers, keeping responsible owners and operators compliant with British Standards.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M3 4h18v14H7l-4 4zM7 9h10M7 13h7"/></svg>
+            </div>
+            <h3>Fire Risk Assessments</h3>
+            <p>A thorough inspection of your premises and a detailed report evaluating existing precautions and any remedial action required. Free, no-obligation initial consultation.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M5 3h14l-2 18H7zM9 8h6M9 12h6M9 16h4"/></svg>
+            </div>
+            <h3>Fire Safety Signage</h3>
+            <p>Authorised distributor of Jalite AAA photoluminescent signage. We advise, supply and install the correct signs for your premises and sector.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECTORS ============ -->
+    <!-- Pulled straight from the real testimonials on the old site. Procurement buyers look for "you've worked in my sector". -->
+    <section id="sectors" class="section section-tint">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">Who we work with</p>
+          <h2 class="section-title">Trusted across Scottish industry</h2>
+          <p class="section-lede">From single-site businesses to multi-site property managers, we work with organisations where compliance and people's safety can't be left to chance.</p>
+        </header>
+
+        <ul class="sector-grid" role="list">
+          <li class="sector-pill">Care homes</li>
+          <li class="sector-pill">Housing associations</li>
+          <li class="sector-pill">Property management</li>
+          <li class="sector-pill">Industrial &amp; manufacturing</li>
+          <li class="sector-pill">Hospitality</li>
+          <li class="sector-pill">Construction</li>
+          <li class="sector-pill">Retail</li>
+          <li class="sector-pill">Public sector</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <!-- Real quotes from the existing site — kept verbatim, restructured into proper cards with attribution. -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow">In their words</p>
+          <h2 class="section-title">A reputation built one client at a time.</h2>
+        </header>
+
+        <div class="testimonial-grid">
+
+          <figure class="testimonial">
+            <blockquote>
+              <p>I would have no hesitation in recommending MacFire Ltd. During the 12 years we have been using their services we have found them to be extremely professional, knowledgeable and supportive. Simply put, MacFire Ltd is the contractor that we trust for all our fire prevention and protection requirements.</p>
+            </blockquote>
+            <figcaption>
+              <strong>James Mackay</strong>
+              <span>Scottish Regional Manager, SMH Products Ltd</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              <p>MacFire Ltd have been supplying and maintaining fire extinguishers on two of our large profile sites in Aberdeen and Edinburgh for the past 5 years. We have always found them to be a reliable and professional partner who provide exceptional value and service.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Craig Chalmers</strong>
+              <span>Building Manager, Savills Property Management</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              <p>We would like to thank you for the exemplary service you provided us with during the extremely busy period leading up to the opening of our new purpose-built 95-bedroom care home. This gave us confidence that we had everything in place to ensure the safety of our vulnerable residents and staff.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Louise Glasgow</strong>
+              <span>General Manager, Care Homes Scotland</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              <p>Superb customer service. We've used MacFire Ltd for the maintenance of our fire alarms, extinguishers, dry risers and sprinklers for over 10 years and have been more than pleased with everything. Their prices are very competitive too.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Peter Morrison</strong>
+              <span>Facilities Manager, Milnbank Housing Association</span>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <!-- This is the biggest functional change vs the old site: there was no form. -->
+    <section id="contact" class="section section-dark">
+      <div class="container contact-layout">
+
+        <div class="contact-intro">
+          <p class="eyebrow eyebrow-light">Get in touch</p>
+          <h2 class="section-title section-title-light">Request a free site survey and quotation.</h2>
+          <p class="section-lede section-lede-light">Tell us what your premises need. We'll respond within one working day with next steps, a site visit if needed, and a transparent quote.</p>
+
+          <ul class="contact-details" role="list">
+            <li>
+              <span class="contact-label">Call</span>
+              <a href="tel:+441418815455">0141 881 5455</a>
+            </li>
+            <li>
+              <span class="contact-label">Email</span>
+              <a href="mailto:info@macfireltd.co.uk">info@macfireltd.co.uk</a>
+            </li>
+            <li>
+              <span class="contact-label">Visit</span>
+              <address>
+                Unit 2, 3 Bowerwalls Place<br>
+                Crossmill Business Park<br>
+                Barrhead, East Renfrewshire<br>
+                G78 1BF
+              </address>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Demo form. JS shows a confirmation; for production wire to Netlify Forms / Formspree / SMTP. -->
+        <form class="contact-form" novalidate>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-service">What can we help with?</label>
+            <select id="f-service" name="service">
+              <option value="">Choose a service…</option>
+              <option>Fire alarm supply / installation / maintenance</option>
+              <option>Fire extinguishers</option>
+              <option>Fire extinguisher training</option>
+              <option>Dry riser / fire hydrant testing</option>
+              <option>Fire risk assessment</option>
+              <option>Fire safety signage</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-message">Tell us a bit about your premises</label>
+            <textarea id="f-message" name="message" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-large btn-block">Send enquiry</button>
+          <p class="form-meta">We'll only use your details to respond to this enquiry.</p>
+          <p class="form-success" role="status" hidden>Thanks — we've got your enquiry and will be in touch within one working day.</p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="logo logo-footer" aria-label="MacFire Ltd, home">
+          <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M20 4c2 6 8 8 8 16a8 8 0 0 1-16 0c0-4 2-6 4-8-1 4 1 6 3 6 2 0 3-2 1-6 2 0 0-6 0-8z"/>
+          </svg>
+          <span class="logo-text">MacFire<span class="logo-dot">.</span></span>
+        </a>
+        <p class="footer-tag">Fire protection specialists serving Scottish businesses since 2006.</p>
+      </div>
+
+      <div>
+        <h4 class="footer-h">Services</h4>
+        <ul>
+          <li><a href="#services">Fire alarms</a></li>
+          <li><a href="#services">Fire extinguishers</a></li>
+          <li><a href="#services">Risk assessments</a></li>
+          <li><a href="#services">Training</a></li>
+          <li><a href="#services">Signage</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-h">Contact</h4>
+        <ul>
+          <li><a href="tel:+441418815455">0141 881 5455</a></li>
+          <li><a href="mailto:info@macfireltd.co.uk">info@macfireltd.co.uk</a></li>
+          <li>Barrhead, East Renfrewshire G78 1BF</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-h">Follow</h4>
+        <ul class="footer-social">
+          <li><a href="https://www.facebook.com/MacFireLtd/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://twitter.com/macfire_ltd" target="_blank" rel="noopener">X / Twitter</a></li>
+          <!-- LinkedIn URL on old site pointed to linkedin.com root — needs the real company page from client. -->
+          <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> MacFire Ltd. All rights reserved.</p>
+      <p><a href="#">Privacy policy</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
