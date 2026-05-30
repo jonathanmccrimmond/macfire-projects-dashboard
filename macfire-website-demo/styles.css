@@ -81,19 +81,24 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0;
   margin: 0 auto;
   padding-inline: var(--gutter);
 }
-.section { padding-block: clamp(56px, 9vw, 112px); }
+/* Section padding tuned so each anchor target fits in one viewport
+   when the user clicks a nav link. Old values capped at 112px which
+   pushed grids below the fold at 1280x900.
+   scroll-margin-top offsets anchor jumps by the sticky header height so
+   the section title isn't hidden under it. */
+.section { padding-block: clamp(40px, 5vw, 64px); scroll-margin-top: 72px; }
 .section-tint { background: var(--cream); }
 .section-dark { background: var(--ink); color: #E8E8E5; }
 
-.section-header { max-width: 720px; margin-bottom: clamp(40px, 5vw, 64px); }
+.section-header { max-width: 720px; margin-bottom: clamp(24px, 3vw, 36px); }
 .section-title {
-  font-size: clamp(30px, 4.5vw, 48px);
+  font-size: clamp(26px, 3.4vw, 36px);
   line-height: 1.1;
   font-weight: 700;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 .section-title-light { color: #FFFFFF; }
-.section-lede { font-size: clamp(17px, 1.6vw, 19px); color: var(--muted); margin-top: 16px; }
+.section-lede { font-size: clamp(15px, 1.3vw, 17px); color: var(--muted); margin-top: 10px; }
 .section-lede-light { color: #B9B9B5; }
 
 .eyebrow {
@@ -293,7 +298,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 20px;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .service-card:hover {
@@ -302,19 +307,19 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0;
   border-color: transparent;
 }
 .service-icon {
-  width: 52px; height: 52px;
+  width: 40px; height: 40px;
   display: grid; place-items: center;
   background: var(--red-tint);
   color: var(--red);
-  border-radius: 12px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 12px;
 }
-.service-icon svg { stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.service-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .service-icon svg path[fill] { fill: currentColor; stroke: none; } /* fire-extinguisher style fill-icons */
 .service-card h3 {
-  font-size: 20px; font-weight: 600; margin-bottom: 8px;
+  font-size: 17px; font-weight: 600; margin-bottom: 6px;
 }
-.service-card p { color: var(--muted); margin: 0; font-size: 15.5px; }
+.service-card p { color: var(--muted); margin: 0; font-size: 14px; line-height: 1.5; }
 
 /* ---------- Sectors ---------- */
 .sector-grid {
@@ -333,7 +338,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0;
 
 /* ---------- Testimonials ---------- */
 .testimonial-grid {
-  display: grid; gap: 20px;
+  display: grid; gap: 16px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 840px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -343,26 +348,26 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); margin: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: 22px;
   position: relative;
 }
 .testimonial::before {
   content: "“";
-  position: absolute; top: 8px; left: 20px;
+  position: absolute; top: 4px; left: 14px;
   font-family: var(--font-display);
-  font-size: 80px; line-height: 1;
+  font-size: 56px; line-height: 1;
   color: var(--red);
-  opacity: .25;
+  opacity: .22;
 }
-.testimonial blockquote { margin: 0; padding-top: 20px; }
-.testimonial blockquote p { margin: 0; font-size: 16.5px; color: var(--ink-2); }
+.testimonial blockquote { margin: 0; padding-top: 14px; }
+.testimonial blockquote p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
 .testimonial figcaption {
-  display: flex; flex-direction: column; gap: 2px;
-  margin-top: 20px; padding-top: 20px;
+  display: flex; flex-direction: column; gap: 1px;
+  margin-top: 14px; padding-top: 12px;
   border-top: 1px solid var(--line);
 }
-.testimonial figcaption strong { font-family: var(--font-display); font-size: 15px; color: var(--ink); }
-.testimonial figcaption span { font-size: 14px; color: var(--muted); }
+.testimonial figcaption strong { font-family: var(--font-display); font-size: 14px; color: var(--ink); }
+.testimonial figcaption span { font-size: 12.5px; color: var(--muted); }
 
 /* ---------- Contact ---------- */
 .contact-layout {
