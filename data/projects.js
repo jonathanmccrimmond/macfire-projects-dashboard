@@ -19,8 +19,8 @@ window.MACFIRE_PROJECTS = [
       }
     ],
     deckLink: {
-      label: "Function Deck (planned)",
-      url: ""
+      label: "Information Deck",
+      url: "https://docs.google.com/presentation/d/1tVF3yontFFgixup52AuVFMlHLg2nVKHe/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     notes:
       "Planning applications sourcing has shipped and is live. Current run remains stable in production.",
