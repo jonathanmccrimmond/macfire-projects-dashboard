@@ -1,8 +1,8 @@
-/* MacFire Ltd — redesign demo
+/* MacFire Ltd, redesign demo
    Minimal vanilla JS. No jQuery, no dependencies.
    Three small responsibilities:
      1. Mobile nav toggle (with proper ARIA state)
-     2. Demo form handler (shows confirmation — real backend needs wiring)
+     2. Demo form handler (shows confirmation, real backend needs wiring)
      3. Footer year auto-update (no more "© 2023" rot)
 */
 
@@ -31,7 +31,7 @@
   }
 
   /* --- 2. Demo contact form ---
-     For production: replace this with a real handler — Netlify Forms (add
+     For production: replace this with a real handler, Netlify Forms (add
      `netlify` attribute to the <form>), Formspree, or POST to an SMTP relay. */
   const form = document.querySelector('.contact-form');
   if (form) {
@@ -39,7 +39,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Cheap native validation — browser will surface field errors for required inputs.
+      // Cheap native validation, browser will surface field errors for required inputs.
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
