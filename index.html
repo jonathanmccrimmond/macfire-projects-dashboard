@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MacFire Projects Dashboard</title>
+  <title>MacFire Projects</title>
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #f8f2eb;
@@ -18,16 +18,13 @@
       --muted: #5c646f;
       --line: #e6ddd0;
       --accent: #d64c2c;
-      --accent-soft: #f8d9cf;
       --ok: #207a41;
       --pilot: #b46c07;
       --planned: #6d7480;
       --shadow: 0 16px 36px rgba(38, 26, 15, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -40,105 +37,63 @@
     }
 
     .shell {
-      max-width: 1240px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 24px 20px 40px;
+      padding: 28px 20px 60px;
     }
 
+    /* ── Header ── */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
     }
 
-    .identity {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .identity { display: flex; align-items: center; gap: 14px; }
 
     .mark {
-      width: 42px;
-      height: 42px;
+      width: 44px; height: 44px;
       border-radius: 10px;
       background: linear-gradient(135deg, #1f252c, #485566);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-size: 22px;
+      display: grid; place-items: center;
+      color: #fff; font-size: 22px;
+      flex-shrink: 0;
     }
 
     .title {
       margin: 0;
-      font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      font-size: clamp(24px, 3.3vw, 44px);
-      letter-spacing: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(22px, 3vw, 34px);
       line-height: 1.05;
     }
 
-    .subtitle {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 
-    .quick-links {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .quick-links a {
-      text-decoration: none;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--ink);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .quick-links a:hover {
-      transform: translateY(-2px);
-      border-color: #d4c1aa;
-      background: #fffbf6;
-    }
-
+    /* ── Stats ── */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 920px) {
-      .stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      gap: 10px;
+      margin-bottom: 28px;
     }
 
     @media (max-width: 580px) {
-      .stats {
-        grid-template-columns: 1fr;
-      }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     .stat {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 14px;
+      padding: 14px 16px;
       box-shadow: var(--shadow);
-      animation: fadeIn 420ms ease both;
     }
 
     .stat .label {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -148,159 +103,82 @@
 
     .stat .value {
       margin: 0;
-      font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      font-size: 30px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
       line-height: 1;
     }
 
-    .filters {
-      background: var(--panel-strong);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .filters strong {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .filters button {
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 13px;
-      cursor: pointer;
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-    }
-
-    .filters button:hover {
-      transform: translateY(-1px);
-      border-color: #d5c4b0;
-    }
-
-    .filters button.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
+    /* ── Project cards ── */
     .grid {
       display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (max-width: 980px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+      gap: 20px;
+      grid-template-columns: 1fr;
     }
 
     .project-card {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 16px;
+      padding: 22px;
       box-shadow: var(--shadow);
       display: grid;
-      gap: 12px;
+      gap: 16px;
       animation: riseIn 520ms ease both;
     }
 
-    .row {
+    .card-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .project-name {
       margin: 0;
-      font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      font-size: 24px;
-      line-height: 1.05;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(19px, 2.4vw, 24px);
+      line-height: 1.1;
     }
 
     .category {
-      margin: 4px 0 0;
+      margin: 5px 0 0;
       color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.04em;
+      font-size: 12px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
     .badge {
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 5px 11px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .badge.active {
-      background: #dff5e8;
-      color: var(--ok);
-    }
-
-    .badge.pilot {
-      background: #fff0d5;
-      color: var(--pilot);
-    }
-
-    .badge.planned {
-      background: #eceff2;
-      color: var(--planned);
-    }
-
-    .summary,
-    .function-line,
-    .small-note {
-      margin: 0;
-      color: var(--ink);
-      font-size: 14px;
-    }
+    .badge.active  { background: #dff5e8; color: var(--ok); }
+    .badge.pilot   { background: #fff0d5; color: var(--pilot); }
+    .badge.planned { background: #eceff2; color: var(--planned); }
 
     .summary {
+      margin: 0;
+      font-size: 14px;
       font-weight: 700;
+      line-height: 1.55;
     }
 
     .function-line {
+      margin: -6px 0 0;
+      font-size: 13px;
       color: var(--muted);
+      line-height: 1.55;
     }
 
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 14px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 560px) {
-      .meta {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .meta strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .progress-wrap {
-      display: grid;
-      gap: 6px;
-    }
+    /* ── Progress ── */
+    .progress-wrap { display: grid; gap: 6px; }
 
     .progress-head {
       display: flex;
@@ -310,7 +188,7 @@
     }
 
     .progress {
-      height: 8px;
+      height: 7px;
       background: #efe7dc;
       border-radius: 999px;
       overflow: hidden;
@@ -321,19 +199,87 @@
       height: 100%;
       background: linear-gradient(90deg, #d64c2c, #e68f34);
       width: 0;
-      transition: width 550ms ease;
+      transition: width 650ms ease;
     }
 
-    .links {
+    /* ── Steps ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 36px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    @media (max-width: 540px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    .steps-label {
+      margin: 0 0 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .steps-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 8px;
     }
 
-    .link-chip,
-    .link-disabled {
+    .steps-list li {
+      font-size: 13px;
+      line-height: 1.45;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .done-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--ok);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .next-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* ── Meta + links ── */
+    .meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .meta strong { color: var(--ink); font-weight: 700; }
+
+    .links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .link-chip, .link-disabled {
       border-radius: 999px;
-      padding: 8px 11px;
+      padding: 7px 13px;
       font-size: 12px;
       border: 1px solid var(--line);
     }
@@ -350,39 +296,21 @@
       border-color: #d9b588;
     }
 
-    .link-disabled {
-      color: #8e969f;
-      background: #f4f0ea;
-    }
+    .link-disabled { color: #8e969f; background: #f4f0ea; }
 
     .empty {
       background: #fff;
       border: 1px dashed #d8c6b0;
       color: var(--muted);
       border-radius: 12px;
-      padding: 28px;
+      padding: 32px;
       text-align: center;
       font-size: 14px;
     }
 
     @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -392,154 +320,135 @@
       <div class="identity">
         <div class="mark" aria-hidden="true">M</div>
         <div>
-          <h1 class="title">MacFire Projects Dashboard</h1>
-          <p class="subtitle">Project function, status, live outputs, and deck links in one view.</p>
+          <h1 class="title">MacFire Projects</h1>
+          <p class="subtitle">Status, progress, and next steps across all active work.</p>
         </div>
       </div>
     </header>
 
     <section class="stats" id="stats"></section>
-
-    <section class="filters" id="filters">
-      <strong>Filter:</strong>
-    </section>
-
     <main class="grid" id="project-grid"></main>
   </div>
 
   <script src="data/projects.js"></script>
   <script>
-    const projectGrid = document.getElementById("project-grid");
-    const statsEl = document.getElementById("stats");
-    const filtersEl = document.getElementById("filters");
     const projects = Array.isArray(window.MACFIRE_PROJECTS) ? window.MACFIRE_PROJECTS : [];
-    const filters = [
-      { key: "all", label: "All" },
-      { key: "active", label: "Active" },
-      { key: "pilot", label: "Pilot" },
-      { key: "planned", label: "Planned" }
-    ];
 
-    function formatStatus(status) {
-      if (!status) return "planned";
-      return String(status).toLowerCase();
-    }
-
-    function buildStats(list) {
-      const active = list.filter((item) => formatStatus(item.status) === "active").length;
-      const pilot = list.filter((item) => formatStatus(item.status) === "pilot").length;
-      const planned = list.filter((item) => formatStatus(item.status) === "planned").length;
-      const avgProgress = list.length
-        ? Math.round(list.reduce((sum, item) => sum + (Number(item.progress) || 0), 0) / list.length)
-        : 0;
-
-      const blocks = [
-        { label: "Projects", value: list.length },
-        { label: "Active", value: active },
-        { label: "Pilot", value: pilot },
-        { label: "Avg Progress", value: avgProgress + "%" }
-      ];
-
-      statsEl.innerHTML = blocks
-        .map(
-          (block) => `
-            <article class="stat">
-              <p class="label">${block.label}</p>
-              <p class="value">${block.value}</p>
-            </article>
-          `
-        )
-        .join("");
+    function formatStatus(s) {
+      return String(s || "planned").toLowerCase();
     }
 
     function linkChip(label, url) {
-      if (!url || !url.trim()) {
-        return `<span class="link-disabled">${label}</span>`;
-      }
+      if (!url || !url.trim()) return `<span class="link-disabled">${label}</span>`;
       return `<a class="link-chip" href="${url}" target="_blank" rel="noreferrer">${label}</a>`;
     }
 
-    function renderProjects(filterKey) {
-      const list =
-        filterKey === "all"
-          ? projects
-          : projects.filter((item) => formatStatus(item.status) === filterKey);
+    function buildStats() {
+      const active  = projects.filter(p => formatStatus(p.status) === "active").length;
+      const pilot   = projects.filter(p => formatStatus(p.status) === "pilot").length;
+      const avg     = projects.length
+        ? Math.round(projects.reduce((s, p) => s + (Number(p.progress) || 0), 0) / projects.length)
+        : 0;
+      const done    = projects.reduce((s, p) => s + (p.completedSteps?.length || 0), 0);
 
-      if (!list.length) {
-        projectGrid.innerHTML = `<div class="empty">No projects in this filter yet.</div>`;
+      const blocks = [
+        { label: "Live",         value: active },
+        { label: "In Pilot",     value: pilot },
+        { label: "Avg Progress", value: avg + "%" },
+        { label: "Steps Done",   value: done }
+      ];
+
+      document.getElementById("stats").innerHTML = blocks.map(b => `
+        <article class="stat">
+          <p class="label">${b.label}</p>
+          <p class="value">${b.value}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById("project-grid");
+
+      if (!projects.length) {
+        grid.innerHTML = `<div class="empty">No projects yet.</div>`;
         return;
       }
 
-      projectGrid.innerHTML = list
-        .map((project) => {
-          const status = formatStatus(project.status);
-          const outputLinks = Array.isArray(project.outputLinks) ? project.outputLinks : [];
+      grid.innerHTML = projects.map((p, i) => {
+        const status  = formatStatus(p.status);
+        const outputs = Array.isArray(p.outputLinks)    ? p.outputLinks    : [];
+        const done    = Array.isArray(p.completedSteps) ? p.completedSteps : [];
+        const next    = Array.isArray(p.upcomingSteps)  ? p.upcomingSteps  : [];
 
-          return `
-            <article class="project-card">
-              <div class="row">
-                <div>
-                  <h2 class="project-name">${project.name || "Untitled Project"}</h2>
-                  <p class="category">${project.category || "Project"}</p>
-                </div>
-                <span class="badge ${status}">${status}</span>
+        const doneHtml = done.map(s => `<li>${s}</li>`).join("");
+        const nextHtml = next.map(s => `<li>${s}</li>`).join("");
+
+        const stepsSection = (done.length || next.length) ? `
+          <div class="steps-grid">
+            <div>
+              <p class="steps-label">Done</p>
+              <ul class="steps-list done-list">${doneHtml}</ul>
+            </div>
+            <div>
+              <p class="steps-label">Up next</p>
+              <ul class="steps-list next-list">${nextHtml}</ul>
+            </div>
+          </div>
+        ` : "";
+
+        const outputChips = outputs.map(o => linkChip(o.label || "Output", o.url || "")).join("");
+        const deckChip    = p.deckLink ? linkChip(p.deckLink.label || "Deck", p.deckLink.url || "") : "";
+        const repoChip    = p.repoUrl  ? linkChip("Repository", p.repoUrl) : "";
+
+        return `
+          <article class="project-card" style="animation-delay: ${i * 90}ms">
+            <div class="card-header">
+              <div>
+                <h2 class="project-name">${p.name || "Untitled"}</h2>
+                <p class="category">${p.category || ""}</p>
               </div>
+              <span class="badge ${status}">${status}</span>
+            </div>
 
-              <p class="summary">${project.summary || ""}</p>
-              <p class="function-line">${project.functionLine || ""}</p>
+            <p class="summary">${p.summary || ""}</p>
+            <p class="function-line">${p.functionLine || ""}</p>
 
-              <div class="meta">
-                <div><strong>Owner:</strong> ${project.owner || "n/a"}</div>
-                <div><strong>Last Updated:</strong> ${project.lastUpdated || "n/a"}</div>
-                <div><strong>Next Milestone:</strong> ${project.nextMilestone || "n/a"}</div>
-                <div><strong>Data Boundary:</strong> ${project.confidentiality || "n/a"}</div>
+            <div class="progress-wrap">
+              <div class="progress-head">
+                <span>Progress</span>
+                <span>${Number(p.progress) || 0}%</span>
               </div>
-
-              <div class="progress-wrap">
-                <div class="progress-head">
-                  <span>Progress</span>
-                  <span>${Number(project.progress) || 0}%</span>
-                </div>
-                <div class="progress"><span style="width:${Number(project.progress) || 0}%"></span></div>
+              <div class="progress">
+                <span data-w="${Number(p.progress) || 0}"></span>
               </div>
+            </div>
 
-              <p class="small-note">${project.notes || ""}</p>
+            ${stepsSection}
 
-              <div class="links">
-                ${linkChip("Repository", project.repoUrl)}
-                ${outputLinks
-                  .map((output) => linkChip(output.label || "Output", output.url || ""))
-                  .join("")}
-                ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
-              </div>
-            </article>
-          `;
-        })
-        .join("");
-    }
+            <div class="meta">
+              <span><strong>Owner:</strong> ${p.owner || "n/a"}</span>
+              <span><strong>Updated:</strong> ${p.lastUpdated || "n/a"}</span>
+            </div>
 
-    function renderFilters(active) {
-      const html = filters
-        .map(
-          (item) =>
-            `<button data-filter="${item.key}" class="${item.key === active ? "active" : ""}">${item.label}</button>`
-        )
-        .join("");
-      filtersEl.insertAdjacentHTML("beforeend", html);
+            <div class="links">
+              ${repoChip}
+              ${outputChips}
+              ${deckChip}
+            </div>
+          </article>
+        `;
+      }).join("");
 
-      filtersEl.querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const key = btn.getAttribute("data-filter");
-          filtersEl.querySelectorAll("button").forEach((item) => item.classList.remove("active"));
-          btn.classList.add("active");
-          renderProjects(key);
+      // Trigger progress bar animations after initial paint
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        document.querySelectorAll(".progress span[data-w]").forEach(el => {
+          el.style.width = el.dataset.w + "%";
         });
-      });
+      }));
     }
 
-    buildStats(projects);
-    renderFilters("all");
-    renderProjects("all");
+    buildStats();
+    renderProjects();
   </script>
 </body>
 </html>
