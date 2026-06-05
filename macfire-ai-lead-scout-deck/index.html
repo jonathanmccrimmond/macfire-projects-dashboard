@@ -1,1 +1,575 @@
-placeholder_will_be_replaced
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacFire AI Lead Scout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1A1F3C;
+    --red: #C31E1F;
+    --white: #ffffff;
+    --light: #f4f5f9;
+    --muted: #8a91b0;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #0e1127;
+    font-family: var(--font);
+    overflow: hidden;
+  }
+
+  .slide {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 80px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    background: var(--navy);
+    color: var(--white);
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  #counter {
+    position: fixed;
+    bottom: 22px;
+    right: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.38);
+    z-index: 999;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    z-index: 998;
+  }
+  .nav-btn:hover { background: rgba(195,30,31,0.35); color: #fff; }
+  #prev { left: 18px; }
+  #next { right: 18px; }
+
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: var(--red);
+    transition: width 0.4s ease;
+    z-index: 999;
+  }
+
+  .slide-title {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 36px;
+    text-align: center;
+  }
+  .slide-title span { color: var(--red); }
+  .subtitle {
+    font-size: clamp(14px, 1.8vw, 20px);
+    color: var(--muted);
+    text-align: center;
+  }
+  .note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    font-style: italic;
+  }
+
+  #s1 { background: var(--navy); }
+  .logo-lockup {
+    display: flex;
+    align-items: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.45);
+    margin-bottom: 48px;
+  }
+  .logo-light {
+    background: var(--white);
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    padding: 18px 30px;
+    letter-spacing: -0.5px;
+  }
+  .logo-dark {
+    background: var(--red);
+    color: var(--white);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    padding: 18px 30px;
+    letter-spacing: -0.5px;
+  }
+  .s1-headline {
+    font-size: clamp(40px, 6vw, 76px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .s1-headline em { font-style: normal; color: var(--red); }
+  .s1-sub {
+    font-size: clamp(15px, 2vw, 22px);
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .s1-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    width: 100%;
+    max-width: 1050px;
+  }
+  .pain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+  }
+  .pain-card::before {
+    content: '';
+    display: block;
+    width: 36px; height: 4px;
+    background: var(--red);
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+  .pain-card p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.82); }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 1060px;
+    margin: 20px 0 32px;
+    flex-wrap: nowrap;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 22px 18px;
+    flex: 1;
+    min-width: 0;
+  }
+  .flow-icon { font-size: 30px; margin-bottom: 10px; line-height: 1; }
+  .flow-label { font-size: 13px; font-weight: 700; text-align: center; color: var(--white); letter-spacing: 0.02em; line-height: 1.3; }
+  .flow-arrow { color: var(--red); font-size: 22px; flex-shrink: 0; padding: 0 6px; font-weight: 300; }
+
+  .checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 40px;
+    max-width: 820px;
+    width: 100%;
+    margin-bottom: 28px;
+  }
+  .checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: 15.5px; line-height: 1.5; color: rgba(255,255,255,0.88); }
+  .check-icon { color: var(--green); font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .bottom-note {
+    font-size: 15px; font-weight: 600; text-align: center;
+    padding: 14px 28px;
+    border-radius: 8px;
+    background: rgba(195,30,31,0.1);
+    border: 1px solid rgba(195,30,31,0.3);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .data-table { width: 100%; max-width: 860px; border-collapse: collapse; font-size: 15px; }
+  .data-table th { text-align: left; padding: 10px 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .data-table td { padding: 14px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); vertical-align: middle; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .status-live { color: #22c55e; font-weight: 600; }
+  .status-planned { color: var(--amber); font-weight: 600; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 100%; max-width: 900px; }
+  .col-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 28px; }
+  .col-box h3 { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+  .col-box.stage1 h3 { color: var(--muted); }
+  .col-box.stage2 h3 { color: var(--red); }
+  .col-box ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .col-box ul li { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.8); padding-left: 18px; position: relative; }
+  .col-box ul li::before { content: '\2013'; position: absolute; left: 0; color: var(--muted); }
+  .cost-badge { display: inline-block; margin-top: 14px; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.35); color: #4ade80; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+  .cost-badge.amber { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #fbbf24; }
+
+  .lead-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 32px 36px; max-width: 700px; width: 100%; font-size: 14px; line-height: 1.6; }
+  .lead-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .lead-card-header .address { font-size: 16px; font-weight: 700; color: var(--white); }
+  .score-badge { background: var(--red); color: #fff; font-size: 15px; font-weight: 800; padding: 6px 14px; border-radius: 8px; }
+  .lead-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: flex-start; }
+  .lead-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); min-width: 90px; padding-top: 2px; }
+  .lead-value { color: rgba(255,255,255,0.88); }
+  .flag-pill { display: inline-block; background: rgba(195,30,31,0.2); border: 1px solid rgba(195,30,31,0.4); color: #f87171; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 20px; margin-right: 5px; }
+  .status-pill { display: inline-block; background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.35); color: #4ade80; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .schema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 100%; max-width: 1060px; }
+  .schema-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 22px; font-family: 'Courier New', monospace; }
+  .schema-box h4 { font-family: var(--font); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(195,30,31,0.3); }
+  .schema-box ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .schema-box ul li { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .field-name { color: #93c5fd; font-weight: 600; }
+  .field-type { color: rgba(255,255,255,0.3); font-size: 11px; }
+
+  .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 740px; margin-bottom: 32px; }
+  .cost-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 26px 24px; text-align: center; }
+  .cost-card .service { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .cost-card .price { font-size: 26px; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: 6px; }
+  .cost-card .price-note { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .total-cost { font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: var(--green); text-align: center; letter-spacing: -1px; }
+  .total-label { font-size: 14px; color: var(--muted); text-align: center; margin-top: 4px; }
+
+  .next-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 100%; max-width: 860px; }
+  .next-col h3 { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px; }
+  .next-col.immediate h3 { color: var(--red); }
+  .next-col.soon h3 { color: var(--muted); }
+  .next-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .next-col ul li { display: flex; align-items: flex-start; gap: 11px; font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.5; }
+  .todo-box { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+
+  .notion-layout { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; width: 100%; max-width: 880px; margin-bottom: 28px; }
+  .notion-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 22px; }
+  .notion-box h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .notion-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .notion-box ul li { font-size: 14px; color: rgba(255,255,255,0.75); padding-left: 14px; position: relative; }
+  .notion-box ul li::before { content: '\2192'; position: absolute; left: 0; color: var(--red); font-size: 12px; top: 1px; }
+  .migrate-arrow { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--red); font-size: 28px; }
+  .migrate-arrow span { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  #s12 { background: var(--navy); }
+  .vision-flow { display: flex; align-items: center; gap: 0; width: 100%; max-width: 1040px; margin: 28px 0 40px; flex-wrap: nowrap; }
+  .vision-step { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 0; }
+  .vision-icon { font-size: 32px; margin-bottom: 8px; line-height: 1; }
+  .vision-label { font-size: 12px; font-weight: 600; text-align: center; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; line-height: 1.3; }
+  .vision-arrow { color: var(--red); font-size: 18px; flex-shrink: 0; padding: 0 4px; margin-bottom: 20px; }
+  .vision-quote { font-size: clamp(22px, 3.5vw, 38px); font-weight: 800; color: var(--white); text-align: center; letter-spacing: -0.5px; position: relative; padding: 0 40px; margin-bottom: 12px; }
+  .vision-quote::before, .vision-quote::after { content: '\201C'; color: var(--red); font-size: 1.4em; line-height: 0; vertical-align: -0.25em; }
+  .vision-quote::after { content: '\201D'; }
+  .vision-quote::before { margin-right: 6px; }
+  .vision-quote::after  { margin-left: 6px; }
+  .s12-footer { position: absolute; bottom: 28px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .slide-accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red) 0%, transparent 100%); }
+
+  @media print {
+    html, body { overflow: visible; }
+    .nav-btn, #counter, #progress { display: none !important; }
+    .slide { position: relative !important; opacity: 1 !important; pointer-events: all !important; page-break-after: always; break-after: page; display: flex !important; min-height: 100vh; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="counter">1 / 12</div>
+<button class="nav-btn" id="prev" aria-label="Previous slide">&#8592;</button>
+<button class="nav-btn" id="next" aria-label="Next slide">&#8594;</button>
+
+<section class="slide active" id="s1">
+  <div class="logo-lockup">
+    <div class="logo-light">MacFire</div>
+    <div class="logo-dark">Fire Ltd</div>
+  </div>
+  <div class="s1-headline">AI <em>Lead Scout</em></div>
+  <div class="s1-sub">Automated prospect discovery from planning data</div>
+  <div class="s1-footer">MacFire Ltd &nbsp;&middot;&nbsp; Confidential</div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Finding prospects <span>takes time</span></div>
+  <div class="cards-row">
+    <div class="pain-card"><p>Planning applications are published daily &mdash; but reading them manually is slow and unsustainable.</p></div>
+    <div class="pain-card"><p>New buildings need fire protection from day one &mdash; but most contacts happen too late in the build process.</p></div>
+    <div class="pain-card"><p>Competitors are watching the same data. Speed matters. First contact wins.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">An <span>automated</span> pipeline</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="flow-icon">&#127963;</div><div class="flow-label">Planning<br>Portals</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="flow-icon">&#9881;</div><div class="flow-label">Scraper</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="flow-icon">&#129302;</div><div class="flow-label">AI<br>Classifier</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="flow-icon">&#128452;</div><div class="flow-label">Supabase<br>DB</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="flow-icon">&#128231;</div><div class="flow-label">Weekly<br>Digest</div></div>
+  </div>
+  <div class="subtitle">Runs automatically every Monday via GitHub Actions.&nbsp; Zero servers.</div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Already <span>done</span></div>
+  <ul class="checklist">
+    <li><span class="check-icon">&#10003;</span><span><strong>TypeScript pipeline</strong> &mdash; runs with a single command</span></li>
+    <li><span class="check-icon">&#10003;</span><span><strong>Idox scraper</strong> &mdash; pulls live Glasgow City Council applications</span></li>
+    <li><span class="check-icon">&#10003;</span><span><strong>Dual-mode classifier</strong> &mdash; regex (free, instant) + AI for borderline cases</span></li>
+    <li><span class="check-icon">&#10003;</span><span><strong>Supabase database</strong> &mdash; schema deployed, tables live</span></li>
+    <li><span class="check-icon">&#10003;</span><span><strong>GitHub Actions workflow</strong> &mdash; weekly schedule + manual trigger</span></li>
+    <li><span class="check-icon">&#10003;</span><span><strong>Email digest template</strong> &mdash; ready to activate when needed</span></li>
+  </ul>
+  <div class="bottom-note">Most of the hard work is done.</div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Where the data <span>comes from</span></div>
+  <table class="data-table">
+    <thead><tr><th>Source</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Glasgow City Council (Idox)</td><td><span class="status-live">&#128994; Live</span></td><td>REST + HTML scraper</td></tr>
+      <tr><td>East Renfrewshire CC</td><td><span class="status-planned">&#128993; Planned</span></td><td>Same Idox portal</td></tr>
+      <tr><td>Other Idox councils</td><td><span class="status-planned">&#128993; Planned</span></td><td>Drop-in extension</td></tr>
+      <tr><td>Companies House</td><td><span class="status-planned">&#128993; Planned</span></td><td>New incorporations signal</td></tr>
+    </tbody>
+  </table>
+  <div class="note">Idox is used by 90%+ of Scottish councils &mdash; one scraper covers most of the market</div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">How leads are <span>scored</span></div>
+  <div class="two-col">
+    <div class="col-box stage1">
+      <h3>Stage 1 &mdash; Regex</h3>
+      <ul>
+        <li>Checks for: new-build, change-of-use, restaurant, hotel, pub, gym, cinema, warehouse</li>
+        <li>Score: 0 &ndash; 100</li>
+        <li>Runs on every application</li>
+        <li>Instant, deterministic results</li>
+      </ul>
+      <span class="cost-badge">&pound;0 cost</span>
+    </div>
+    <div class="col-box stage2">
+      <h3>Stage 2 &mdash; AI (optional)</h3>
+      <ul>
+        <li>Runs only for borderline cases (score 20&ndash;45)</li>
+        <li>Model: configurable via <code style="color:#93c5fd;font-size:12px">AI_MODEL</code> env var</li>
+        <li>Adds reasoning + confidence score</li>
+        <li>Swappable &mdash; any API-compatible model</li>
+      </ul>
+      <span class="cost-badge amber">~pennies/week</span>
+    </div>
+  </div>
+  <div class="note">Model is swappable via env var &mdash; can use free alternatives without touching code</div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Example <span>lead record</span></div>
+  <div class="lead-card">
+    <div class="lead-card-header">
+      <div class="address">12 Argyle Street, Glasgow G2 8BH</div>
+      <div class="score-badge">82 / 100</div>
+    </div>
+    <div class="lead-row"><div class="lead-label">Proposal</div><div class="lead-value">Change of use from retail unit to licensed restaurant and bar</div></div>
+    <div class="lead-row"><div class="lead-label">Flags</div><div class="lead-value"><span class="flag-pill">change-of-use</span><span class="flag-pill">food-and-drink</span><span class="flag-pill">licensed-premises</span></div></div>
+    <div class="lead-row"><div class="lead-label">Status</div><div class="lead-value"><span class="status-pill">new</span></div></div>
+    <div class="lead-row"><div class="lead-label">Source</div><div class="lead-value">Glasgow City Council planning portal</div></div>
+  </div>
+  <div class="note">Stored in Supabase. Status moves: new &rarr; contacted &rarr; won / dead</div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Three tables. <span>Clean audit trail.</span></div>
+  <div class="schema-grid">
+    <div class="schema-box"><h4>pipeline_runs</h4><ul>
+      <li><span class="field-name">id</span> <span class="field-type">uuid</span></li>
+      <li><span class="field-name">created_at</span> <span class="field-type">timestamptz</span></li>
+      <li><span class="field-name">source</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">council</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">records_fetched</span> <span class="field-type">int</span></li>
+      <li><span class="field-name">records_classified</span> <span class="field-type">int</span></li>
+      <li><span class="field-name">status</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">error_message</span> <span class="field-type">text?</span></li>
+    </ul></div>
+    <div class="schema-box"><h4>raw_applications</h4><ul>
+      <li><span class="field-name">id</span> <span class="field-type">uuid</span></li>
+      <li><span class="field-name">run_id</span> <span class="field-type">fk &rarr; pipeline_runs</span></li>
+      <li><span class="field-name">source</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">council</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">reference</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">address</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">proposal</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">raw_data</span> <span class="field-type">jsonb</span></li>
+    </ul></div>
+    <div class="schema-box"><h4>leads</h4><ul>
+      <li><span class="field-name">id</span> <span class="field-type">uuid</span></li>
+      <li><span class="field-name">raw_application_id</span> <span class="field-type">fk</span></li>
+      <li><span class="field-name">address</span> <span class="field-type">text</span></li>
+      <li><span class="field-name">score</span> <span class="field-type">int</span></li>
+      <li><span class="field-name">flags</span> <span class="field-type">text[]</span></li>
+      <li><span class="field-name">confidence</span> <span class="field-type">float?</span></li>
+      <li><span class="field-name">status</span> <span class="field-type">new/contacted/won/dead</span></li>
+    </ul></div>
+  </div>
+  <div class="note">Full history preserved. Every lead traceable to its source run.</div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Near-zero cost <span>to run</span></div>
+  <div class="cost-grid">
+    <div class="cost-card"><div class="service">GitHub Actions</div><div class="price">Free</div><div class="price-note">2,000 min/month included</div></div>
+    <div class="cost-card"><div class="service">Supabase</div><div class="price">Free</div><div class="price-note">500 MB &mdash; more than enough</div></div>
+    <div class="cost-card"><div class="service">AI API</div><div class="price">~&pound;0&ndash;2</div><div class="price-note">per month, borderline cases only</div></div>
+    <div class="cost-card"><div class="service">Email (Resend)</div><div class="price">Free</div><div class="price-note">3,000 emails/month included</div></div>
+  </div>
+  <div class="total-cost">Estimated total: &lt; &pound;2/month</div>
+  <div class="total-label">and likely closer to zero</div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title"><span>Next</span> steps</div>
+  <div class="next-cols">
+    <div class="next-col immediate"><h3>Immediate</h3><ul>
+      <li><div class="todo-box"></div>Add GitHub secrets (Supabase URL &amp; key)</li>
+      <li><div class="todo-box"></div>Run first live test via Actions</li>
+      <li><div class="todo-box"></div>Review leads in Supabase table</li>
+      <li><div class="todo-box"></div>Decide on AI model preference</li>
+    </ul></div>
+    <div class="next-col soon"><h3>Soon</h3><ul>
+      <li><div class="todo-box"></div>Add East Renfrewshire council</li>
+      <li><div class="todo-box"></div>Companies House new-incorporation signal</li>
+      <li><div class="todo-box"></div>Lead review dashboard (web UI)</li>
+      <li><div class="todo-box"></div>Activate email digest to Dougie</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="slide" id="s11">
+  <div class="slide-accent-bar"></div>
+  <div class="slide-title">Moving existing data <span>to Supabase</span></div>
+  <div class="notion-layout">
+    <div class="notion-box"><h4>Currently in Notion</h4><ul>
+      <li>Client history</li>
+      <li>Contacts &amp; relationships</li>
+      <li>Job notes</li>
+      <li>Prospect records</li>
+    </ul></div>
+    <div class="migrate-arrow">&#8594;<span>Migrate</span></div>
+    <div class="notion-box"><h4>Plan for Supabase</h4><ul>
+      <li>Export from Notion &rarr; import to <code style="color:#93c5fd;font-size:12px">clients</code> table</li>
+      <li>Link AI leads to existing client records</li>
+      <li>Detect &ldquo;we already work with this company&rdquo;</li>
+      <li>Single source of truth for all data</li>
+    </ul></div>
+  </div>
+  <div class="note">Timeline: after first successful live pipeline run</div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="slide-title" style="margin-bottom:8px;">Every <span>Monday</span></div>
+  <div class="vision-flow">
+    <div class="vision-step"><div class="vision-icon">&#127963;</div><div class="vision-label">Pipeline<br>runs</div></div>
+    <div class="vision-arrow">&rarr;</div>
+    <div class="vision-step"><div class="vision-icon">&#129302;</div><div class="vision-label">Applications<br>scored</div></div>
+    <div class="vision-arrow">&rarr;</div>
+    <div class="vision-step"><div class="vision-icon">&#128203;</div><div class="vision-label">Leads in<br>dashboard</div></div>
+    <div class="vision-arrow">&rarr;</div>
+    <div class="vision-step"><div class="vision-icon">&#128222;</div><div class="vision-label">Dougie contacts<br>top 5</div></div>
+    <div class="vision-arrow">&rarr;</div>
+    <div class="vision-step"><div class="vision-icon">&#128176;</div><div class="vision-label">Won jobs<br>tracked</div></div>
+  </div>
+  <div class="vision-quote">Be the first call they receive.</div>
+  <div class="s12-footer">MacFire Ltd AI Lead Scout &nbsp;&middot;&nbsp; Built on GitHub Actions + Supabase</div>
+</section>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function show(index) {
+    if (index < 0) index = 0;
+    if (index >= total) index = total - 1;
+    slides[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = (((current + 1) / total) * 100) + '%';
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.getElementById('next').addEventListener('click', next);
+  document.getElementById('prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); prev(); }
+  });
+
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function (e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+  }, { passive: true });
+
+  show(0);
+}());
+</script>
+</body>
+</html>
