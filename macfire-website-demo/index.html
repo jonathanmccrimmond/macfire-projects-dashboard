@@ -3,12 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- viewport NO LONGER blocks pinch-zoom (old site had maximum-scale=1, a WCAG 1.4.4 fail) -->
 
   <title>MacFire Ltd, Fire Protection Specialists, Scotland-wide</title>
   <meta name="description" content="BAFE-registered, ISO 9001:2015 certified fire protection for Scottish businesses. Fire alarms, extinguishers, risk assessments, signage and training across Renfrewshire, Lanarkshire, Glasgow and the rest of Scotland.">
 
-  <!-- Social link previews, old site had none -->
   <meta property="og:title" content="MacFire Ltd, Fire Protection Specialists, Scotland-wide">
   <meta property="og:description" content="BAFE-registered, ISO 9001:2015 certified fire protection for Scottish businesses since 2006.">
   <meta property="og:type" content="website">
@@ -17,14 +15,12 @@
 
   <link rel="canonical" href="https://www.macfireltd.co.uk/">
 
-  <!-- Type. Geist for display (modern, engineered), Inter for UI/body. Preconnect = ~150ms LCP saving. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 
-  <!-- LocalBusiness schema, big SEO win for a regional trades business. Tells Google: address, hours, area served. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,17 +45,18 @@
 </head>
 <body>
 
-  <!-- Skip link for keyboard users, WCAG 2.4.1, missing on old site -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="MacFire Ltd, home">
-        <!-- Logo as inline SVG so it scales sharp and inherits colour. Replace with client's real mark when supplied. -->
-        <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
-          <path fill="currentColor" d="M20 4c2 6 8 8 8 16a8 8 0 0 1-16 0c0-4 2-6 4-8-1 4 1 6 3 6 2 0 3-2 1-6 2 0 0-6 0-8z"/>
+        <svg viewBox="0 0 180 50" width="162" height="45" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <rect width="180" height="50" rx="3" fill="#C31E1F"/>
+          <rect x="2.5" y="2.5" width="175" height="34" fill="#1A1F3C"/>
+          <rect x="2.5" y="36.5" width="175" height="11" fill="#fff"/>
+          <text x="8" y="27" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900"><tspan font-size="21" fill="#fff" letter-spacing="-0.3">MacFire</tspan><tspan font-size="11" fill="#C31E1F" dy="-8" dx="3" font-weight="700">Ltd</tspan></text>
+          <text x="90" y="45" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="7" fill="#444" letter-spacing="1.5">FIRE PROTECTION COMPANY</text>
         </svg>
-        <span class="logo-text">MacFire<span class="logo-dot">&nbsp;Ltd</span></span>
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
@@ -89,11 +86,8 @@
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
-    <!-- Display-weight headline carries the brand. Two CTAs, primary = quote (the actual money action), secondary = call. -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Fire protection specialists · Scotland</p>
         <h1 class="hero-headline">
           Fire protection that keeps Scottish businesses
           <span class="hero-emphasis">compliant and safe.</span>
@@ -108,15 +102,11 @@
             Call 0141 881 5455
           </a>
         </div>
-        <p class="hero-meta">No-obligation quote · Response within one working day</p>
+        <p class="hero-meta">No-obligation quote &middot; Response within one working day</p>
       </div>
-
-      <!-- Decorative shape lives below text so it doesn't take focus on mobile; CSS handles placement. -->
       <div class="hero-decoration" aria-hidden="true"></div>
     </section>
 
-    <!-- ============ TRUST STRIP ============ -->
-    <!-- Replaces the buried "75 years of combined experience" line on the old site. Visible above the fold on desktop. -->
     <section class="trust-strip" aria-label="At a glance">
       <div class="container trust-grid">
         <div class="trust-item"><span class="trust-number" data-count="2006">2006</span><span class="trust-label">Established</span></div>
@@ -126,7 +116,6 @@
       </div>
     </section>
 
-    <!-- ============ SERVICES ============ -->
     <section id="services" class="section">
       <div class="container">
         <header class="section-header">
@@ -189,8 +178,6 @@
       </div>
     </section>
 
-    <!-- ============ SECTORS ============ -->
-    <!-- Pulled straight from the real testimonials on the old site. Procurement buyers look for "you've worked in my sector". -->
     <section id="sectors" class="section section-tint">
       <div class="container">
         <header class="section-header">
@@ -212,8 +199,6 @@
       </div>
     </section>
 
-    <!-- ============ TESTIMONIALS ============ -->
-    <!-- Real quotes from the existing site, kept verbatim, restructured into proper cards with attribution. -->
     <section id="testimonials" class="section">
       <div class="container">
         <header class="section-header">
@@ -267,8 +252,6 @@
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <!-- This is the biggest functional change vs the old site: there was no form. -->
     <section id="contact" class="section section-dark">
       <div class="container contact-layout">
 
@@ -298,7 +281,6 @@
           </ul>
         </div>
 
-        <!-- Demo form. JS shows a confirmation; for production wire to Netlify Forms / Formspree / SMTP. -->
         <form class="contact-form" novalidate>
           <div class="field">
             <label for="f-name">Your name</label>
@@ -321,7 +303,7 @@
           <div class="field">
             <label for="f-service">What can we help with?</label>
             <select id="f-service" name="service">
-              <option value="">Choose a service…</option>
+              <option value="">Choose a service&#8230;</option>
               <option>Fire alarm supply / installation / maintenance</option>
               <option>Fire extinguishers</option>
               <option>Fire extinguisher training</option>
@@ -349,10 +331,13 @@
     <div class="container footer-grid">
       <div>
         <a href="#" class="logo logo-footer" aria-label="MacFire Ltd, home">
-          <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true" focusable="false">
-            <path fill="currentColor" d="M20 4c2 6 8 8 8 16a8 8 0 0 1-16 0c0-4 2-6 4-8-1 4 1 6 3 6 2 0 3-2 1-6 2 0 0-6 0-8z"/>
+          <svg viewBox="0 0 180 50" width="144" height="40" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <rect width="180" height="50" rx="3" fill="#C31E1F"/>
+            <rect x="2.5" y="2.5" width="175" height="34" fill="#1A1F3C"/>
+            <rect x="2.5" y="36.5" width="175" height="11" fill="#fff"/>
+            <text x="8" y="27" font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900"><tspan font-size="21" fill="#fff" letter-spacing="-0.3">MacFire</tspan><tspan font-size="11" fill="#C31E1F" dy="-8" dx="3" font-weight="700">Ltd</tspan></text>
+            <text x="90" y="45" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="7" fill="#444" letter-spacing="1.5">FIRE PROTECTION COMPANY</text>
           </svg>
-          <span class="logo-text">MacFire<span class="logo-dot">&nbsp;Ltd</span></span>
         </a>
         <p class="footer-tag">Fire protection specialists serving Scottish businesses since 2006.</p>
       </div>
@@ -382,7 +367,6 @@
         <ul class="footer-social">
           <li><a href="https://www.facebook.com/MacFireLtd/" target="_blank" rel="noopener">Facebook</a></li>
           <li><a href="https://twitter.com/macfire_ltd" target="_blank" rel="noopener">X / Twitter</a></li>
-          <!-- LinkedIn URL on old site pointed to linkedin.com root, needs the real company page from client. -->
           <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
