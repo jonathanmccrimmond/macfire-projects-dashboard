@@ -62,16 +62,20 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 70,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-05-30",
+    lastUpdated: "2026-06-05",
     summary:
-      "Production-grade demo redesign of macfireltd.co.uk — secure, accessible, conversion-led single-page site to replace the 2016-era brochure.",
+      "Two demo directions for macfireltd.co.uk: a full modernised redesign and a minimum-improvements version that fixes technical issues while keeping a familiar structure.",
     functionLine:
-      "Show a credibility-led, mobile-first replacement for the current site, ready for client review.",
+      "Show two credible options for replacing the 2016-era site, ready for client review.",
     repoUrl: "",
     outputLinks: [
       {
-        label: "Live Demo",
+        label: "Modernised",
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-demo/"
+      },
+      {
+        label: "Minimum Improvements",
+        url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-minimal/"
       }
     ],
     deckLink: {
@@ -79,8 +83,8 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1BupMyostovFpW67MBwGE-bibOKTH6qY7/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     notes:
-      "Phase 1 audit, Phase 2 direction (bold/conversion-led), and Phase 3 build complete. Demo includes contact form stub, schema.org LocalBusiness markup, and responsive layout.",
+      "Modernised: full redesign with conversion-led layout, display typography, contact form. Minimum Improvements: original site structure, technical fixes, same branding.",
     confidentiality: "Public-facing brochure content only.",
-    nextMilestone: "Client review of the design direction, then real photography and form backend."
+    nextMilestone: "Client review of both directions, then agree approach before real photography and form backend."
   }
 ];
