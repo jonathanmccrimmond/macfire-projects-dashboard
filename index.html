@@ -23,11 +23,14 @@
       --pilot: #b46c07;
       --planned: #6d7480;
       --shadow: 0 16px 36px rgba(38, 26, 15, 0.08);
+      --teal: #0d9488;
+      --teal-soft: #e0f2f0;
+      --amber: #b46c07;
+      --amber-soft: #fff5e0;
+      --amber-border: #f0d085;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -45,6 +48,7 @@
       padding: 24px 20px 40px;
     }
 
+    /* ── Header ─────────────────────────────────────────────── */
     .topbar {
       display: flex;
       align-items: center;
@@ -54,61 +58,38 @@
       flex-wrap: wrap;
     }
 
-    .identity {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .identity { display: flex; align-items: center; gap: 14px; }
 
     .mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
+      width: 42px; height: 42px; border-radius: 10px;
       background: linear-gradient(135deg, #1f252c, #485566);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-size: 22px;
+      display: grid; place-items: center;
+      color: #fff; font-size: 22px;
     }
 
     .title {
       margin: 0;
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
       font-size: clamp(24px, 3.3vw, 44px);
-      letter-spacing: 0;
-      line-height: 1.05;
+      letter-spacing: 0; line-height: 1.05;
     }
 
-    .subtitle {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 
-    .quick-links {
-      display: flex;
+    .last-updated-chip {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .quick-links a {
-      text-decoration: none;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--ink);
+      gap: 6px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      border: 1px solid #a7d9d5;
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .quick-links a:hover {
-      transform: translateY(-2px);
-      border-color: #d4c1aa;
-      background: #fffbf6;
-    }
-
+    /* ── Stats ──────────────────────────────────────────────── */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -116,17 +97,8 @@
       margin-bottom: 20px;
     }
 
-    @media (max-width: 920px) {
-      .stats {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 580px) {
-      .stats {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 920px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 580px) { .stats { grid-template-columns: 1fr; } }
 
     .stat {
       background: var(--panel);
@@ -153,6 +125,7 @@
       line-height: 1;
     }
 
+    /* ── Filters ─────────────────────────────────────────────── */
     .filters {
       background: var(--panel-strong);
       border: 1px solid var(--line);
@@ -165,10 +138,7 @@
       margin-bottom: 18px;
     }
 
-    .filters strong {
-      font-size: 13px;
-      font-weight: 700;
-    }
+    .filters strong { font-size: 13px; font-weight: 700; }
 
     .filters button {
       border: 1px solid var(--line);
@@ -181,28 +151,17 @@
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    .filters button:hover {
-      transform: translateY(-1px);
-      border-color: #d5c4b0;
-    }
+    .filters button:hover { transform: translateY(-1px); border-color: #d5c4b0; }
+    .filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    .filters button.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
+    /* ── Grid ────────────────────────────────────────────────── */
     .grid {
       display: grid;
       gap: 14px;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    @media (max-width: 980px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
 
     .project-card {
       background: var(--panel);
@@ -245,38 +204,21 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    .badge.active {
-      background: #dff5e8;
-      color: var(--ok);
-    }
+    .badge.active { background: #dff5e8; color: var(--ok); }
+    .badge.pilot  { background: #fff0d5; color: var(--pilot); }
+    .badge.planned { background: #eceff2; color: var(--planned); }
 
-    .badge.pilot {
-      background: #fff0d5;
-      color: var(--pilot);
-    }
-
-    .badge.planned {
-      background: #eceff2;
-      color: var(--planned);
-    }
-
-    .summary,
-    .function-line,
-    .small-note {
+    .summary, .function-line, .small-note {
       margin: 0;
       color: var(--ink);
       font-size: 14px;
     }
 
-    .summary {
-      font-weight: 700;
-    }
-
-    .function-line {
-      color: var(--muted);
-    }
+    .summary { font-weight: 700; }
+    .function-line { color: var(--muted); }
 
     .meta {
       display: grid;
@@ -286,21 +228,11 @@
       color: var(--muted);
     }
 
-    @media (max-width: 560px) {
-      .meta {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 560px) { .meta { grid-template-columns: 1fr; } }
+    .meta strong { color: var(--ink); font-weight: 700; }
 
-    .meta strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .progress-wrap {
-      display: grid;
-      gap: 6px;
-    }
+    /* ── Progress ────────────────────────────────────────────── */
+    .progress-wrap { display: grid; gap: 6px; }
 
     .progress-head {
       display: flex;
@@ -324,14 +256,191 @@
       transition: width 550ms ease;
     }
 
+    /* ── Recent wins ─────────────────────────────────────────── */
+    .wins-section {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 7px;
+    }
+
+    .wins-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+
+    .wins-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .wins-list li::before {
+      content: "✓";
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .win-date {
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Next steps ──────────────────────────────────────────── */
+    .steps-section {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 7px;
+    }
+
+    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr; } }
+
+    .steps-col { display: grid; gap: 6px; }
+
+    .steps-col-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .steps-col.dougie .steps-col-label {
+      background: var(--amber-soft);
+      color: var(--amber);
+      border: 1px solid var(--amber-border);
+    }
+
+    .steps-col.jonathan .steps-col-label {
+      background: #f0f2f4;
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+
+    .step-item {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ink);
+      padding: 5px 8px;
+      border-radius: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .steps-col.dougie .step-item {
+      background: var(--amber-soft);
+      border: 1px solid var(--amber-border);
+    }
+
+    .steps-col.dougie .step-item::before {
+      content: "→";
+      color: var(--amber);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .steps-col.jonathan .step-item {
+      background: #f5f6f8;
+      border: 1px solid var(--line);
+    }
+
+    .steps-col.jonathan .step-item::before {
+      content: "·";
+      color: var(--muted);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── Questions callout ───────────────────────────────────── */
+    .questions-callout {
+      background: var(--amber-soft);
+      border: 1px solid var(--amber-border);
+      border-left: 3px solid var(--amber);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .questions-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .questions-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--amber);
+    }
+
+    .reply-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--amber);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: opacity 160ms ease;
+    }
+
+    .reply-btn:hover { opacity: 0.85; }
+
+    .questions-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 5px;
+    }
+
+    .questions-list li {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.4;
+      display: flex;
+      gap: 7px;
+    }
+
+    .q-num {
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+      width: 16px;
+    }
+
+    /* ── Links + feedback ────────────────────────────────────── */
     .links {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .link-chip,
-    .link-disabled {
+    .link-chip, .link-disabled {
       border-radius: 999px;
       padding: 8px 11px;
       font-size: 12px;
@@ -345,16 +454,26 @@
       transition: transform 160ms ease, border-color 160ms ease;
     }
 
-    .link-chip:hover {
-      transform: translateY(-1px);
-      border-color: #d9b588;
+    .link-chip:hover { transform: translateY(-1px); border-color: #d9b588; }
+    .link-disabled { color: #8e969f; background: #f4f0ea; }
+
+    .feedback-row {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 4px;
+      border-top: 1px solid var(--line);
     }
 
-    .link-disabled {
-      color: #8e969f;
-      background: #f4f0ea;
+    .feedback-link {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 160ms ease;
     }
 
+    .feedback-link:hover { color: var(--accent); }
+
+    /* ── Empty / animations ──────────────────────────────────── */
     .empty {
       background: #fff;
       border: 1px dashed #d8c6b0;
@@ -366,23 +485,13 @@
     }
 
     @keyframes riseIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
   </style>
 </head>
@@ -393,9 +502,10 @@
         <div class="mark" aria-hidden="true">M</div>
         <div>
           <h1 class="title">MacFire Projects Dashboard</h1>
-          <p class="subtitle">Project function, status, live outputs, and deck links in one view.</p>
+          <p class="subtitle">Project status, recent progress, and what's next — for Dougie and the team.</p>
         </div>
       </div>
+      <div id="last-updated-wrap"></div>
     </header>
 
     <section class="stats" id="stats"></section>
@@ -410,133 +520,238 @@
   <script src="data/projects.js"></script>
   <script>
     const projectGrid = document.getElementById("project-grid");
-    const statsEl = document.getElementById("stats");
-    const filtersEl = document.getElementById("filters");
+    const statsEl     = document.getElementById("stats");
+    const filtersEl   = document.getElementById("filters");
+    const lastUpdWrap = document.getElementById("last-updated-wrap");
+
     const projects = Array.isArray(window.MACFIRE_PROJECTS) ? window.MACFIRE_PROJECTS : [];
+
     const filters = [
-      { key: "all", label: "All" },
-      { key: "active", label: "Active" },
-      { key: "pilot", label: "Pilot" },
+      { key: "all",     label: "All" },
+      { key: "active",  label: "Active" },
+      { key: "pilot",   label: "Pilot" },
       { key: "planned", label: "Planned" }
     ];
 
     function formatStatus(status) {
-      if (!status) return "planned";
-      return String(status).toLowerCase();
+      return String(status || "planned").toLowerCase();
     }
 
+    function esc(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    // ── Header: most-recent lastUpdated across all projects ──────────────────
+    function renderLastUpdated() {
+      if (!projects.length) return;
+      const latest = projects
+        .map(p => p.lastUpdated || "")
+        .filter(Boolean)
+        .sort()
+        .reverse()[0];
+      if (!latest) return;
+      lastUpdWrap.innerHTML = `
+        <span class="last-updated-chip">
+          ● Updated ${latest}
+        </span>`;
+    }
+
+    // ── Stats bar ─────────────────────────────────────────────────────────────
     function buildStats(list) {
-      const active = list.filter((item) => formatStatus(item.status) === "active").length;
-      const pilot = list.filter((item) => formatStatus(item.status) === "pilot").length;
-      const planned = list.filter((item) => formatStatus(item.status) === "planned").length;
-      const avgProgress = list.length
-        ? Math.round(list.reduce((sum, item) => sum + (Number(item.progress) || 0), 0) / list.length)
+      const active  = list.filter(p => formatStatus(p.status) === "active").length;
+      const pilot   = list.filter(p => formatStatus(p.status) === "pilot").length;
+      const avgProg = list.length
+        ? Math.round(list.reduce((s, p) => s + (Number(p.progress) || 0), 0) / list.length)
         : 0;
 
       const blocks = [
-        { label: "Projects", value: list.length },
-        { label: "Active", value: active },
-        { label: "Pilot", value: pilot },
-        { label: "Avg Progress", value: avgProgress + "%" }
+        { label: "Projects",     value: list.length },
+        { label: "Active",       value: active },
+        { label: "Pilot",        value: pilot },
+        { label: "Avg Progress", value: avgProg + "%" }
       ];
 
-      statsEl.innerHTML = blocks
-        .map(
-          (block) => `
-            <article class="stat">
-              <p class="label">${block.label}</p>
-              <p class="value">${block.value}</p>
-            </article>
-          `
-        )
-        .join("");
+      statsEl.innerHTML = blocks.map(b => `
+        <article class="stat">
+          <p class="label">${b.label}</p>
+          <p class="value">${b.value}</p>
+        </article>`).join("");
     }
 
+    // ── Link chips ────────────────────────────────────────────────────────────
     function linkChip(label, url) {
-      if (!url || !url.trim()) {
-        return `<span class="link-disabled">${label}</span>`;
-      }
-      return `<a class="link-chip" href="${url}" target="_blank" rel="noreferrer">${label}</a>`;
+      if (!url || !url.trim()) return `<span class="link-disabled">${esc(label)}</span>`;
+      return `<a class="link-chip" href="${esc(url)}" target="_blank" rel="noreferrer">${esc(label)}</a>`;
     }
 
+    // ── Recent wins ───────────────────────────────────────────────────────────
+    function renderWins(wins) {
+      if (!Array.isArray(wins) || !wins.length) return "";
+      const items = wins.slice(0, 5).map(w => `
+        <li>
+          <span class="win-date">${esc(w.date)}</span>
+          ${esc(w.text)}
+        </li>`).join("");
+      return `
+        <div class="wins-section">
+          <p class="section-label">What we've done</p>
+          <ul class="wins-list">${items}</ul>
+        </div>`;
+    }
+
+    // ── Next steps split ──────────────────────────────────────────────────────
+    function renderNextSteps(steps) {
+      if (!Array.isArray(steps) || !steps.length) return "";
+      const dougie   = steps.filter(s => s.owner === "dougie");
+      const jonathan = steps.filter(s => s.owner === "jonathan");
+      if (!dougie.length && !jonathan.length) return "";
+
+      const dougieCol = dougie.length ? `
+        <div class="steps-col dougie">
+          <span class="steps-col-label">Action needed from Dougie</span>
+          ${dougie.map(s => `<div class="step-item">${esc(s.text)}</div>`).join("")}
+        </div>` : "";
+
+      const jonathanCol = jonathan.length ? `
+        <div class="steps-col jonathan">
+          <span class="steps-col-label">We're handling</span>
+          ${jonathan.map(s => `<div class="step-item">${esc(s.text)}</div>`).join("")}
+        </div>` : "";
+
+      return `
+        <div class="steps-section">
+          <p class="section-label">What's next</p>
+          <div class="steps-grid">
+            ${dougieCol}
+            ${jonathanCol}
+          </div>
+        </div>`;
+    }
+
+    // ── Client questions callout ──────────────────────────────────────────────
+    function renderQuestions(questions, projectName, feedbackEmail) {
+      if (!Array.isArray(questions) || !questions.length) return "";
+      const email = feedbackEmail || "j@mccrimmond.org.uk";
+
+      const qs = questions.map((q, i) => `
+        <li>
+          <span class="q-num">${i + 1}.</span>
+          ${esc(q.text)}
+        </li>`).join("");
+
+      const subj = encodeURIComponent(`Re: ${projectName}`);
+      const body = encodeURIComponent(
+        questions.map((q, i) => `${i + 1}. ${q.text}\n\nYour answer: `).join("\n\n")
+      );
+      const href = `mailto:${esc(email)}?subject=${subj}&body=${body}`;
+
+      return `
+        <div class="questions-callout">
+          <div class="questions-header">
+            <span class="questions-title">Questions for you, Dougie</span>
+            <a class="reply-btn" href="${href}">Reply by email →</a>
+          </div>
+          <ol class="questions-list">${qs}</ol>
+        </div>`;
+    }
+
+    // ── Feedback link ─────────────────────────────────────────────────────────
+    function renderFeedback(projectName, feedbackEmail) {
+      const email = feedbackEmail || "j@mccrimmond.org.uk";
+      const subj  = encodeURIComponent(`Feedback: ${projectName}`);
+      const body  = encodeURIComponent(`Hi Jonathan,\n\nMy feedback on ${projectName}:\n\n`);
+      const href  = `mailto:${esc(email)}?subject=${subj}&body=${body}`;
+      return `
+        <div class="feedback-row">
+          <a class="feedback-link" href="${href}">Leave feedback on this project →</a>
+        </div>`;
+    }
+
+    // ── Project card ──────────────────────────────────────────────────────────
     function renderProjects(filterKey) {
-      const list =
-        filterKey === "all"
-          ? projects
-          : projects.filter((item) => formatStatus(item.status) === filterKey);
+      const list = filterKey === "all"
+        ? projects
+        : projects.filter(p => formatStatus(p.status) === filterKey);
 
       if (!list.length) {
         projectGrid.innerHTML = `<div class="empty">No projects in this filter yet.</div>`;
         return;
       }
 
-      projectGrid.innerHTML = list
-        .map((project) => {
-          const status = formatStatus(project.status);
-          const outputLinks = Array.isArray(project.outputLinks) ? project.outputLinks : [];
+      projectGrid.innerHTML = list.map(project => {
+        const status      = formatStatus(project.status);
+        const outputLinks = Array.isArray(project.outputLinks) ? project.outputLinks : [];
 
-          return `
-            <article class="project-card">
-              <div class="row">
-                <div>
-                  <h2 class="project-name">${project.name || "Untitled Project"}</h2>
-                  <p class="category">${project.category || "Project"}</p>
-                </div>
-                <span class="badge ${status}">${status}</span>
+        return `
+          <article class="project-card">
+            <div class="row">
+              <div>
+                <h2 class="project-name">${esc(project.name || "Untitled Project")}</h2>
+                <p class="category">${esc(project.category || "Project")}</p>
               </div>
+              <span class="badge ${status}">${status}</span>
+            </div>
 
-              <p class="summary">${project.summary || ""}</p>
-              <p class="function-line">${project.functionLine || ""}</p>
+            <p class="summary">${esc(project.summary || "")}</p>
+            <p class="function-line">${esc(project.functionLine || "")}</p>
 
-              <div class="meta">
-                <div><strong>Owner:</strong> ${project.owner || "n/a"}</div>
-                <div><strong>Last Updated:</strong> ${project.lastUpdated || "n/a"}</div>
-                <div><strong>Next Milestone:</strong> ${project.nextMilestone || "n/a"}</div>
-                <div><strong>Data Boundary:</strong> ${project.confidentiality || "n/a"}</div>
+            <div class="meta">
+              <div><strong>Owner:</strong> ${esc(project.owner || "n/a")}</div>
+              <div><strong>Last Updated:</strong> ${esc(project.lastUpdated || "n/a")}</div>
+              <div><strong>Next Milestone:</strong> ${esc(project.nextMilestone || "n/a")}</div>
+              <div><strong>Data Boundary:</strong> ${esc(project.confidentiality || "n/a")}</div>
+            </div>
+
+            <div class="progress-wrap">
+              <div class="progress-head">
+                <span>Progress</span>
+                <span>${Number(project.progress) || 0}%</span>
               </div>
+              <div class="progress"><span style="width:${Number(project.progress) || 0}%"></span></div>
+            </div>
 
-              <div class="progress-wrap">
-                <div class="progress-head">
-                  <span>Progress</span>
-                  <span>${Number(project.progress) || 0}%</span>
-                </div>
-                <div class="progress"><span style="width:${Number(project.progress) || 0}%"></span></div>
-              </div>
+            ${renderWins(project.recentWins)}
 
-              <p class="small-note">${project.notes || ""}</p>
+            ${renderNextSteps(project.nextSteps)}
 
-              <div class="links">
-                ${linkChip("Repository", project.repoUrl)}
-                ${outputLinks
-                  .map((output) => linkChip(output.label || "Output", output.url || ""))
-                  .join("")}
-                ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
-              </div>
-            </article>
-          `;
-        })
-        .join("");
+            <p class="small-note">${esc(project.notes || "")}</p>
+
+            <div class="links">
+              ${project.repoUrl ? linkChip("Repository", project.repoUrl) : ""}
+              ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
+              ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
+            </div>
+
+            ${renderQuestions(project.clientQuestions, project.name, project.feedbackEmail)}
+
+            ${renderFeedback(project.name, project.feedbackEmail)}
+          </article>`;
+      }).join("");
     }
 
+    // ── Filters ───────────────────────────────────────────────────────────────
     function renderFilters(active) {
-      const html = filters
-        .map(
-          (item) =>
-            `<button data-filter="${item.key}" class="${item.key === active ? "active" : ""}">${item.label}</button>`
-        )
-        .join("");
+      const html = filters.map(item =>
+        `<button data-filter="${item.key}" class="${item.key === active ? "active" : ""}">${item.label}</button>`
+      ).join("");
       filtersEl.insertAdjacentHTML("beforeend", html);
 
-      filtersEl.querySelectorAll("button").forEach((btn) => {
+      filtersEl.querySelectorAll("button").forEach(btn => {
         btn.addEventListener("click", () => {
           const key = btn.getAttribute("data-filter");
-          filtersEl.querySelectorAll("button").forEach((item) => item.classList.remove("active"));
+          filtersEl.querySelectorAll("button").forEach(b => b.classList.remove("active"));
           btn.classList.add("active");
           renderProjects(key);
         });
       });
     }
 
+    // ── Boot ──────────────────────────────────────────────────────────────────
+    renderLastUpdated();
     buildStats(projects);
     renderFilters("all");
     renderProjects("all");
