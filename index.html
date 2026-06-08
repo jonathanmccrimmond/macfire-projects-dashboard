@@ -176,9 +176,9 @@
       border-radius: 16px;
       padding: 16px;
       box-shadow: var(--shadow);
-      display: grid;
-      align-self: start;
-      align-content: start;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
       gap: 8px;
       animation: riseIn 520ms ease both;
     }
@@ -188,16 +188,7 @@
       flex-direction: column;
       gap: 12px;
       align-self: start;
-      min-height: 360px;
-      height: 360px;
-    }
-
-    .card-top .progress-wrap {
-      margin-top: auto;
-    }
-
-    @media (max-width: 980px) {
-      .card-top { min-height: 0; height: auto; }
+      width: 100%;
     }
 
     .row {
@@ -443,6 +434,18 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      justify-content: flex-start;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
     }
 
     .link-chip, .link-disabled {
@@ -465,8 +468,7 @@
     .feedback-row {
       display: flex;
       justify-content: flex-end;
-      padding-top: 4px;
-      border-top: 1px solid var(--line);
+      margin-left: auto;
     }
 
     .feedback-link {
@@ -477,6 +479,18 @@
     }
 
     .feedback-link:hover { color: var(--accent); }
+
+    @media (max-width: 560px) {
+      .card-actions {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .feedback-row {
+        justify-content: flex-start;
+        margin-left: 0;
+      }
+    }
 
     /* ── Empty / animations ──────────────────────────────────── */
     .empty {
@@ -719,14 +733,16 @@
 
             <p class="small-note">${esc(project.notes || "")}</p>
 
-            <div class="links">
-              ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
-              ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
-            </div>
-
             ${renderQuestions(project.clientQuestions, project.name, project.feedbackEmail)}
 
-            ${renderFeedback(project.name, project.feedbackEmail)}
+            <div class="card-actions">
+              <div class="links">
+                ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
+                ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
+              </div>
+
+              ${renderFeedback(project.name, project.feedbackEmail)}
+            </div>
           </article>`;
       }).join("");
     }
