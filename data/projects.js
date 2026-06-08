@@ -4,13 +4,13 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 95,
+    progress: 97,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Automated weekly lead generation for Scottish fire safety opportunities, using public sources to rank leads and add useful contact details.",
+      "Automated weekly lead generation for Scottish fire safety opportunities, pulling from planning portals, Companies House, and social media (X, LinkedIn, Facebook) to rank leads and surface contact details.",
     functionLine:
-      "Find and rank credible fire-safety leads each week from Companies House and planning records, then add contact details.",
+      "Find and rank fire-safety leads each week from planning records, Companies House, and social media signals, then surface contact details.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -23,17 +23,17 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1tVF3yontFFgixup52AuVFMlHLg2nVKHe/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-08", text: "Lead review dashboard built: filter, approve, reject and track all leads by source and status in one screen" },
+      { date: "2026-06-08", text: "Social media scraping added: X/Twitter, LinkedIn, and Facebook now scanned alongside planning portals and Companies House" },
       { date: "2026-06-06", text: "Expanded to 13 Central Scotland planning councils: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire" },
       { date: "2026-06-06", text: "Companies House search now finds new business registrations across 50+ fire-risk business categories in Central Scotland" },
-      { date: "2026-06-06", text: "Contact details added: director lookup, website check, Google Maps, phone and email" },
-      { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" },
-      { date: "2026-06-05", text: "All leads now stored in one place automatically, with duplicates removed" }
+      { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" }
     ],
     nextSteps: [
+      { owner: "jonathan", text: "Add API keys for X, LinkedIn, and Facebook so social scraping goes live alongside planning and Companies House data" },
       { owner: "jonathan", text: "Set up one secure place for the leads and connect your email so the weekly digest reaches you" },
       { owner: "jonathan", text: "Run a live test to confirm all 13 councils are collecting data cleanly" },
-      { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" },
-      { owner: "jonathan", text: "Build a lead review screen so you can approve or reject leads in one place" }
+      { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
@@ -87,9 +87,9 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Two demo directions for macfireltd.co.uk: a clean minimal version and a fuller redesign version, ready for direction review.",
+      "Three-phase website project. Phase 1 (complete): full site audit. Phase 2 (complete): two demo directions built — a minimal update and a full redesign. Phase 3 (current): choose which direction goes to production.",
     functionLine:
-      "Compare two mobile-friendly website directions before choosing the correct route for production.",
+      "Move macfireltd.co.uk from two demo directions to a single chosen, production-ready website.",
     repoUrl: "",
     outputLinks: [
       {
@@ -117,7 +117,7 @@ window.MACFIRE_PROJECTS = [
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "Phase 2 demo build is complete. Phase 3 is approval and direction checking before production work.",
+      "Phase 1 (full audit) and Phase 2 (two demos built) are complete. Phase 3 is choosing a direction and beginning production work.",
     confidentiality: "Public-facing brochure content only.",
     nextMilestone: "Phase 3 approval and direction check"
   }
