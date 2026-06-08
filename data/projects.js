@@ -3,7 +3,7 @@ window.MACFIRE_PROJECTS = [
     id: "macfire-ai-scout",
     name: "MacFire AI Lead Scout",
     category: "Lead Intelligence",
-    status: "active",
+    status: "pilot",
     progress: 95,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-06",

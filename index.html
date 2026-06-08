@@ -104,13 +104,18 @@
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 14px;
+      padding: 10px 14px;
       box-shadow: var(--shadow);
       animation: fadeIn 420ms ease both;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 0;
     }
 
     .stat .label {
-      margin: 0 0 8px;
+      margin: 0;
       color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -121,7 +126,7 @@
     .stat .value {
       margin: 0;
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
-      font-size: 30px;
+      font-size: 20px;
       line-height: 1;
     }
 
@@ -172,6 +177,19 @@
       display: grid;
       gap: 12px;
       animation: riseIn 520ms ease both;
+    }
+
+    .card-top {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      align-self: start;
+      min-height: 360px;
+      height: 360px;
+    }
+
+    @media (max-width: 980px) {
+      .card-top { min-height: 0; }
     }
 
     .row {
@@ -688,30 +706,32 @@
 
         return `
           <article class="project-card">
-            <div class="row">
-              <div>
-                <h2 class="project-name">${esc(project.name || "Untitled Project")}</h2>
-                <p class="category">${esc(project.category || "Project")}</p>
+            <div class="card-top">
+              <div class="row">
+                <div>
+                  <h2 class="project-name">${esc(project.name || "Untitled Project")}</h2>
+                  <p class="category">${esc(project.category || "Project")}</p>
+                </div>
+                <span class="badge ${status}">${status}</span>
               </div>
-              <span class="badge ${status}">${status}</span>
-            </div>
 
-            <p class="summary">${esc(project.summary || "")}</p>
-            <p class="function-line">${esc(project.functionLine || "")}</p>
+              <p class="summary">${esc(project.summary || "")}</p>
+              <p class="function-line">${esc(project.functionLine || "")}</p>
 
-            <div class="meta">
-              <div><strong>Owner:</strong> ${esc(project.owner || "n/a")}</div>
-              <div><strong>Last Updated:</strong> ${esc(project.lastUpdated || "n/a")}</div>
-              <div><strong>Next Milestone:</strong> ${esc(project.nextMilestone || "n/a")}</div>
-              <div><strong>Data Boundary:</strong> ${esc(project.confidentiality || "n/a")}</div>
-            </div>
-
-            <div class="progress-wrap">
-              <div class="progress-head">
-                <span>Progress</span>
-                <span>${Number(project.progress) || 0}%</span>
+              <div class="meta">
+                <div><strong>Owner:</strong> ${esc(project.owner || "n/a")}</div>
+                <div><strong>Last Updated:</strong> ${esc(project.lastUpdated || "n/a")}</div>
+                <div><strong>Next Milestone:</strong> ${esc(project.nextMilestone || "n/a")}</div>
+                <div><strong>Data Boundary:</strong> ${esc(project.confidentiality || "n/a")}</div>
               </div>
-              <div class="progress"><span style="width:${Number(project.progress) || 0}%"></span></div>
+
+              <div class="progress-wrap">
+                <div class="progress-head">
+                  <span>Progress</span>
+                  <span>${Number(project.progress) || 0}%</span>
+                </div>
+                <div class="progress"><span style="width:${Number(project.progress) || 0}%"></span></div>
+              </div>
             </div>
 
             ${renderWins(project.recentWins)}
