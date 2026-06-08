@@ -87,9 +87,9 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Three-phase website project. Phase 1 (complete): full site audit. Phase 2 (complete): two demo directions built — a minimal update and a full redesign. Phase 3 (current): choose which direction goes to production.",
+      "Move macfireltd.co.uk from two completed demo directions — a minimal update and a full redesign — to one chosen, production-ready website.",
     functionLine:
-      "Move macfireltd.co.uk from two demo directions to a single chosen, production-ready website.",
+      "Phase 1 audit and Phase 2 demos are complete. Phase 3 is choosing the direction for production.",
     repoUrl: "",
     outputLinks: [
       {
@@ -117,7 +117,7 @@ window.MACFIRE_PROJECTS = [
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "Phase 1 (full audit) and Phase 2 (two demos built) are complete. Phase 3 is choosing a direction and beginning production work.",
+      "Three-phase website project: Phase 1 audit and Phase 2 demo directions are complete; Phase 3 is choosing either the minimal update or full redesign and moving macfireltd.co.uk into production.",
     confidentiality: "Public-facing brochure content only.",
     nextMilestone: "Phase 3 approval and direction check"
   }
