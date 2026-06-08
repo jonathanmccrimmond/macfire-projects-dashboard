@@ -19,7 +19,7 @@
       --line: #E6E2D8;
       --accent: #C31E1F;
       --accent-deep: #9B1718;
-      --accent-soft: #F4E9D8;
+      --accent-soft: #E6E2D8;
       --ok: #9B1718;
       --pilot: #9B1718;
       --planned: #5A5A57;
@@ -74,9 +74,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--panel);
-      color: var(--accent-deep);
-      border: 1px solid var(--line);
+      background: var(--accent-deep);
+      color: var(--panel);
+      border: 1px solid var(--accent-deep);
       border-radius: 999px;
       padding: 5px 11px;
       font-size: 12px;
@@ -151,7 +151,7 @@
     }
 
     .filters button:hover { transform: translateY(-1px); border-color: var(--accent-deep); }
-    .filters button.active { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+    .filters button.active { background: var(--accent-deep); color: var(--panel); border-color: var(--accent-deep); }
 
     /* ── Grid ────────────────────────────────────────────────── */
     .grid {
@@ -216,8 +216,8 @@
       white-space: nowrap;
     }
 
-    .badge.active { background: var(--accent-soft); color: var(--ok); }
-    .badge.pilot  { background: var(--accent-soft); color: var(--pilot); }
+    .badge.active { background: var(--accent-deep); color: var(--panel); }
+    .badge.pilot  { background: var(--accent-deep); color: var(--panel); }
     .badge.planned { background: var(--accent-soft); color: var(--planned); }
 
     .summary, .function-line, .small-note {
@@ -228,6 +228,12 @@
 
     .summary { font-weight: 700; }
     .function-line { color: var(--muted); }
+
+    .small-note {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding-top: 10px;
+    }
 
     .meta {
       display: grid;
@@ -625,6 +631,8 @@
                 <div><strong>Privacy note:</strong> ${esc(project.confidentiality || "n/a")}</div>
               </div>
 
+              <p class="small-note">${esc(project.notes || "")}</p>
+
               <div class="progress-wrap">
                 <div class="progress-head">
                   <span>Progress</span>
@@ -638,12 +646,10 @@
 
             ${renderNextSteps(project.nextSteps)}
 
-            <p class="small-note">${esc(project.notes || "")}</p>
-
             <div class="card-actions">
               <div class="links">
-                ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
                 ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
+                ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
               </div>
 
               ${renderFeedback(project.name, project.feedbackEmail)}
