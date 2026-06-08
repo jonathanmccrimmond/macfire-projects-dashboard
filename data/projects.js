@@ -103,10 +103,10 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Phase 3: gather approval and confirm which direction feels correct for MacFire" },
-      { owner: "jonathan", text: "Turn the approved direction into the production-ready handoff plan" }
+      { owner: "jonathan", text: "Phase 3: confirm thoughts and next steps, including whether to keep the current site and fix the HTTPS problem" },
+      { owner: "jonathan", text: "Turn the chosen next step into a practical handoff or fix plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Phase 3 approval and direction check"
+    nextMilestone: "Confirm thoughts and next steps, including the HTTPS fix option"
   }
 ];
