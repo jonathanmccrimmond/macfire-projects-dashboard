@@ -34,7 +34,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    confidentiality: "Confidential lead-level data stays private. Never shared publicly.",
     nextMilestone: "First live weekly test"
   },
   {
@@ -69,7 +68,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    confidentiality: "Public sources only. No confidential lead data in output.",
     nextMilestone: "First automatic social post drafts"
   },
   {
@@ -109,7 +107,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Turn the approved direction into the production-ready handoff plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    confidentiality: "Public-facing brochure content only.",
     nextMilestone: "Phase 3 approval and direction check"
   }
 ];
