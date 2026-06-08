@@ -15,7 +15,7 @@ window.MACFIRE_PROJECTS = [
     outputLinks: [
       {
         label: "Live Lead Dashboard",
-        url: "https://macfire-dashboard.onrender.com/"
+        url: "https://jonathanmccrimmond.github.io/macfire-ai-lead-scout/"
       }
     ],
     deckLink: {
@@ -30,7 +30,6 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Add Supabase URL and anon key to config.js so the static dashboard connects to live data" },
       { owner: "jonathan", text: "Add API keys for X, LinkedIn, and Facebook so social scraping goes live alongside planning and Companies House data" },
       { owner: "jonathan", text: "Run a live test to confirm all 13 councils are collecting data cleanly" },
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
