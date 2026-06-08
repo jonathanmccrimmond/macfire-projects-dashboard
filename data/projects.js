@@ -2,7 +2,7 @@ window.MACFIRE_PROJECTS = [
   {
     id: "macfire-ai-scout",
     name: "MacFire AI Lead Scout",
-    category: "Lead Intelligence",
+    category: "Lead Finder",
     status: "pilot",
     progress: 95,
     owner: "Jonathan McCrimmond",
@@ -42,14 +42,14 @@ window.MACFIRE_PROJECTS = [
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "Pipeline is fully built. Needs final setup and a live test run before the weekly schedule starts.",
+      "The lead finder is fully built. Needs final setup and a live test run before the weekly schedule starts.",
     confidentiality: "Confidential lead-level data stays private. Never shared publicly.",
     nextMilestone: "First live weekly test"
   },
   {
     id: "macfire-content-radar",
     name: "MacFire Content Radar",
-    category: "Marketing Automation",
+    category: "Marketing Support",
     status: "pilot",
     progress: 46,
     owner: "Jonathan McCrimmond",
@@ -70,7 +70,7 @@ window.MACFIRE_PROJECTS = [
       url: ""
     },
     recentWins: [
-      { date: "2026-05-29", text: "Content drafting pipeline built with an auto-generated preview page" },
+      { date: "2026-05-29", text: "Content drafting process built with a preview page" },
       { date: "2026-05-29", text: "Every draft now includes source links and a confidence note" }
     ],
     nextSteps: [
@@ -84,7 +84,7 @@ window.MACFIRE_PROJECTS = [
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "Drafting workflow and preview page live. Automatic drafting is the next step.",
+      "Drafting process and preview page are live. Automatic drafting is the next step.",
     confidentiality: "Public sources only. No confidential lead data in output.",
     nextMilestone: "First automatic social post drafts"
   },
@@ -97,9 +97,9 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-05-30",
     summary:
-      "Production-grade demo redesign of macfireltd.co.uk: secure, accessible, conversion-led single-page site to replace the 2016-era brochure.",
+      "Demo redesign of macfireltd.co.uk: a safer, easier-to-use one-page site to replace the older brochure-style website.",
     functionLine:
-      "Show a credibility-led, mobile-first replacement for the current site, ready for client review.",
+      "Show a clearer, mobile-friendly replacement for the current site, ready for client review.",
     repoUrl: "",
     outputLinks: [
       {
@@ -112,9 +112,9 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1BupMyostovFpW67MBwGE-bibOKTH6qY7/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-05-30", text: "Phase 3 demo built: mobile-friendly, accessible, contact form ready, and search-engine optimised" },
-      { date: "2026-05-28", text: "Phase 2 direction agreed: bold conversion-led design replacing the 2016 brochure style" },
-      { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, accessibility and conversion issues documented" }
+      { date: "2026-05-30", text: "Phase 3 demo built: works well on phones, easy to use, contact form ready, and easier to find in search" },
+      { date: "2026-05-28", text: "Phase 2 direction agreed: bold design direction to replace the older brochure-style website" },
+      { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
       { owner: "dougie", text: "Review the live demo and share feedback on the design direction" },
