@@ -11,19 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #F4E9D8;
-      --panel: #FAFAF7;
-      --panel-strong: #FAFAF7;
-      --ink: #111111;
-      --muted: #5A5A57;
-      --line: #E6E2D8;
+      --bg: #EEE8DE;
+      --panel: #FFFFFF;
+      --panel-strong: #F4F5F9;
+      --ink: #1A1A1A;
+      --muted: #555555;
+      --line: #D8D8D8;
+      --navy: #1A1F3C;
+      --navy-deep: #0E1530;
       --accent: #C31E1F;
       --accent-deep: #9B1718;
-      --accent-soft: #E6E2D8;
-      --ok: #9B1718;
-      --pilot: #9B1718;
+      --accent-soft: #FCEAEA;
+      --ok: #1F6B2A;
+      --pilot: #C31E1F;
       --planned: #5A5A57;
-      --shadow: 0 16px 36px rgba(17, 17, 17, 0.08);
+      --shadow: 0 16px 36px rgba(26, 31, 60, 0.1);
     }
 
     * { box-sizing: border-box; }
@@ -56,7 +58,7 @@
 
     .mark {
       width: 42px; height: 42px; border-radius: 10px;
-      background: var(--accent);
+      background: var(--navy);
       display: grid; place-items: center;
       color: var(--panel); font-size: 22px;
     }
@@ -74,9 +76,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--accent-deep);
+      background: var(--navy);
       color: var(--panel);
-      border: 1px solid var(--accent-deep);
+      border: 1px solid var(--navy);
       border-radius: 999px;
       padding: 5px 11px;
       font-size: 12px;
@@ -150,8 +152,8 @@
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    .filters button:hover { transform: translateY(-1px); border-color: var(--accent-deep); }
-    .filters button.active { background: var(--accent-deep); color: var(--panel); border-color: var(--accent-deep); }
+    .filters button:hover { transform: translateY(-1px); border-color: var(--navy); }
+    .filters button.active { background: var(--navy); color: var(--panel); border-color: var(--navy); }
 
     /* ── Grid ────────────────────────────────────────────────── */
     .grid {
@@ -191,6 +193,14 @@
       flex-wrap: wrap;
     }
 
+    .card-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     .project-name {
       margin: 0;
       font-family: "Space Grotesk", "Segoe UI", sans-serif;
@@ -216,9 +226,16 @@
       white-space: nowrap;
     }
 
-    .badge.active { background: var(--accent-deep); color: var(--panel); }
-    .badge.pilot  { background: var(--accent-deep); color: var(--panel); }
+    .badge.active { background: var(--navy); color: var(--panel); }
+    .badge.pilot  { background: var(--accent); color: var(--panel); }
     .badge.planned { background: var(--accent-soft); color: var(--planned); }
+
+    .project-updated {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
 
     .summary, .function-line, .small-note {
       margin: 0;
@@ -297,7 +314,7 @@
 
     .wins-list li::before {
       content: "✓";
-      color: var(--accent-deep);
+      color: var(--accent);
       font-weight: 700;
       font-size: 11px;
       flex-shrink: 0;
@@ -336,7 +353,7 @@
 
     .steps-col.jonathan .steps-col-label {
       background: var(--accent-soft);
-      color: var(--accent-deep);
+      color: var(--accent);
       border: 1px solid var(--line);
     }
 
@@ -362,7 +379,7 @@
 
     .steps-box li::before {
       content: "·";
-      color: var(--accent-deep);
+      color: var(--accent);
       font-weight: 700;
       flex-shrink: 0;
     }
@@ -400,7 +417,7 @@
       transition: transform 160ms ease, border-color 160ms ease;
     }
 
-    .link-chip:hover { transform: translateY(-1px); border-color: var(--accent-deep); }
+    .link-chip:hover { transform: translateY(-1px); border-color: var(--navy); }
     .link-disabled { color: var(--muted); background: var(--bg); }
 
     .feedback-row {
@@ -459,7 +476,7 @@
         <div class="mark" aria-hidden="true">M</div>
         <div>
           <h1 class="title">MacFire Projects Dashboard</h1>
-          <p class="subtitle">Project status, recent progress, and what's next, for Dougie and the team.</p>
+          <p class="subtitle">Project status, recent progress, and what's next.</p>
         </div>
       </div>
       <div id="last-updated-wrap"></div>
@@ -568,7 +585,6 @@
 
       const jonathanCol = jonathan.length ? `
         <div class="steps-col jonathan">
-          <span class="steps-col-label">We're handling</span>
           <ul class="steps-box">
             ${jonathan.map(s => `<li>${esc(s.text)}</li>`).join("")}
           </ul>
@@ -585,7 +601,7 @@
 
     // ── Feedback link ─────────────────────────────────────────────────────────
     function renderFeedback(projectName, feedbackEmail) {
-      const email = feedbackEmail || "j@mccrimmond.org.uk";
+      const email = "j@mccrimmond.org.uk";
       const subj  = encodeURIComponent(`Feedback: ${projectName}`);
       const body  = encodeURIComponent(`Hi Jonathan,\n\nMy feedback on ${projectName}:\n\n`);
       const href  = `mailto:${esc(email)}?subject=${subj}&body=${body}`;
@@ -618,15 +634,16 @@
                   <h2 class="project-name">${esc(project.name || "Untitled Project")}</h2>
                   <p class="category">${esc(project.category || "Project")}</p>
                 </div>
-                <span class="badge ${status}">${status}</span>
+                <div class="card-status">
+                  <span class="project-updated">Updated ${esc(project.lastUpdated || "n/a")}</span>
+                  <span class="badge ${status}">${status}</span>
+                </div>
               </div>
 
               <p class="summary">${esc(project.summary || "")}</p>
               <p class="function-line">${esc(project.functionLine || "")}</p>
 
               <div class="meta">
-                <div><strong>Owner:</strong> ${esc(project.owner || "n/a")}</div>
-                <div><strong>Last Updated:</strong> ${esc(project.lastUpdated || "n/a")}</div>
                 <div><strong>Next Milestone:</strong> ${esc(project.nextMilestone || "n/a")}</div>
                 <div><strong>Privacy note:</strong> ${esc(project.confidentiality || "n/a")}</div>
               </div>

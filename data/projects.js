@@ -112,7 +112,7 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Phase 3: gather approval and confirm which demo direction feels correct for MacFire" },
+      { owner: "jonathan", text: "Phase 3: gather approval and confirm which direction feels correct for MacFire" },
       { owner: "jonathan", text: "Turn the approved direction into the production-ready handoff plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
