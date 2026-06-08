@@ -13,23 +13,17 @@
     :root {
       --bg: #F4E9D8;
       --panel: #FAFAF7;
-      --panel-strong: #FFFFFF;
+      --panel-strong: #FAFAF7;
       --ink: #111111;
-      --ink-2: #2A2A2A;
       --muted: #5A5A57;
       --line: #E6E2D8;
       --accent: #C31E1F;
       --accent-deep: #9B1718;
-      --accent-soft: #F2D6D2;
-      --ok: #2A7A3F;
+      --accent-soft: #F4E9D8;
+      --ok: #9B1718;
       --pilot: #9B1718;
       --planned: #5A5A57;
       --shadow: 0 16px 36px rgba(17, 17, 17, 0.08);
-      --teal: #2A2A2A;
-      --teal-soft: #F4E9D8;
-      --amber: #9B1718;
-      --amber-soft: #F4E9D8;
-      --amber-border: #E6E2D8;
     }
 
     * { box-sizing: border-box; }
@@ -37,9 +31,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 85% -20%, rgba(195, 30, 31, 0.10) 0%, rgba(195, 30, 31, 0.04) 45%, rgba(195, 30, 31, 0) 70%),
-        linear-gradient(180deg, #FAF3E5 0%, var(--bg) 100%);
+      background: var(--bg);
       font-family: "Manrope", "Segoe UI", sans-serif;
       min-height: 100vh;
     }
@@ -64,9 +56,9 @@
 
     .mark {
       width: 42px; height: 42px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      background: var(--accent);
       display: grid; place-items: center;
-      color: #fff; font-size: 22px;
+      color: var(--panel); font-size: 22px;
     }
 
     .title {
@@ -82,9 +74,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--teal-soft);
-      color: var(--teal);
-      border: 1px solid #a7d9d5;
+      background: var(--panel);
+      color: var(--accent-deep);
+      border: 1px solid var(--line);
       border-radius: 999px;
       padding: 5px 11px;
       font-size: 12px;
@@ -149,7 +141,7 @@
 
     .filters button {
       border: 1px solid var(--line);
-      background: #fff;
+      background: var(--panel);
       color: var(--ink);
       border-radius: 999px;
       padding: 7px 11px;
@@ -158,8 +150,8 @@
       transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    .filters button:hover { transform: translateY(-1px); border-color: #d5c4b0; }
-    .filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .filters button:hover { transform: translateY(-1px); border-color: var(--accent-deep); }
+    .filters button.active { background: var(--accent); color: var(--panel); border-color: var(--accent); }
 
     /* ── Grid ────────────────────────────────────────────────── */
     .grid {
@@ -224,9 +216,9 @@
       white-space: nowrap;
     }
 
-    .badge.active { background: #dff5e8; color: var(--ok); }
+    .badge.active { background: var(--accent-soft); color: var(--ok); }
     .badge.pilot  { background: var(--accent-soft); color: var(--pilot); }
-    .badge.planned { background: #eceff2; color: var(--planned); }
+    .badge.planned { background: var(--accent-soft); color: var(--planned); }
 
     .summary, .function-line, .small-note {
       margin: 0;
@@ -260,7 +252,7 @@
 
     .progress {
       height: 8px;
-      background: #efe7dc;
+      background: var(--line);
       border-radius: 999px;
       overflow: hidden;
     }
@@ -268,7 +260,7 @@
     .progress > span {
       display: block;
       height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+      background: var(--accent);
       width: 0;
       transition: width 550ms ease;
     }
@@ -299,7 +291,7 @@
 
     .wins-list li::before {
       content: "✓";
-      color: var(--teal);
+      color: var(--accent-deep);
       font-weight: 700;
       font-size: 11px;
       flex-shrink: 0;
@@ -337,96 +329,36 @@
     }
 
     .steps-col.jonathan .steps-col-label {
-      background: #f0f2f4;
-      color: var(--muted);
+      background: var(--accent-soft);
+      color: var(--accent-deep);
       border: 1px solid var(--line);
     }
 
-    .step-item {
+    .steps-box {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 8px 10px;
+    }
+
+    .steps-box li {
       font-size: 12px;
       line-height: 1.45;
       color: var(--ink);
-      padding: 5px 8px;
-      border-radius: 6px;
       display: flex;
       align-items: baseline;
       gap: 6px;
-    }
-
-    .steps-col.jonathan .step-item {
-      background: #f5f6f8;
-      border: 1px solid var(--line);
-    }
-
-    .steps-col.jonathan .step-item::before {
-      content: "·";
-      color: var(--muted);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* ── Questions callout ───────────────────────────────────── */
-    .questions-callout {
-      background: var(--amber-soft);
-      border: 1px solid var(--amber-border);
-      border-left: 3px solid var(--amber);
-      border-radius: 8px;
-      padding: 10px 12px;
-    }
-
-    .questions-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-
-    .questions-title {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--amber);
-    }
-
-    .reply-btn {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--amber);
-      color: #fff;
-      border-radius: 999px;
-      padding: 5px 11px;
-      font-size: 11px;
-      font-weight: 700;
-      transition: opacity 160ms ease;
-    }
-
-    .reply-btn:hover { opacity: 0.85; }
-
-    .questions-list {
-      margin: 0;
-      padding: 0;
       list-style: none;
-      display: grid;
-      gap: 5px;
     }
 
-    .questions-list li {
-      font-size: 13px;
-      color: var(--ink);
-      line-height: 1.4;
-      display: flex;
-      gap: 7px;
-    }
-
-    .q-num {
-      color: var(--amber);
+    .steps-box li::before {
+      content: "·";
+      color: var(--accent-deep);
       font-weight: 700;
-      font-size: 12px;
       flex-shrink: 0;
-      width: 16px;
     }
 
     /* ── Links + feedback ────────────────────────────────────── */
@@ -458,12 +390,12 @@
     .link-chip {
       text-decoration: none;
       color: var(--ink);
-      background: #fff;
+      background: var(--panel);
       transition: transform 160ms ease, border-color 160ms ease;
     }
 
-    .link-chip:hover { transform: translateY(-1px); border-color: #d9b588; }
-    .link-disabled { color: #8e969f; background: #f4f0ea; }
+    .link-chip:hover { transform: translateY(-1px); border-color: var(--accent-deep); }
+    .link-disabled { color: var(--muted); background: var(--bg); }
 
     .feedback-row {
       display: flex;
@@ -494,8 +426,8 @@
 
     /* ── Empty / animations ──────────────────────────────────── */
     .empty {
-      background: #fff;
-      border: 1px dashed #d8c6b0;
+      background: var(--panel);
+      border: 1px dashed var(--line);
       color: var(--muted);
       border-radius: 12px;
       padding: 28px;
@@ -631,7 +563,9 @@
       const jonathanCol = jonathan.length ? `
         <div class="steps-col jonathan">
           <span class="steps-col-label">We're handling</span>
-          ${jonathan.map(s => `<div class="step-item">${esc(s.text)}</div>`).join("")}
+          <ul class="steps-box">
+            ${jonathan.map(s => `<li>${esc(s.text)}</li>`).join("")}
+          </ul>
         </div>` : "";
 
       return `
@@ -640,33 +574,6 @@
           <div class="steps-grid">
             ${jonathanCol}
           </div>
-        </div>`;
-    }
-
-    // ── Client questions callout ──────────────────────────────────────────────
-    function renderQuestions(questions, projectName, feedbackEmail) {
-      if (!Array.isArray(questions) || !questions.length) return "";
-      const email = feedbackEmail || "j@mccrimmond.org.uk";
-
-      const qs = questions.map((q, i) => `
-        <li>
-          <span class="q-num">${i + 1}.</span>
-          ${esc(q.text)}
-        </li>`).join("");
-
-      const subj = encodeURIComponent(`Re: ${projectName}`);
-      const body = encodeURIComponent(
-        questions.map((q, i) => `${i + 1}. ${q.text}\n\nYour answer: `).join("\n\n")
-      );
-      const href = `mailto:${esc(email)}?subject=${subj}&body=${body}`;
-
-      return `
-        <div class="questions-callout">
-          <div class="questions-header">
-            <span class="questions-title">Questions for you, Dougie</span>
-            <a class="reply-btn" href="${href}">Reply by email →</a>
-          </div>
-          <ol class="questions-list">${qs}</ol>
         </div>`;
     }
 
@@ -732,8 +639,6 @@
             ${renderNextSteps(project.nextSteps)}
 
             <p class="small-note">${esc(project.notes || "")}</p>
-
-            ${renderQuestions(project.clientQuestions, project.name, project.feedbackEmail)}
 
             <div class="card-actions">
               <div class="links">

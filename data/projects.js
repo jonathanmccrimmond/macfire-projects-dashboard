@@ -35,10 +35,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" },
       { owner: "jonathan", text: "Build a lead review screen so you can approve or reject leads in one place" }
     ],
-    clientQuestions: [
-      { id: "q1", text: "Do you want the weekly digest email sent to you alone, or a wider team list?" },
-      { id: "q2", text: "Should approved leads also go into a customer system or spreadsheet, or is the weekly email enough for now?" }
-    ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
       "The lead finder is fully built. Needs final setup and a live test run before the weekly schedule starts.",
@@ -76,10 +72,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Connect the drafting setup so it turns regulation updates into LinkedIn and Facebook drafts automatically" },
       { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
     ],
-    clientQuestions: [
-      { id: "q1", text: "Which platforms matter most to you right now: LinkedIn, Facebook, or both?" },
-      { id: "q2", text: "Would you want to approve posts before they go out, or set a schedule and let them post automatically?" }
-    ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
       "Drafting process and preview page are live. Automatic drafting is the next step.",
@@ -95,13 +87,17 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Demo redesign of macfireltd.co.uk: a safer, easier-to-use one-page site to replace the older brochure-style website.",
+      "Two demo directions for macfireltd.co.uk: a clean minimal version and a fuller redesign version, ready for direction review.",
     functionLine:
-      "Show a clearer, mobile-friendly replacement for the current site, ready for client review.",
+      "Compare two mobile-friendly website directions before choosing the correct route for production.",
     repoUrl: "",
     outputLinks: [
       {
-        label: "Live Demo",
+        label: "Minimal Demo",
+        url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-minimal/"
+      },
+      {
+        label: "Full Demo",
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-demo/"
       }
     ],
@@ -110,22 +106,19 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1BupMyostovFpW67MBwGE-bibOKTH6qY7/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-05-30", text: "Phase 3 demo built: works well on phones, easy to use, contact form ready, and easier to find in search" },
-      { date: "2026-05-28", text: "Phase 2 direction agreed: bold design direction to replace the older brochure-style website" },
+      { date: "2026-06-08", text: "Phase 2 complete: two website demo directions are now built and published for comparison" },
+      { date: "2026-05-30", text: "Full redesign demo built with mobile layout, clearer service structure, contact form flow and stronger search foundations" },
+      { date: "2026-05-30", text: "Minimal website demo built as a cleaner, lower-change option for comparison" },
       { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Drop in real photography and copy once approved" },
-      { owner: "jonathan", text: "Wire up the contact form so enquiries land in your inbox" }
-    ],
-    clientQuestions: [
-      { id: "q1", text: "Have you looked at the live demo? What's your overall reaction to the direction?" },
-      { id: "q2", text: "Is there anything about the current site you definitely want to keep?" }
+      { owner: "jonathan", text: "Phase 3: gather approval and confirm which demo direction feels correct for MacFire" },
+      { owner: "jonathan", text: "Turn the approved direction into the production-ready handoff plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "Audit, direction and demo build complete. Waiting on client review before moving to production.",
+      "Phase 2 demo build is complete. Phase 3 is approval and direction checking before production work.",
     confidentiality: "Public-facing brochure content only.",
-    nextMilestone: "Client review of design direction"
+    nextMilestone: "Phase 3 approval and direction check"
   }
 ];
