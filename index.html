@@ -502,7 +502,7 @@
         <div class="mark" aria-hidden="true">M</div>
         <div>
           <h1 class="title">MacFire Projects Dashboard</h1>
-          <p class="subtitle">Project status, recent progress, and what's next — for Dougie and the team.</p>
+          <p class="subtitle">Project status, recent progress, and what's next, for Dougie and the team.</p>
         </div>
       </div>
       <div id="last-updated-wrap"></div>
@@ -721,7 +721,6 @@
             <p class="small-note">${esc(project.notes || "")}</p>
 
             <div class="links">
-              ${project.repoUrl ? linkChip("Repository", project.repoUrl) : ""}
               ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
               ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
             </div>

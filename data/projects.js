@@ -23,9 +23,9 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1tVF3yontFFgixup52AuVFMlHLg2nVKHe/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-06", text: "Expanded to 13 Central Scotland planning councils — Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire" },
-      { date: "2026-06-06", text: "Companies House signal built — finds new business registrations in 50+ fire-risk SIC codes across Central Scotland" },
-      { date: "2026-06-06", text: "Full contact enrichment added — director lookup, website check, Google Maps, phone and email extraction" },
+      { date: "2026-06-06", text: "Expanded to 13 Central Scotland planning councils: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire" },
+      { date: "2026-06-06", text: "Companies House signal built: finds new business registrations in 50+ fire-risk SIC codes across Central Scotland" },
+      { date: "2026-06-06", text: "Full contact enrichment added: director lookup, website check, Google Maps, phone and email extraction" },
       { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" },
       { date: "2026-06-05", text: "All leads now stored in a single Supabase database with deduplication" }
     ],
@@ -44,7 +44,7 @@ window.MACFIRE_PROJECTS = [
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
       "Pipeline is fully built and committed. Needs Supabase credentials and a live test run before it goes live on the Monday cron.",
-    confidentiality: "Confidential lead-level data remains private — never committed to the repo.",
+    confidentiality: "Confidential lead-level data remains private. Never committed to the repo.",
     nextMilestone: "First live test run end-to-end"
   },
   {
@@ -80,7 +80,7 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Set up scheduled monitoring of key Scottish fire regulation sources" }
     ],
     clientQuestions: [
-      { id: "q1", text: "Which platforms matter most to you right now — LinkedIn, Facebook, or both?" },
+      { id: "q1", text: "Which platforms matter most to you right now: LinkedIn, Facebook, or both?" },
       { id: "q2", text: "Would you want to approve posts before they go out, or set a schedule and let them post automatically?" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
@@ -98,7 +98,7 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-05-30",
     summary:
-      "Production-grade demo redesign of macfireltd.co.uk — secure, accessible, conversion-led single-page site to replace the 2016-era brochure.",
+      "Production-grade demo redesign of macfireltd.co.uk: secure, accessible, conversion-led single-page site to replace the 2016-era brochure.",
     functionLine:
       "Show a credibility-led, mobile-first replacement for the current site, ready for client review.",
     repoUrl: "",
@@ -113,14 +113,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1BupMyostovFpW67MBwGE-bibOKTH6qY7/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-05-30", text: "Full Phase 3 demo built — mobile-first, accessible, includes contact form stub and schema.org markup" },
-      { date: "2026-05-28", text: "Phase 2 direction agreed — bold conversion-led design replacing the 2016 brochure style" },
-      { date: "2026-05-26", text: "Phase 1 full audit complete — SEO, speed, accessibility and conversion issues documented" }
+      { date: "2026-05-30", text: "Full Phase 3 demo built: mobile-first, accessible, includes contact form stub and schema.org markup" },
+      { date: "2026-05-28", text: "Phase 2 direction agreed: bold conversion-led design replacing the 2016 brochure style" },
+      { date: "2026-05-26", text: "Phase 1 full audit complete: SEO, speed, accessibility and conversion issues documented" }
     ],
     nextSteps: [
       { owner: "dougie", text: "Review the live demo and share feedback on the design direction" },
       { owner: "dougie", text: "Confirm whether you have real photography or need stock images for now" },
-      { owner: "dougie", text: "Decide on the contact form destination — email only, or CRM integration?" },
+      { owner: "dougie", text: "Decide on the contact form destination: email only, or CRM integration?" },
       { owner: "jonathan", text: "Integrate real photography and copy once approved" },
       { owner: "jonathan", text: "Wire up the contact form backend (Formspree or similar)" }
     ],
