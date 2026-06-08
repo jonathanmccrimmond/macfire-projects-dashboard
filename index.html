@@ -641,7 +641,7 @@
               </div>
 
               <p class="summary">${esc(project.summary || "")}</p>
-              <p class="function-line">${esc(project.functionLine || "")}</p>
+              ${project.functionLine ? `<p class="function-line">${esc(project.functionLine)}</p>` : ""}
 
               <div class="meta">
                 <div><strong>Next Milestone:</strong> ${esc(project.nextMilestone || "n/a")}</div>

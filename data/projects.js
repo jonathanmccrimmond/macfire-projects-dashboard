@@ -8,9 +8,8 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Automated weekly lead generation for Scottish fire safety opportunities, pulling from planning portals, Companies House, and social media (X, LinkedIn, Facebook) to rank leads and surface contact details.",
-    functionLine:
-      "Find and rank fire-safety leads each week from planning records, Companies House, and social media signals, then surface contact details.",
+      "Automated weekly lead generation for Scottish fire safety opportunities: it pulls from planning portals, Companies House, and social media signals (X, LinkedIn, Facebook), then ranks the best-fit leads and surfaces contact details.",
+    functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -47,9 +46,8 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Drafts social posts for LinkedIn, Facebook and X from public regulation and standards updates, with sources attached.",
-    functionLine:
-      "Turn verified regulation updates into LinkedIn, Facebook and X drafts with source links.",
+      "Drafts social posts for LinkedIn, Facebook and X by checking public regulation and standards updates, turning verified source material into channel-ready drafts with source links attached.",
+    functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
@@ -83,9 +81,8 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Move macfireltd.co.uk from two completed demo directions — a minimal update and a full redesign — to one chosen, production-ready website.",
-    functionLine:
-      "Phase 1 audit and Phase 2 demos are complete. Phase 3 is choosing the direction for production.",
+      "Moves macfireltd.co.uk towards a production-ready website by using the completed audit and two demo directions — a minimal update and a full redesign — to choose the direction that feels right for MacFire.",
+    functionLine: "",
     repoUrl: "",
     outputLinks: [
       {
