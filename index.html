@@ -648,7 +648,7 @@
                 <div><strong>Privacy note:</strong> ${esc(project.confidentiality || "n/a")}</div>
               </div>
 
-              <p class="small-note">${esc(project.notes || "")}</p>
+              ${project.notes ? `<p class="small-note">${esc(project.notes)}</p>` : ""}
 
               <div class="progress-wrap">
                 <div class="progress-head">

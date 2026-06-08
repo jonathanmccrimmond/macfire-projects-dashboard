@@ -35,8 +35,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    notes:
-      "Data migrated from Notion to Supabase. Static dashboard ready — connect via config.js. Pipeline and scraping built, needs live test run.",
     confidentiality: "Confidential lead-level data stays private. Never shared publicly.",
     nextMilestone: "First live weekly test"
   },
@@ -73,8 +71,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    notes:
-      "Drafting process and preview page are live. Automatic drafting is the next step.",
     confidentiality: "Public sources only. No confidential lead data in output.",
     nextMilestone: "First automatic social post drafts"
   },
@@ -116,8 +112,6 @@ window.MACFIRE_PROJECTS = [
       { owner: "jonathan", text: "Turn the approved direction into the production-ready handoff plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    notes:
-      "Three-phase website project: Phase 1 audit and Phase 2 demo directions are complete; Phase 3 is choosing either the minimal update or full redesign and moving macfireltd.co.uk into production.",
     confidentiality: "Public-facing brochure content only.",
     nextMilestone: "Phase 3 approval and direction check"
   }
