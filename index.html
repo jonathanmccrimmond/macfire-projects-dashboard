@@ -329,12 +329,10 @@
 
     .steps-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 10px;
       margin-top: 7px;
     }
-
-    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr; } }
 
     .steps-col { display: grid; gap: 6px; }
 
@@ -345,12 +343,6 @@
       letter-spacing: 0.06em;
       padding: 4px 8px;
       border-radius: 4px;
-    }
-
-    .steps-col.dougie .steps-col-label {
-      background: var(--amber-soft);
-      color: var(--amber);
-      border: 1px solid var(--amber-border);
     }
 
     .steps-col.jonathan .steps-col-label {
@@ -368,18 +360,6 @@
       display: flex;
       align-items: baseline;
       gap: 6px;
-    }
-
-    .steps-col.dougie .step-item {
-      background: var(--amber-soft);
-      border: 1px solid var(--amber-border);
-    }
-
-    .steps-col.dougie .step-item::before {
-      content: "→";
-      color: var(--amber);
-      font-weight: 700;
-      flex-shrink: 0;
     }
 
     .steps-col.jonathan .step-item {
@@ -628,18 +608,11 @@
         </div>`;
     }
 
-    // ── Next steps split ──────────────────────────────────────────────────────
+    // ── Next steps ────────────────────────────────────────────────────────────
     function renderNextSteps(steps) {
       if (!Array.isArray(steps) || !steps.length) return "";
-      const dougie   = steps.filter(s => s.owner === "dougie");
       const jonathan = steps.filter(s => s.owner === "jonathan");
-      if (!dougie.length && !jonathan.length) return "";
-
-      const dougieCol = dougie.length ? `
-        <div class="steps-col dougie">
-          <span class="steps-col-label">Action needed from Dougie</span>
-          ${dougie.map(s => `<div class="step-item">${esc(s.text)}</div>`).join("")}
-        </div>` : "";
+      if (!jonathan.length) return "";
 
       const jonathanCol = jonathan.length ? `
         <div class="steps-col jonathan">
@@ -651,7 +624,6 @@
         <div class="steps-section">
           <p class="section-label">What's next</p>
           <div class="steps-grid">
-            ${dougieCol}
             ${jonathanCol}
           </div>
         </div>`;

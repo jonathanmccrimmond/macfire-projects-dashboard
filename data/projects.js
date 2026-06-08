@@ -6,7 +6,7 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 95,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-06",
+    lastUpdated: "2026-06-08",
     summary:
       "Automated weekly lead generation for Scottish fire safety opportunities, using public sources to rank leads and add useful contact details.",
     functionLine:
@@ -30,7 +30,6 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-05", text: "All leads now stored in one place automatically, with duplicates removed" }
     ],
     nextSteps: [
-      { owner: "dougie", text: "Confirm whether you want live outreach drafts to arrive in your inbox automatically once we go live" },
       { owner: "jonathan", text: "Set up one secure place for the leads and connect your email so the weekly digest reaches you" },
       { owner: "jonathan", text: "Run a live test to confirm all 13 councils are collecting data cleanly" },
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" },
@@ -53,7 +52,7 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 46,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-05-29",
+    lastUpdated: "2026-06-08",
     summary:
       "Drafts social posts from public regulation and standards updates, with sources attached.",
     functionLine:
@@ -74,7 +73,6 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-29", text: "Every draft now includes source links and a confidence note" }
     ],
     nextSteps: [
-      { owner: "dougie", text: "Review the live preview and confirm the tone and format feel right for MacFire's brand" },
       { owner: "jonathan", text: "Connect the drafting setup so it turns regulation updates into LinkedIn and Facebook drafts automatically" },
       { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
     ],
@@ -95,7 +93,7 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 70,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-05-30",
+    lastUpdated: "2026-06-08",
     summary:
       "Demo redesign of macfireltd.co.uk: a safer, easier-to-use one-page site to replace the older brochure-style website.",
     functionLine:
@@ -117,9 +115,6 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
-      { owner: "dougie", text: "Review the live demo and share feedback on the design direction" },
-      { owner: "dougie", text: "Confirm whether you have real photography or need stock images for now" },
-      { owner: "dougie", text: "Decide where contact form enquiries should land: your email, or a customer system you already use" },
       { owner: "jonathan", text: "Drop in real photography and copy once approved" },
       { owner: "jonathan", text: "Wire up the contact form so enquiries land in your inbox" }
     ],
