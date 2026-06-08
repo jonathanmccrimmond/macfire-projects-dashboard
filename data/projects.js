@@ -8,8 +8,9 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Automated weekly lead generation for Scottish fire safety opportunities: it pulls from planning portals, Companies House, and social media signals (X, LinkedIn, Facebook), then ranks the best-fit leads and surfaces contact details.",
-    functionLine: "",
+      "Automated weekly lead generation for MacFire. Monitors council planning portals across Central Scotland for private commercial applications — new builds, fit-outs, and change-of-use submissions by businesses that will need fire safety compliance. Cross-referenced with Companies House director data and social signals to rank leads and surface contact details.",
+    functionLine:
+      "Find private commercial planning applicants in Central Scotland who will need fire safety work, rank them by priority, and surface director contact details for outreach.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -24,7 +25,7 @@ window.MACFIRE_PROJECTS = [
     recentWins: [
       { date: "2026-06-08", text: "Full Supabase-powered dashboard rebuilt: KPI cards, pipeline status, charts, enrichment queues and lead actions — all connected to live data" },
       { date: "2026-06-08", text: "Lead data migrated from Notion to Supabase — all historical leads preserved with full enrichment profiles" },
-      { date: "2026-06-06", text: "Expanded to 13 Central Scotland planning councils: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire" },
+      { date: "2026-06-06", text: "Expanded coverage to 13 Central Scotland council areas: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire — monitoring each council's planning portal for private commercial applications" },
       { date: "2026-06-06", text: "Companies House search now finds new business registrations across 50+ fire-risk business categories in Central Scotland" },
       { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" }
     ],
