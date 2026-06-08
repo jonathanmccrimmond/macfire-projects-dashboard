@@ -45,13 +45,13 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 46,
+    progress: 55,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-08",
     summary:
-      "Drafts social posts from public regulation and standards updates, with sources attached.",
+      "Drafts social posts for LinkedIn, Facebook and X from public regulation and standards updates, with sources attached.",
     functionLine:
-      "Turn verified regulation updates into LinkedIn and Facebook drafts with source links.",
+      "Turn verified regulation updates into LinkedIn, Facebook and X drafts with source links.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
@@ -64,11 +64,12 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-08", text: "First live source pull — radar fetched a story today" },
       { date: "2026-05-29", text: "Content drafting process built with a preview page" },
       { date: "2026-05-29", text: "Every draft now includes source links and a confidence note" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Connect the drafting setup so it turns regulation updates into LinkedIn and Facebook drafts automatically" },
+      { owner: "jonathan", text: "Connect the drafting setup so it turns regulation updates into LinkedIn, Facebook and X drafts automatically" },
       { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
