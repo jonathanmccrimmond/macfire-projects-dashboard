@@ -19,8 +19,8 @@ window.MACFIRE_PROJECTS = [
       }
     ],
     deckLink: {
-      label: "Information Deck",
-      url: "https://docs.google.com/presentation/d/1tVF3yontFFgixup52AuVFMlHLg2nVKHe/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
+      label: "Info Deck",
+      url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
       { date: "2026-06-08", text: "Full Supabase-powered dashboard rebuilt: KPI cards, pipeline status, charts, enrichment queues and lead actions — all connected to live data" },
@@ -60,8 +60,8 @@ window.MACFIRE_PROJECTS = [
       }
     ],
     deckLink: {
-      label: "Function Deck (planned)",
-      url: ""
+      label: "Info Deck",
+      url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
       { date: "2026-05-29", text: "Content drafting process built with a preview page" },
@@ -101,8 +101,8 @@ window.MACFIRE_PROJECTS = [
       }
     ],
     deckLink: {
-      label: "Audit & Handoff Deck",
-      url: "https://docs.google.com/presentation/d/1BupMyostovFpW67MBwGE-bibOKTH6qY7/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
+      label: "Info Deck",
+      url: "https://docs.google.com/presentation/d/1Ayp1Qx_4AD1OQEJdlcxNhn0_prxY7JpU/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
       { date: "2026-06-08", text: "Phase 2 complete: two website demo directions are now built and published for comparison" },
