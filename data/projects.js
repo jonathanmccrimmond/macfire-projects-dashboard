@@ -23,21 +23,21 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1tVF3yontFFgixup52AuVFMlHLg2nVKHe/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-08", text: "Lead review dashboard built: filter, approve, reject and track all leads by source and status in one screen" },
-      { date: "2026-06-08", text: "Social media scraping added: X/Twitter, LinkedIn, and Facebook now scanned alongside planning portals and Companies House" },
+      { date: "2026-06-08", text: "Full Supabase-powered dashboard rebuilt: KPI cards, pipeline status, charts, enrichment queues and lead actions — all connected to live data" },
+      { date: "2026-06-08", text: "Lead data migrated from Notion to Supabase — all historical leads preserved with full enrichment profiles" },
       { date: "2026-06-06", text: "Expanded to 13 Central Scotland planning councils: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire" },
       { date: "2026-06-06", text: "Companies House search now finds new business registrations across 50+ fire-risk business categories in Central Scotland" },
       { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" }
     ],
     nextSteps: [
+      { owner: "jonathan", text: "Add Supabase URL and anon key to config.js so the static dashboard connects to live data" },
       { owner: "jonathan", text: "Add API keys for X, LinkedIn, and Facebook so social scraping goes live alongside planning and Companies House data" },
-      { owner: "jonathan", text: "Set up one secure place for the leads and connect your email so the weekly digest reaches you" },
       { owner: "jonathan", text: "Run a live test to confirm all 13 councils are collecting data cleanly" },
       { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     notes:
-      "The lead finder is fully built. Needs final setup and a live test run before the weekly schedule starts.",
+      "Data migrated from Notion to Supabase. Static dashboard ready — connect via config.js. Pipeline and scraping built, needs live test run.",
     confidentiality: "Confidential lead-level data stays private. Never shared publicly.",
     nextMilestone: "First live weekly test"
   },
@@ -93,11 +93,11 @@ window.MACFIRE_PROJECTS = [
     repoUrl: "",
     outputLinks: [
       {
-        label: "Minimal Demo",
+        label: "Minimal Refresh",
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-minimal/"
       },
       {
-        label: "Full Demo",
+        label: "Full Redesign",
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-demo/"
       }
     ],
