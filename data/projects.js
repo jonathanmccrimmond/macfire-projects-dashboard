@@ -4,7 +4,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 85,
+    progress: 88,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-09",
     summary:
@@ -22,19 +22,19 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-09", text: "Production Scout architecture designed: GitHub Actions server-side runner replaces the laptop-dependent launchd setup, writing directly into Supabase public.leads on a daily Companies House cron and a weekly planning cron — no machine dependency" },
+      { date: "2026-06-09", text: "Notion → Supabase migration complete: 483 leads exported, 15 missing-CH-number pages and 25 duplicates archived, 443 active leads ready to import once schema is applied in Supabase" },
       { date: "2026-06-09", text: "Lead detail drawer + shareable URLs: click any lead for a Street View image, full confidence breakdown, director history and website intel; filters and individual leads now save to the URL for bookmarking and sharing" },
       { date: "2026-06-09", text: "Director appointment history added: every lead shows how many other companies the lead director has run (and how many were dissolved), flagging serial company-formers" },
-      { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" },
-      { date: "2026-06-09", text: "Google Maps, Street View and Places enrichment shipped: every qualifying lead carries a verified-business check, phone number when listed, and Street View image straight in the dashboard" },
-      { date: "2026-06-09", text: "Four-dimension confidence scoring: every lead now carries Premises / Operational / Compliance / Reach scores 0-100, summarised on each card" }
+      { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Add contact discovery (Hunter/Apollo) plus AI-drafted outreach emails. One of the last enrichment features still missing versus the original POC." },
-      { owner: "jonathan", text: "Add planning applications signal (Idox council portal scrapers) to widen the funnel beyond Companies House" },
-      { owner: "jonathan", text: "Build a re-enrichment queue that retries fresh leads 14 to 90 days later, once their website, social media or Google listing has had time to appear" }
+      { owner: "jonathan", text: "Apply supabase/schema.sql in the Supabase SQL editor then run the migration script with --apply to import the 443 cleaned Notion leads into production" },
+      { owner: "jonathan", text: "Port the Companies House signal to scout/runner.py (Phase 2 of production build) and do a local dry-run writing into the Supabase leads table" },
+      { owner: "jonathan", text: "Set up the GitHub Actions daily CI workflow with repo secrets for the first live server-side scout run (Phase 3 of production build)" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "First live weekly test"
+    nextMilestone: "First live server-side scout run via GitHub Actions"
   },
   {
     id: "macfire-content-radar",
