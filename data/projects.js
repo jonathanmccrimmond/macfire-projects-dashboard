@@ -46,7 +46,7 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-09",
     summary:
-      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini. The editorial dashboard now shows the review queue, platform cards, approval checks, a content calendar, and local approve/decline/schedule controls before any guarded publishing can happen.",
+      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini. The editorial dashboard now shows the review queue, platform cards, approval checks, a content calendar, local approve/decline/schedule controls, and a manual GitHub review workflow before any guarded publishing can happen.",
     functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
@@ -61,6 +61,7 @@ window.MACFIRE_PROJECTS = [
     },
     recentWins: [
       { date: "2026-06-09", text: "Editorial dashboard now supports approve, decline and schedule actions through a local review server that writes decisions back to markdown frontmatter" },
+      { date: "2026-06-09", text: "Manual GitHub review workflow added: approve, schedule or decline a post remotely, rebuild the preview and commit the review state" },
       { date: "2026-06-09", text: "Guarded Stage 3 publish pipeline built: dry-run by default, approved/scheduled posts only, live Facebook/LinkedIn posting requires explicit safety switch and platform tokens" },
       { date: "2026-06-09", text: "Content calendar added for scheduled posts and known fire-safety/building-standards dates" },
       { date: "2026-06-09", text: "Stage 2 weekly source monitor live: every Monday the radar checks the Scottish Building Standards blog, gov.scot building standards updates, and new Scottish statutory instruments for fire and building, then auto-triggers draft generation for anything new" },
@@ -72,7 +73,7 @@ window.MACFIRE_PROJECTS = [
     nextSteps: [
       { owner: "jonathan", text: "Run one dry-run publish test with an approved post, then one live smoke test once Facebook and LinkedIn tokens are confirmed" },
       { owner: "jonathan", text: "Widen the monitored source list (SFRS news, more gov.scot policy feeds) and tune per-source notes templates so drafts hit the right angle for each channel" },
-      { owner: "jonathan", text: "Decide whether Dougie needs a hosted authenticated approval UI, or whether Jonathan-run local review is enough for the pilot" }
+      { owner: "jonathan", text: "Decide whether Dougie needs a hosted authenticated approval UI, or whether GitHub Actions review plus Jonathan-run local review is enough for the pilot" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     nextMilestone: "Dry-run publish test, then first live approved LinkedIn/Facebook post"

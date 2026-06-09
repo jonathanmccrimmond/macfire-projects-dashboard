@@ -45,3 +45,4 @@ After the Content Radar branch is merged, update `data/projects.js` so the Conte
 - Updated the AI Scout card to reflect the parity push: social enrichment now includes Facebook, X, LinkedIn, and Instagram as required sources.
 - Updated the Content Radar card to reflect the guarded publish pipeline, editorial review queue, approve/decline/schedule controls, and calendar.
 - Marked the website redesign card as paused while AI Scout and Content Radar are the active priorities.
+- Added the Content Radar GitHub Actions review workflow to the dashboard status.
