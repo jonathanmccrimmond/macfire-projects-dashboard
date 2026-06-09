@@ -27,6 +27,7 @@ Open `http://localhost:4173`.
 1. Edit `data/projects.js`.
 2. Refresh the browser.
 3. Add deck and output URLs as they become available.
+4. Update `CLAUDE.md` / `AGENT_LOG.md` if the project relationship changes.
 
 ## GitHub Pages
 
@@ -38,4 +39,12 @@ Open `http://localhost:4173`.
 
 - This dashboard is portfolio visibility only and should avoid exposing confidential lead-level data.
 - Local output links can remain machine-specific until public URLs are ready.
+- This repo should stay standalone and should not be re-nested in `macfire-production`.
+- After meaningful work in Content Radar, Lead Scout, or the website demos, update the matching card in `data/projects.js`.
 
+## Current Project Split
+
+- `macfire-production` - production lead pipeline, Supabase schema, runbooks, and website redesign demo that has no separate upstream yet.
+- `macfire-content-radar` - social content drafting, editorial preview, publish pipeline, and calendar.
+- `macfire-ai-lead-scout` - static Supabase lead dashboard.
+- `macfire-projects-dashboard` - this portfolio/status dashboard.
