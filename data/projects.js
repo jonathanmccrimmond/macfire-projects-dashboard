@@ -4,9 +4,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 75,
+    progress: 85,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-08",
+    lastUpdated: "2026-06-09",
     summary:
       "Automated weekly lead generation for MacFire. Monitors council planning portals across Central Scotland for private commercial applications — new builds, fit-outs, and change-of-use submissions by businesses that will need fire safety compliance. Cross-referenced with Companies House director data and social signals to rank leads and surface contact details.",
     functionLine:
@@ -23,16 +23,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-08", text: "Full Supabase-powered dashboard rebuilt: KPI cards, pipeline status, charts, enrichment queues and lead actions — all connected to live data" },
-      { date: "2026-06-08", text: "Lead data migrated from Notion to Supabase — all historical leads preserved with full enrichment profiles" },
-      { date: "2026-06-06", text: "Expanded coverage to 13 Central Scotland council areas: Stirling, all Ayrshire councils, Inverclyde, Falkirk, West Lothian, Clackmannanshire — monitoring each council's planning portal for private commercial applications" },
-      { date: "2026-06-06", text: "Companies House search now finds new business registrations across 50+ fire-risk business categories in Central Scotland" },
-      { date: "2026-06-06", text: "Personalised outreach email drafted automatically per lead, sector-specific and addressed by director name" }
+      { date: "2026-06-09", text: "Lead detail drawer + shareable URLs: click any lead for a Street View image, full confidence breakdown, director history and website intel; filters and individual leads now save to the URL for bookmarking and sharing" },
+      { date: "2026-06-09", text: "Director appointment history added: every lead shows how many other companies the lead director has run (and how many were dissolved), flagging serial company-formers" },
+      { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" },
+      { date: "2026-06-09", text: "Google Maps, Street View and Places enrichment shipped: every qualifying lead carries a verified-business check, phone number when listed, and Street View image straight in the dashboard" },
+      { date: "2026-06-09", text: "Four-dimension confidence scoring: every lead now carries Premises / Operational / Compliance / Reach scores 0-100, summarised on each card" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Add API keys for X, LinkedIn, and Facebook so social scraping goes live alongside planning and Companies House data" },
-      { owner: "jonathan", text: "Run a live test to confirm all 13 councils are collecting data cleanly" },
-      { owner: "jonathan", text: "Add East Renfrewshire and Renfrewshire council sites and switch them on" }
+      { owner: "jonathan", text: "Add contact discovery (Hunter/Apollo) plus AI-drafted outreach emails. One of the last enrichment features still missing versus the original POC." },
+      { owner: "jonathan", text: "Add planning applications signal (Idox council portal scrapers) to widen the funnel beyond Companies House" },
+      { owner: "jonathan", text: "Build a re-enrichment queue that retries fresh leads 14 to 90 days later, once their website or Google listing has had time to appear" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     nextMilestone: "First live weekly test"
