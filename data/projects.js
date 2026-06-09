@@ -8,7 +8,7 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-09",
     summary:
-      "Automated weekly lead generation for MacFire. Monitors council planning portals across Central Scotland for private commercial applications — new builds, fit-outs, and change-of-use submissions by businesses that will need fire safety compliance. Cross-referenced with Companies House director data and social signals to rank leads and surface contact details.",
+      "Automated weekly lead generation for MacFire. Monitors Companies House and planning portals across Scotland, capturing every new company registration and every fresh planning application (new builds, fit-outs, change-of-use) in the regions that matter (Falkirk, Stirling, Clackmannanshire, Fife, Edinburgh, Glasgow and the central belt postcodes). Each lead is scored for fire safety relevance using SIC codes that flag likely work (hospitality, retail, care, leisure, manufacturing, fit-out trades), then enriched with director appointment history, Google Places verification, Street View imagery and website detection, so MacFire can focus on the businesses most likely to need a fire safety contractor next.",
     functionLine:
       "Find private commercial planning applicants in Central Scotland who will need fire safety work, rank them by priority, and surface director contact details for outreach.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
@@ -32,7 +32,7 @@ window.MACFIRE_PROJECTS = [
     nextSteps: [
       { owner: "jonathan", text: "Add contact discovery (Hunter/Apollo) plus AI-drafted outreach emails. One of the last enrichment features still missing versus the original POC." },
       { owner: "jonathan", text: "Add planning applications signal (Idox council portal scrapers) to widen the funnel beyond Companies House" },
-      { owner: "jonathan", text: "Build a re-enrichment queue that retries fresh leads 14 to 90 days later, once their website or Google listing has had time to appear" }
+      { owner: "jonathan", text: "Build a re-enrichment queue that retries fresh leads 14 to 90 days later, once their website, social media or Google listing has had time to appear" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     nextMilestone: "First live weekly test"
@@ -42,12 +42,12 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 55,
+    progress: 75,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-08",
+    lastUpdated: "2026-06-09",
     summary:
-      "Drafts social posts for LinkedIn, Facebook and X by checking public regulation and standards updates, turning verified source material into channel-ready drafts with source links attached.",
-    functionLine: "",
+      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini, with source links and a human review step before anything is published.",
+    functionLine: "Monitor public Scottish regulation sources, auto-draft channel-ready social posts from new updates, and keep a human approval step before publishing.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
@@ -60,16 +60,19 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-08", text: "First live source pull — radar fetched a story today" },
-      { date: "2026-05-29", text: "Content drafting process built with a preview page" },
-      { date: "2026-05-29", text: "Every draft now includes source links and a confidence note" }
+      { date: "2026-06-09", text: "Stage 2 weekly source monitor live: every Monday the radar checks the Scottish Building Standards blog, gov.scot building standards updates, and new Scottish statutory instruments for fire and building, then auto-triggers draft generation for anything new" },
+      { date: "2026-06-09", text: "First auto-generated draft committed by the bot (20m Single Open Call funding increase post), end-to-end source pull through to channel-ready copy with no manual writing step" },
+      { date: "2026-06-08", text: "Stage 1 AI draft generator shipped: one-click GitHub Action takes a source URL plus notes and writes LinkedIn, Facebook and X drafts using Gemini 2.5 Flash, committing straight to the preview" },
+      { date: "2026-05-29", text: "Content drafting process built with a live preview page that renders every draft as a Facebook, X and LinkedIn-style card" },
+      { date: "2026-05-29", text: "Every draft now includes source links and a confidence note so the human reviewer can verify before publishing" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Connect the drafting setup so it turns regulation updates into LinkedIn, Facebook and X drafts automatically" },
-      { owner: "jonathan", text: "Set up regular checks of the key Scottish fire regulation sources" }
+      { owner: "jonathan", text: "Stage 3 publish pipeline: push approved drafts straight to LinkedIn and Facebook on a schedule, with status moving from draft to approved to published in the post frontmatter" },
+      { owner: "jonathan", text: "Widen the monitored source list (SFRS news, more gov.scot policy feeds) and tune per-source notes templates so drafts hit the right angle for each channel" },
+      { owner: "jonathan", text: "Confirm with Dougie which platforms matter most and whether Stage 3 should auto-post or always wait for manual approval" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "First automatic social post drafts"
+    nextMilestone: "Stage 3 publish pipeline to LinkedIn and Facebook"
   },
   {
     id: "macfire-website-redesign",
