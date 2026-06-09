@@ -8,7 +8,7 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-09",
     summary:
-      "Automated weekly lead generation for MacFire. Monitors Companies House and planning portals across Scotland, capturing every new company registration and every fresh planning application (new builds, fit-outs, change-of-use) in the regions that matter (Falkirk, Stirling, Clackmannanshire, Fife, Edinburgh, Glasgow and the central belt postcodes). Each lead is scored for fire safety relevance using SIC codes that flag likely work (hospitality, retail, care, leisure, manufacturing, fit-out trades), then enriched with director appointment history, Google Places verification, Street View imagery and website detection, so MacFire can focus on the businesses most likely to need a fire safety contractor next.",
+      "Automated lead generation for MacFire. The production scout is being brought back to full POC parity: Companies House and planning signals, Google Places and Street View, website/contact discovery, director history, re-enrichment, AI-drafted outreach, and social evidence from Facebook, X, LinkedIn and Instagram. Each lead is scored for fire safety relevance so MacFire can focus on the businesses most likely to need a fire safety contractor next.",
     functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
@@ -22,6 +22,7 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-09", text: "Instagram added to the social enrichment plan and support code, joining Facebook, X and LinkedIn as evidence/contact discovery sources" },
       { date: "2026-06-09", text: "Lead detail drawer + shareable URLs: click any lead for a Street View image, full confidence breakdown, director history and website intel; filters and individual leads now save to the URL for bookmarking and sharing" },
       { date: "2026-06-09", text: "Director appointment history added: every lead shows how many other companies the lead director has run (and how many were dissolved), flagging serial company-formers" },
       { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" },
@@ -29,9 +30,9 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-09", text: "Four-dimension confidence scoring: every lead now carries Premises / Operational / Compliance / Reach scores 0-100, summarised on each card" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Add contact discovery (Hunter/Apollo) plus AI-drafted outreach emails. One of the last enrichment features still missing versus the original POC." },
-      { owner: "jonathan", text: "Add planning applications signal (Idox council portal scrapers) to widen the funnel beyond Companies House" },
-      { owner: "jonathan", text: "Build a re-enrichment queue that retries fresh leads 14 to 90 days later, once their website, social media or Google listing has had time to appear" }
+      { owner: "jonathan", text: "Wire social enrichment into the production scout and Supabase rows: Facebook, X, LinkedIn and Instagram evidence links, matched confidence, and contact clues" },
+      { owner: "jonathan", text: "Finish POC parity in production: planning applications, website phone/email scraping, re-enrichment queue and gated outreach drafts" },
+      { owner: "jonathan", text: "Surface production run health, social evidence and contact discovery status in the live dashboard" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     nextMilestone: "First live weekly test"
@@ -41,11 +42,11 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 75,
+    progress: 86,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-09",
     summary:
-      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini, with source links and a human review step before anything is published.",
+      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini. The editorial dashboard now shows the review queue, platform cards, approval checks, a content calendar, and local approve/decline/schedule controls before any guarded publishing can happen.",
     functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
@@ -59,6 +60,9 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-09", text: "Editorial dashboard now supports approve, decline and schedule actions through a local review server that writes decisions back to markdown frontmatter" },
+      { date: "2026-06-09", text: "Guarded Stage 3 publish pipeline built: dry-run by default, approved/scheduled posts only, live Facebook/LinkedIn posting requires explicit safety switch and platform tokens" },
+      { date: "2026-06-09", text: "Content calendar added for scheduled posts and known fire-safety/building-standards dates" },
       { date: "2026-06-09", text: "Stage 2 weekly source monitor live: every Monday the radar checks the Scottish Building Standards blog, gov.scot building standards updates, and new Scottish statutory instruments for fire and building, then auto-triggers draft generation for anything new" },
       { date: "2026-06-09", text: "First auto-generated draft committed by the bot (20m Single Open Call funding increase post), end-to-end source pull through to channel-ready copy with no manual writing step" },
       { date: "2026-06-08", text: "Stage 1 AI draft generator shipped: one-click GitHub Action takes a source URL plus notes and writes LinkedIn, Facebook and X drafts using Gemini 2.5 Flash, committing straight to the preview" },
@@ -66,23 +70,23 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-29", text: "Every draft now includes source links and a confidence note so the human reviewer can verify before publishing" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Stage 3 publish pipeline: push approved drafts straight to LinkedIn and Facebook on a schedule, with status moving from draft to approved to published in the post frontmatter" },
+      { owner: "jonathan", text: "Run one dry-run publish test with an approved post, then one live smoke test once Facebook and LinkedIn tokens are confirmed" },
       { owner: "jonathan", text: "Widen the monitored source list (SFRS news, more gov.scot policy feeds) and tune per-source notes templates so drafts hit the right angle for each channel" },
-      { owner: "jonathan", text: "Confirm with Dougie which platforms matter most and whether Stage 3 should auto-post or always wait for manual approval" }
+      { owner: "jonathan", text: "Decide whether Dougie needs a hosted authenticated approval UI, or whether Jonathan-run local review is enough for the pilot" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Stage 3 publish pipeline to LinkedIn and Facebook"
+    nextMilestone: "Dry-run publish test, then first live approved LinkedIn/Facebook post"
   },
   {
     id: "macfire-website-redesign",
     name: "MacFire Website Redesign",
     category: "Brand & Web",
-    status: "pilot",
+    status: "paused",
     progress: 70,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-08",
+    lastUpdated: "2026-06-09",
     summary:
-      "Moves macfireltd.co.uk towards a production-ready website by using the completed audit and two demo directions — a minimal update and a full redesign — to choose the direction that feels right for MacFire.",
+      "Paused for now. The completed audit and two demo directions remain available for later: a minimal update and a full redesign. Current delivery focus has moved back to AI Scout and Content Radar.",
     functionLine: "",
     repoUrl: "",
     outputLinks: [
@@ -106,10 +110,10 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Phase 3: confirm thoughts and next steps, including whether to keep the current site and fix the HTTPS problem" },
-      { owner: "jonathan", text: "Turn the chosen next step into a practical handoff or fix plan" }
+      { owner: "jonathan", text: "Keep paused while AI Scout and Content Radar are brought to the expected operating state" },
+      { owner: "jonathan", text: "When resumed, decide whether to keep the current site and fix HTTPS first, or move forward with one of the demo directions" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Confirm thoughts and next steps, including the HTTPS fix option"
+    nextMilestone: "Paused until AI Scout and Content Radar are stable"
   }
 ];

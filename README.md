@@ -48,3 +48,9 @@ Open `http://localhost:4173`.
 - `macfire-content-radar` - social content drafting, editorial preview, publish pipeline, and calendar.
 - `macfire-ai-lead-scout` - static Supabase lead dashboard.
 - `macfire-projects-dashboard` - this portfolio/status dashboard.
+
+## Current Priorities
+
+- AI Lead Scout: restore full POC parity in production, including Facebook, X, LinkedIn, and Instagram enrichment.
+- Content Radar: operate the guarded editorial dashboard, calendar, and human-approved publish pipeline.
+- Website redesign: paused until the two active systems are stable.

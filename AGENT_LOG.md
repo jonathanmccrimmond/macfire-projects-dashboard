@@ -25,12 +25,10 @@ Current MacFire repos:
 
 The user wants Claude-readable markdown across the MacFire project repos.
 
-Lead Scout dashboard work is parked. Active project work is Content Radar:
+AI Scout and Content Radar are active. Website work is paused. Current active scope:
 
-- publish pipeline
-- improved editorial dashboard/interface
-- calendar of events/content
-- human approval before auto-posting
+- AI Scout: POC parity, including Facebook, X, LinkedIn, and Instagram enrichment.
+- Content Radar: publish pipeline, improved editorial dashboard/interface, calendar, and human approval before auto-posting.
 
 ### Follow-Up
 
@@ -41,3 +39,9 @@ After the Content Radar branch is merged, update `data/projects.js` so the Conte
 - calendar
 - human-in-the-loop approval gate
 - X preview remains available, but X live publishing is not implemented yet
+
+## 2026-06-09 - Dashboard state refresh
+
+- Updated the AI Scout card to reflect the parity push: social enrichment now includes Facebook, X, LinkedIn, and Instagram as required sources.
+- Updated the Content Radar card to reflect the guarded publish pipeline, editorial review queue, approve/decline/schedule controls, and calendar.
+- Marked the website redesign card as paused while AI Scout and Content Radar are the active priorities.
