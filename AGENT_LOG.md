@@ -46,3 +46,4 @@ After the Content Radar branch is merged, update `data/projects.js` so the Conte
 - Updated the Content Radar card to reflect the guarded publish pipeline, editorial review queue, approve/decline/schedule controls, and calendar.
 - Marked the website redesign card as paused while AI Scout and Content Radar are the active priorities.
 - Added the Content Radar GitHub Actions review workflow to the dashboard status.
+- Added AI Scout run-health visibility to the dashboard status.
