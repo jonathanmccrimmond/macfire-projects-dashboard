@@ -9,8 +9,7 @@ window.MACFIRE_PROJECTS = [
     lastUpdated: "2026-06-09",
     summary:
       "Automated weekly lead generation for MacFire. Monitors Companies House and planning portals across Scotland, capturing every new company registration and every fresh planning application (new builds, fit-outs, change-of-use) in the regions that matter (Falkirk, Stirling, Clackmannanshire, Fife, Edinburgh, Glasgow and the central belt postcodes). Each lead is scored for fire safety relevance using SIC codes that flag likely work (hospitality, retail, care, leisure, manufacturing, fit-out trades), then enriched with director appointment history, Google Places verification, Street View imagery and website detection, so MacFire can focus on the businesses most likely to need a fire safety contractor next.",
-    functionLine:
-      "Find private commercial planning applicants in Central Scotland who will need fire safety work, rank them by priority, and surface director contact details for outreach.",
+    functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -47,7 +46,7 @@ window.MACFIRE_PROJECTS = [
     lastUpdated: "2026-06-09",
     summary:
       "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini, with source links and a human review step before anything is published.",
-    functionLine: "Monitor public Scottish regulation sources, auto-draft channel-ready social posts from new updates, and keep a human approval step before publishing.",
+    functionLine: "",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
