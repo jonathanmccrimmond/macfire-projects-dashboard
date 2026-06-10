@@ -175,6 +175,16 @@
       align-self: stretch;
       gap: 8px;
       animation: riseIn 520ms ease both;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible {
+      border-color: var(--navy);
+      box-shadow: 0 18px 42px rgba(26, 31, 60, 0.14);
+      transform: translateY(-1px);
+      outline: none;
     }
 
     .card-top {
@@ -435,6 +445,141 @@
 
     .feedback-link:hover { color: var(--accent); }
 
+    /* ── Project detail drawer ───────────────────────────────── */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 21, 48, 0.42);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease;
+      z-index: 20;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .project-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(560px, 94vw);
+      background: var(--panel);
+      border-left: 1px solid var(--line);
+      box-shadow: -20px 0 42px rgba(26, 31, 60, 0.18);
+      transform: translateX(100%);
+      transition: transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      z-index: 21;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-drawer.open { transform: translateX(0); }
+
+    .drawer-head {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 10px;
+    }
+
+    .drawer-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .drawer-title {
+      margin: 0;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      font-size: 26px;
+      line-height: 1.05;
+    }
+
+    .drawer-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--panel-strong);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .drawer-close:hover { border-color: var(--navy); }
+
+    .drawer-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .drawer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .drawer-chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: var(--muted);
+      background: var(--panel-strong);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .drawer-body {
+      padding: 18px 22px 26px;
+      overflow-y: auto;
+    }
+
+    .drawer-count {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .drawer-wins {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .drawer-win {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel-strong);
+      padding: 11px 12px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .drawer-win time {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .drawer-win span {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
     @media (max-width: 560px) {
       .card-actions {
         align-items: flex-start;
@@ -491,12 +636,20 @@
     <main class="grid" id="project-grid"></main>
   </div>
 
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="project-drawer" class="project-drawer" aria-hidden="true" aria-labelledby="drawer-title">
+    <div id="drawer-content"></div>
+  </aside>
+
   <script src="data/projects.js"></script>
   <script>
     const projectGrid = document.getElementById("project-grid");
     const statsEl     = document.getElementById("stats");
     const filtersEl   = document.getElementById("filters");
     const lastUpdWrap = document.getElementById("last-updated-wrap");
+    const drawer      = document.getElementById("project-drawer");
+    const drawerBg    = document.getElementById("drawer-backdrop");
+    const drawerBody  = document.getElementById("drawer-content");
 
     const projects = Array.isArray(window.MACFIRE_PROJECTS) ? window.MACFIRE_PROJECTS : [];
 
@@ -577,6 +730,64 @@
         </div>`;
     }
 
+    // ── Project detail drawer ────────────────────────────────────────────────
+    function projectById(id) {
+      return projects.find(p => p.id === id);
+    }
+
+    function renderDrawerWins(wins) {
+      if (!Array.isArray(wins) || !wins.length) {
+        return `<div class="empty">No completed items logged for this project yet.</div>`;
+      }
+
+      return `
+        <p class="drawer-count">${wins.length} completed ${wins.length === 1 ? "item" : "items"}</p>
+        <ul class="drawer-wins">
+          ${wins.map(w => `
+            <li class="drawer-win">
+              <time>${esc(w.date || "No date")}</time>
+              <span>${esc(w.text || "")}</span>
+            </li>`).join("")}
+        </ul>`;
+    }
+
+    function openProjectDrawer(id) {
+      const project = projectById(id);
+      if (!project) return;
+
+      const status = formatStatus(project.status);
+      const wins = Array.isArray(project.activityLog) ? project.activityLog : project.recentWins;
+
+      drawerBody.innerHTML = `
+        <div class="drawer-head">
+          <div class="drawer-title-row">
+            <div>
+              <h2 class="drawer-title" id="drawer-title">${esc(project.name || "Untitled Project")}</h2>
+              <p class="drawer-subtitle">${esc(project.summary || "")}</p>
+            </div>
+            <button class="drawer-close" type="button" aria-label="Close project details" onclick="closeProjectDrawer()">×</button>
+          </div>
+          <div class="drawer-meta">
+            <span class="badge ${status}">${status}</span>
+            <span class="drawer-chip">${Number(project.progress) || 0}% progress</span>
+            <span class="drawer-chip">Updated ${esc(project.lastUpdated || "n/a")}</span>
+          </div>
+        </div>
+        <div class="drawer-body">
+          ${renderDrawerWins(wins)}
+        </div>`;
+
+      drawer.classList.add("open");
+      drawerBg.classList.add("open");
+      drawer.setAttribute("aria-hidden", "false");
+    }
+
+    function closeProjectDrawer() {
+      drawer.classList.remove("open");
+      drawerBg.classList.remove("open");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+
     // ── Next steps ────────────────────────────────────────────────────────────
     function renderNextSteps(steps) {
       if (!Array.isArray(steps) || !steps.length) return "";
@@ -627,7 +838,7 @@
         const outputLinks = Array.isArray(project.outputLinks) ? project.outputLinks : [];
 
         return `
-          <article class="project-card">
+          <article class="project-card" tabindex="0" role="button" aria-label="Open ${esc(project.name || "project")} activity history" data-project-id="${esc(project.id || "")}">
             <div class="card-top">
               <div class="row">
                 <div>
@@ -672,6 +883,18 @@
             </div>
           </article>`;
       }).join("");
+
+      projectGrid.querySelectorAll(".project-card").forEach(card => {
+        card.addEventListener("click", event => {
+          if (event.target.closest("a, button")) return;
+          openProjectDrawer(card.getAttribute("data-project-id"));
+        });
+        card.addEventListener("keydown", event => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          openProjectDrawer(card.getAttribute("data-project-id"));
+        });
+      });
     }
 
     // ── Filters ───────────────────────────────────────────────────────────────
@@ -696,6 +919,10 @@
     buildStats(projects);
     renderFilters("all");
     renderProjects("all");
+    drawerBg.addEventListener("click", closeProjectDrawer);
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeProjectDrawer();
+    });
   </script>
 </body>
 </html>

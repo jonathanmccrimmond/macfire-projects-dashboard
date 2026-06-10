@@ -28,6 +28,20 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-09", text: "Each lead now shows its director's other companies, flagging repeat formations" },
       { date: "2026-06-09", text: "Website detection live: each lead's site is checked for signs of trading" }
     ],
+    activityLog: [
+      { date: "2026-06-09", text: "Cloud migration designed: the scout will run daily with no manual involvement" },
+      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" },
+      { date: "2026-06-09", text: "Lead detail view added: imagery, score breakdown and director history at a click" },
+      { date: "2026-06-09", text: "Each lead now shows its director's other companies, flagging repeat formations" },
+      { date: "2026-06-09", text: "Website detection live: each lead's site is checked for signs of trading" },
+      { date: "2026-06-09", text: "Verified business checks added, including phone numbers and Street View where available" },
+      { date: "2026-06-09", text: "Confidence scoring added across premises, trading, compliance and contactability" },
+      { date: "2026-06-08", text: "Live dashboard rebuilt with key numbers, lead queues, charts and status actions" },
+      { date: "2026-06-08", text: "Lead records moved from the old workspace into the database" },
+      { date: "2026-06-06", text: "Council coverage expanded across Central Scotland planning portals" },
+      { date: "2026-06-06", text: "New company registrations detected across fire-risk business categories" },
+      { date: "2026-06-06", text: "Outreach email drafts created automatically for each relevant lead" }
+    ],
     nextSteps: [
       { owner: "jonathan", text: "Import the 443 leads into the production database" },
       { owner: "jonathan", text: "Run a full test of the daily check in the cloud" },
@@ -62,6 +76,14 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
       { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
       { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
+      { date: "2026-05-29", text: "Preview page shows each draft exactly as it would appear when posted" },
+      { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
+    ],
+    activityLog: [
+      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
+      { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
+      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
+      { date: "2026-06-08", text: "First live source pull completed for a real fire-safety story" },
       { date: "2026-05-29", text: "Preview page shows each draft exactly as it would appear when posted" },
       { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
     ],
@@ -100,6 +122,12 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1Ayp1Qx_4AD1OQEJdlcxNhn0_prxY7JpU/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-08", text: "Both demo sites built and published for comparison" },
+      { date: "2026-05-30", text: "Full redesign demo: mobile-friendly, clearer services and a simpler contact flow" },
+      { date: "2026-05-30", text: "Light refresh demo built as the lower-change option" },
+      { date: "2026-05-26", text: "Full audit of the current site complete, covering speed, search and enquiries" }
+    ],
+    activityLog: [
       { date: "2026-06-08", text: "Both demo sites built and published for comparison" },
       { date: "2026-05-30", text: "Full redesign demo: mobile-friendly, clearer services and a simpler contact flow" },
       { date: "2026-05-30", text: "Light refresh demo built as the lower-change option" },

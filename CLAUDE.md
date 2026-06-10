@@ -17,7 +17,8 @@ Each project object has:
   owner, lastUpdated,                          // meta
   summary, functionLine, notes,                // descriptions
   repoUrl, outputLinks, deckLink,              // links
-  recentWins:     [{ date, text }],            // newest first, keep last 5
+  recentWins:     [{ date, text }],            // newest first, keep last 5 for cards
+  activityLog:    [{ date, text }],            // newest first, full drawer history
   nextSteps:      [{ owner: 'jonathan', text }],
   feedbackEmail,                               // pre-fills mailto links
   nextMilestone, confidentiality               // summary fields
@@ -59,7 +60,7 @@ edited there directly. The Drive copies are the source of truth.
 
 **After completing meaningful work on any tracked project, update `data/projects.js`:**
 
-1. Add new item(s) to `recentWins` (newest first, keep only last 5)
+1. Add new item(s) to `activityLog` and `recentWins` (newest first; keep `recentWins` to the last 5)
 2. Update `nextSteps` — remove completed items, add new ones
 3. Update `progress` (0–100) and `lastUpdated` (YYYY-MM-DD)
 4. Follow the writing style rules above
