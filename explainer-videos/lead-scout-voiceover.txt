@@ -1,0 +1,17 @@
+This is the MacFire Lead Scout dashboard.
+
+The idea is simple. Instead of waiting for referrals, or working from a broad contact list, the scout looks for businesses that are likely to need fire protection work soon.
+
+It watches sources like Companies House and planning applications, then filters out anything that does not look relevant. Residential projects, weak matches, and duplicate records are pushed down or removed.
+
+The useful commercial opportunities are scored and brought into this list.
+
+For each lead, you can see the key details. Who the business is, where they are, why they were found, and what contact information is available.
+
+The dashboard is meant to be a working list, not another database to maintain.
+
+You review the best leads, mark what is worth following up, reject anything that is not a fit, and keep the outreach focused on a handful of good prospects each week.
+
+In future, the same system can go further. It can draft an email in MacFire's tone, wait for approval, and help follow up when the timing is right.
+
+The goal is more good conversations with the right businesses, without Dougie having to manually search through hundreds of possible names.

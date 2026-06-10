@@ -1,0 +1,19 @@
+This is the MacFire Content Radar.
+
+The problem it solves is consistency. MacFire already has useful things to say, but staying active online takes time, and it is easy for social media to go quiet when real work gets busy.
+
+The Content Radar watches for relevant topics, such as fire safety updates, building standards, compliance reminders, training opportunities, and seasonal advice customers should know about.
+
+It turns those topics into draft posts for Facebook, LinkedIn, or X.
+
+The key point is that these are drafts. Nothing needs to go live without approval.
+
+The current workflow is simple. Review the draft, approve it if it sounds right, make edits if needed, then add it to the calendar.
+
+From there, posting can be handled manually on the day, or triggered by an email or reminder to Jonathan or Doogie.
+
+The future workflow is more automated. Once a post is approved and scheduled, it can sit in a publishing queue.
+
+On the scheduled date, the system posts it automatically to the right channel.
+
+That means Dougie still controls what MacFire says, but the system handles the routine work. Finding ideas, preparing drafts, keeping a calendar, and making sure approved posts actually go out.

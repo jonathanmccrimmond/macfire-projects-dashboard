@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MacFire Explainer Videos</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #0b1020;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+    .player {
+      width: min(1420px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 14px 0 24px;
+    }
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .controls h1 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.1;
+    }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    button {
+      min-height: 38px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 8px;
+      background: rgba(255,255,255,.07);
+      color: #f8fafc;
+      padding: 8px 12px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button.active { background: #c31e1f; border-color: #c31e1f; }
+    button.play { background: #f8fafc; color: #111827; border-color: #f8fafc; }
+    .stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 20px 70px rgba(0,0,0,.42);
+      background: #111827;
+    }
+    .scene {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .45s ease;
+      pointer-events: none;
+    }
+    .scene.active { opacity: 1; pointer-events: auto; }
+    .cursor {
+      position: fixed;
+      z-index: 30;
+      width: 28px;
+      height: 28px;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 7px rgba(0,0,0,.35));
+      transition: transform 1.55s cubic-bezier(.22,.85,.24,1);
+    }
+    .cursor svg { width: 100%; height: 100%; display: block; }
+    .caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+    .voice-note {
+      color: #94a3b8;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    audio { width: 360px; max-width: 100%; }
+
+    /* Lead Scout: mirrors the live dark dashboard */
+    .lead-scene {
+      --bg: #101624;
+      --card: #171f32;
+      --card2: #1d263a;
+      --border: #344058;
+      --text: #f4f7fb;
+      --muted: #8f9ab0;
+      --red: #c31e1f;
+      --green: #10b981;
+      --amber: #f0b429;
+      background: var(--bg);
+      color: var(--text);
+      padding: 16px;
+      font-size: 12px;
+    }
+    .lead-header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      background: #121a2a;
+      border-radius: 9px;
+    }
+    .lead-header-left,
+    .lead-header-right { display: flex; align-items: center; gap: 12px; }
+    .macfire-logo {
+      width: 119px;
+      height: 44px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+    .lead-title { font-size: 15px; font-weight: 800; }
+    .hdr-sub { color: var(--muted); font-size: 11px; margin-top: 2px; }
+    .live-pill,
+    .latest-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 8px;
+      padding: 7px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+    .latest-pill {
+      border-color: rgba(195,30,31,.35);
+      color: #fecaca;
+      background: rgba(195,30,31,.09);
+    }
+    .refresh {
+      background: #c31e1f;
+      border-color: #c31e1f;
+      color: white;
+      min-height: 34px;
+      padding: 7px 11px;
+    }
+    .lead-container { padding-top: 14px; }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 11px 12px;
+      min-height: 78px;
+    }
+    .stat.accent { border-color: rgba(195,30,31,.65); box-shadow: inset 3px 0 0 #c31e1f; }
+    .stat .label {
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: 850;
+      letter-spacing: .02em;
+    }
+    .stat .value {
+      margin-top: 5px;
+      font-size: 28px;
+      font-weight: 850;
+      line-height: 1;
+    }
+    .stat .sub { color: var(--muted); margin-top: 5px; font-size: 11px; }
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.48fr) minmax(300px, .75fr);
+      gap: 12px;
+      min-height: 0;
+    }
+    .lead-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+    .lead-tab {
+      min-height: 34px;
+      border-radius: 7px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 7px 9px;
+      font-size: 12px;
+    }
+    .lead-tab.active {
+      background: rgba(195,30,31,.18);
+      border-color: rgba(195,30,31,.55);
+      color: #fecaca;
+    }
+    .pane,
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 12px;
+    }
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .section-title { font-weight: 850; font-size: 13px; }
+    .section-badge {
+      border-radius: 999px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .lead-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 13px 14px;
+      margin-bottom: 9px;
+    }
+    .lead-card:last-child { margin-bottom: 0; }
+    .lead-top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+    .lead-name { font-size: 14px; font-weight: 800; }
+    .lead-links { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+    .lead-link,
+    .lead-action {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: #131a29;
+      color: var(--text);
+      padding: 5px 8px;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .lead-link.maps { color: #5dade2; border-color: rgba(41,128,185,.5); }
+    .lead-meta { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin-bottom: 7px; }
+    .priority {
+      border-radius: 999px;
+      background: rgba(231,76,60,.13);
+      color: #ff8d82;
+      border: 1px solid rgba(231,76,60,.35);
+      padding: 3px 8px;
+      font-weight: 850;
+    }
+    .score {
+      background: #121827;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 9px;
+      color: #e74c3c;
+      font-weight: 850;
+    }
+    .badge {
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-weight: 850;
+      background: rgba(99,102,241,.16);
+      color: #a5b4fc;
+    }
+    .queue { background: rgba(16,185,129,.15); color: #6ee7b7; }
+    .lead-detail {
+      color: var(--muted);
+      line-height: 1.55;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2px 14px;
+    }
+    .lead-detail strong { color: var(--text); }
+    .lead-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 9px; }
+    .contacted { color: #fbbf24; border-color: rgba(245,158,11,.4); }
+    .meeting { color: #c084fc; border-color: rgba(125,60,152,.48); }
+    .notrel { color: var(--muted); border-color: rgba(148,163,184,.3); }
+    .chart-bars { display: grid; gap: 8px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 88px 1fr 24px;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+    }
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: #111827;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .bar span { display: block; height: 100%; background: #6366f1; }
+    .panel + .section-head { margin-top: 12px; }
+    .donut {
+      width: 154px;
+      height: 154px;
+      margin: 6px auto;
+      border-radius: 50%;
+      background: conic-gradient(#e74c3c 0 42%, #f0b429 42% 72%, #64748b 72% 100%);
+      position: relative;
+    }
+    .donut::after {
+      content: "Priority";
+      position: absolute;
+      inset: 34px;
+      border-radius: 50%;
+      background: var(--card);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .callout {
+      display: none;
+    }
+    .callout strong { display: block; font-size: 17px; margin-bottom: 4px; }
+    .callout span { display: block; color: #cbd5e1; line-height: 1.35; }
+
+    /* Content Radar: mirrors the live preview dashboard */
+    .radar-scene {
+      --bg: #f4e9d8;
+      --surface: #fafaf7;
+      --surface-soft: #f8f1e7;
+      --text: #111111;
+      --muted: #5a5a57;
+      --line: #e6e2d8;
+      --brand: #c31e1f;
+      --deep: #9b1718;
+      --green: #18864b;
+      --fb: #1877f2;
+      --li: #0a66c2;
+      --x: #0f1419;
+      background: var(--bg);
+      color: var(--text);
+      padding: 14px 18px 18px;
+      font-size: 12px;
+    }
+    .radar-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(155,23,24,.18);
+      margin-bottom: 12px;
+    }
+    .brand-row { display: flex; align-items: center; gap: 14px; }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(155,23,24,.12);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-weight: 950;
+    }
+    .eyebrow {
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .radar-hero h2 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.1;
+    }
+    .radar-meta { display: flex; flex-wrap: wrap; gap: 10px; color: var(--muted); }
+    .metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--line);
+      background: rgba(250,250,247,.82);
+      border-radius: 8px;
+      padding: 6px 9px;
+    }
+    .metric-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--deep); }
+    .metric-dot.fb { background: var(--fb); }
+    .metric-dot.x { background: var(--x); }
+    .metric-dot.li { background: var(--li); }
+    .review-desk {
+      display: grid;
+      grid-template-columns: minmax(390px, .92fr) minmax(310px, 1.08fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .calendar-shell,
+    .approval-shell,
+    .history-shell {
+      border: 1px solid rgba(155,23,24,.18);
+      background: rgba(250,250,247,.78);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .calendar-head,
+    .approval-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .calendar-head h3,
+    .approval-head h3 { margin: 0; font-size: 18px; }
+    .month-controls { display: flex; gap: 6px; }
+    .month-btn {
+      width: 34px;
+      height: 34px;
+      min-height: 34px;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid rgba(17,17,17,.14);
+      padding: 0;
+    }
+    .legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; color: var(--muted); }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { width: 9px; height: 9px; border-radius: 999px; background: #8f949b; }
+    .dot.approved { background: var(--green); }
+    .dot.published { background: var(--fb); }
+    .dot.declined { background: var(--deep); }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .weekday {
+      padding: 6px;
+      background: #111;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .day {
+      min-height: 57px;
+      padding: 6px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: #fff;
+    }
+    .day:nth-child(7n) { border-right: 0; }
+    .day.muted { background: #f6f4ef; color: #8b8b87; }
+    .num { font-size: 12px; font-weight: 850; margin-bottom: 5px; }
+    .calendar-post {
+      width: 100%;
+      min-height: 0;
+      text-align: left;
+      border: 1px solid transparent;
+      border-left: 4px solid #8f949b;
+      background: #fafaf7;
+      color: var(--text);
+      border-radius: 6px;
+      padding: 5px 6px;
+      margin-top: 4px;
+      font-size: 10px;
+      line-height: 1.16;
+    }
+    .calendar-post.selected { border-color: rgba(17,17,17,.18); background: #fff; }
+    .calendar-post.approved { border-left-color: var(--green); }
+    .calendar-post.published { border-left-color: var(--fb); }
+    .approval-card {
+      border: 1px solid rgba(17,17,17,.1);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 12px;
+      display: grid;
+      gap: 12px;
+    }
+    .approval-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .approval-card h4 { margin: 0; font-size: 17px; line-height: 1.2; }
+    .status-pill,
+    .freshness-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 850;
+      background: #ece9e0;
+      color: #30302e;
+      text-transform: capitalize;
+    }
+    .freshness-pill { background: #dff3e8; color: #105a34; font-size: 11px; }
+    .context {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .context-row {
+      display: grid;
+      grid-template-columns: 82px minmax(0,1fr);
+      gap: 10px;
+    }
+    .context-row strong { color: var(--text); font-size: 12px; text-transform: uppercase; }
+    .platform-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .platform-tab {
+      min-height: 38px;
+      background: #fff;
+      color: var(--text);
+      border-color: rgba(17,17,17,.14);
+    }
+    .platform-tab.active { background: #111; color: #fff; }
+    .post-preview {
+      border: 1px solid rgba(0,0,0,.1);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      max-height: 132px;
+      overflow: hidden;
+      line-height: 1.42;
+      white-space: pre-wrap;
+    }
+    .decision-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .approve { background: var(--green); border-color: var(--green); color: #fff; }
+    .decline { background: var(--deep); border-color: var(--deep); color: #fff; }
+    .copy { width: 100%; background: #fff; color: #111; border-color: rgba(17,17,17,.14); }
+    .history {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .history-card {
+      border: 1px solid rgba(17,17,17,.1);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 10px;
+      color: var(--text);
+    }
+    .history-card h4 { margin: 0 0 6px; font-size: 13px; }
+    .history-card p { margin: 0; color: var(--muted); line-height: 1.35; }
+
+    @media (max-width: 700px) {
+      .stage { aspect-ratio: 10 / 13; }
+      .controls, .caption { flex-direction: column; align-items: stretch; }
+      .lead-header, .radar-hero { align-items: flex-start; flex-direction: column; height: auto; }
+      .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .main-grid, .review-desk { grid-template-columns: minmax(0, 1fr); }
+      .lead-header-right { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <main class="player">
+    <div class="controls">
+      <h1>MacFire explainer playback</h1>
+      <div class="tabs">
+        <button class="active" data-video="lead">AI Lead Scout</button>
+        <button data-video="radar">Content Radar</button>
+        <button class="play" id="play">Play</button>
+      </div>
+    </div>
+
+    <section class="stage" id="stage">
+      <div class="scene lead-scene active" data-scene="lead">
+        <header class="lead-header">
+          <div class="lead-header-left">
+            <svg class="macfire-logo" viewBox="0 0 270 100" aria-label="MacFire Ltd" xmlns="http://www.w3.org/2000/svg">
+              <rect width="270" height="100" fill="#1A1F3C"/>
+              <rect x="2" y="2" width="117" height="67" fill="#ffffff"/>
+              <rect x="2" y="69" width="266" height="29" fill="#ffffff"/>
+              <text x="7" y="57" font-family="Impact,'Arial Black',sans-serif" font-size="46" fill="#1A1F3C" textLength="107" lengthAdjust="spacingAndGlyphs">Mac</text>
+              <text x="119" y="57" font-family="Impact,'Arial Black',sans-serif" font-size="46" fill="#ffffff" textLength="92" lengthAdjust="spacingAndGlyphs">Fire</text>
+              <text x="213" y="57" font-family="Impact,'Arial Black',sans-serif" font-size="34" fill="#ffffff" textLength="53" lengthAdjust="spacingAndGlyphs">Ltd</text>
+              <text x="135" y="83" text-anchor="middle" dominant-baseline="central" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="17" fill="#C31E1F" letter-spacing="1.5">Fire Protection Company</text>
+            </svg>
+            <div>
+              <div class="lead-title">AI Lead Scout</div>
+              <div class="hdr-sub">Private Commercial Planning Leads, Central Scotland</div>
+            </div>
+          </div>
+          <div class="lead-header-right">
+            <div class="latest-pill">Latest Run · 32 leads · 6 high</div>
+            <div class="live-pill"><span class="live-dot"></span>Updated today</div>
+            <button class="refresh">↻ Refresh</button>
+          </div>
+        </header>
+
+        <div class="lead-container">
+          <div class="kpis">
+            <div class="stat accent"><div class="label">Total Leads</div><div class="value">384</div><div class="sub">Across 18 scout runs</div></div>
+            <div class="stat"><div class="label">High Priority</div><div class="value" style="color:#e74c3c">47</div><div class="sub">Score 75+</div></div>
+            <div class="stat"><div class="label">Qualified & Ready</div><div class="value" style="color:#10b981">12</div><div class="sub">Ready to contact</div></div>
+            <div class="stat"><div class="label">Contacted</div><div class="value">9</div><div class="sub">3 responded</div></div>
+          </div>
+          <div class="kpis">
+            <div class="stat"><div class="label">Meetings Booked</div><div class="value" style="color:#e74c3c">2</div><div class="sub">From pipeline</div></div>
+            <div class="stat"><div class="label">Contracted</div><div class="value" style="color:#10b981">1</div><div class="sub">Signed customers</div></div>
+            <div class="stat"><div class="label">Contact Info Needed</div><div class="value" style="color:#f0b429">8</div><div class="sub">High priority, no contact</div></div>
+            <div class="stat"><div class="label">Needs Profile Data</div><div class="value" style="color:#8f9ab0">15</div><div class="sub">High priority, incomplete</div></div>
+          </div>
+
+          <div class="main-grid">
+            <div>
+              <div class="lead-tabs">
+                <button class="lead-tab active">🏆 Qualified</button>
+                <button class="lead-tab">🔎 Contact Needed</button>
+                <button class="lead-tab">📋 Recent</button>
+                <button class="lead-tab">✅ Contracted</button>
+                <button class="lead-tab">All Leads</button>
+                <button class="lead-tab">🚫 Not Relevant</button>
+              </div>
+              <section class="pane">
+                <div class="section-head">
+                  <div class="section-title">High priority & outreach-ready</div>
+                  <div class="section-badge">12</div>
+                </div>
+                <article class="lead-card">
+                  <div class="lead-top-row">
+                    <div class="lead-name">Clyde Kitchens Ltd</div>
+                    <div class="lead-links"><span class="lead-link maps">📍 Maps</span><span class="lead-link">📷 Street</span></div>
+                  </div>
+                  <div class="lead-meta"><span class="priority">High</span><span class="score">91</span><span class="badge">New Lead</span><span class="badge queue">Ready</span></div>
+                  <div class="lead-detail">
+                    <div><strong>Sector:</strong> Hospitality / restaurant fit-out</div>
+                    <div><strong>Postcode:</strong> G32</div>
+                    <div><strong>Source:</strong> Planning application</div>
+                    <div><strong>Contact:</strong> Website and email found</div>
+                    <div><strong>Reasoning:</strong> Commercial premises, kitchen works, target area.</div>
+                    <div><strong>Profile:</strong> minimum profile complete</div>
+                  </div>
+                  <div class="lead-actions"><span class="lead-action contacted">Mark Contacted</span><span class="lead-action meeting">Meeting Booked</span><span class="lead-action notrel">Not Relevant</span></div>
+                </article>
+                <article class="lead-card">
+                  <div class="lead-top-row">
+                    <div class="lead-name">Kelvin Care Homes</div>
+                    <div class="lead-links"><span class="lead-link maps">📍 Maps</span></div>
+                  </div>
+                  <div class="lead-meta"><span class="priority">High</span><span class="score">86</span><span class="badge">New Lead</span><span class="badge queue">Ready</span></div>
+                  <div class="lead-detail">
+                    <div><strong>Sector:</strong> Care setting</div>
+                    <div><strong>Postcode:</strong> ML1</div>
+                    <div><strong>Source:</strong> Companies House + web profile</div>
+                    <div><strong>Contact:</strong> Phone found</div>
+                  </div>
+                  <div class="lead-actions"><span class="lead-action contacted">Mark Contacted</span><span class="lead-action meeting">Meeting Booked</span><span class="lead-action notrel">Not Relevant</span></div>
+                </article>
+              </section>
+            </div>
+            <aside>
+              <div class="section-head"><div class="section-title">📋 Pipeline Status</div></div>
+              <div class="panel chart-bars">
+                <div class="bar-row"><span>New Lead</span><div class="bar"><span style="width:72%"></span></div><b>42</b></div>
+                <div class="bar-row"><span>Contacted</span><div class="bar"><span style="width:32%;background:#f0b429"></span></div><b>9</b></div>
+                <div class="bar-row"><span>Responded</span><div class="bar"><span style="width:18%;background:#10b981"></span></div><b>3</b></div>
+                <div class="bar-row"><span>Meeting</span><div class="bar"><span style="width:10%;background:#7d3c98"></span></div><b>2</b></div>
+              </div>
+              <div class="section-head"><div class="section-title">Priority Split</div></div>
+              <div class="panel"><div class="donut"></div></div>
+              <div class="section-head"><div class="section-title">🏢 Leads by Sector</div></div>
+              <div class="panel chart-bars">
+                <div class="bar-row"><span>Hospitality</span><div class="bar"><span style="width:78%;background:#5dade2"></span></div><b>18</b></div>
+                <div class="bar-row"><span>Care</span><div class="bar"><span style="width:54%;background:#10b981"></span></div><b>11</b></div>
+                <div class="bar-row"><span>Retail</span><div class="bar"><span style="width:38%;background:#f0b429"></span></div><b>8</b></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div class="callout"><strong>AI Lead Scout</strong><span>This now mirrors the live dashboard: KPIs, queue tabs, lead cards, maps/street links, and the status buttons Dougie actually uses.</span></div>
+      </div>
+
+      <div class="scene radar-scene" data-scene="radar">
+        <header class="radar-hero">
+          <div class="brand-row">
+            <div class="brand-mark">MF</div>
+            <div><div class="eyebrow">MacFire Content Radar</div><h2>Review calendar</h2></div>
+          </div>
+          <div class="radar-meta">
+            <div class="metric"><span class="metric-dot"></span><strong>18</strong> draft topics</div>
+            <div class="metric"><span class="metric-dot fb"></span>Facebook</div>
+            <div class="metric"><span class="metric-dot x"></span>X</div>
+            <div class="metric"><span class="metric-dot li"></span>LinkedIn</div>
+          </div>
+        </header>
+
+        <div class="review-desk">
+          <section class="calendar-shell">
+            <div class="calendar-head">
+              <h3>June 2026</h3>
+              <div class="month-controls"><button class="month-btn">&lt;</button><button class="month-btn">&gt;</button></div>
+            </div>
+            <div class="legend"><span><i class="dot"></i>Draft</span><span><i class="dot approved"></i>Approved</span><span><i class="dot published"></i>Published</span><span><i class="dot declined"></i>Declined</span></div>
+            <div class="calendar-grid">
+              <div class="weekday">Mon</div><div class="weekday">Tue</div><div class="weekday">Wed</div><div class="weekday">Thu</div><div class="weekday">Fri</div><div class="weekday">Sat</div><div class="weekday">Sun</div>
+              <div class="day muted"><div class="num">1</div></div><div class="day"><div class="num">2</div></div><div class="day"><div class="num">3</div></div><div class="day"><div class="num">4</div></div><div class="day"><div class="num">5</div></div><div class="day"><div class="num">6</div></div><div class="day"><div class="num">7</div></div>
+              <div class="day"><div class="num">8</div><button class="calendar-post selected">Scottish Government Funding Boost for Fire Alarm Upgrades</button></div><div class="day"><div class="num">9</div></div><div class="day"><div class="num">10</div></div><div class="day"><div class="num">11</div></div><div class="day"><div class="num">12</div><button class="calendar-post approved">Summer hospitality readiness</button></div><div class="day"><div class="num">13</div></div><div class="day"><div class="num">14</div></div>
+              <div class="day"><div class="num">15</div></div><div class="day"><div class="num">16</div></div><div class="day"><div class="num">17</div></div><div class="day"><div class="num">18</div><button class="calendar-post">Care settings: a few summer fire-safety checks</button></div><div class="day"><div class="num">19</div></div><div class="day"><div class="num">20</div></div><div class="day"><div class="num">21</div></div>
+              <div class="day"><div class="num">22</div></div><div class="day"><div class="num">23</div></div><div class="day"><div class="num">24</div></div><div class="day"><div class="num">25</div></div><div class="day"><div class="num">26</div></div><div class="day"><div class="num">27</div></div><div class="day"><div class="num">28</div></div>
+              <div class="day"><div class="num">29</div></div><div class="day"><div class="num">30</div></div><div class="day muted"><div class="num">1</div></div><div class="day muted"><div class="num">2</div></div><div class="day muted"><div class="num">3</div></div><div class="day muted"><div class="num">4</div></div><div class="day muted"><div class="num">5</div></div>
+            </div>
+          </section>
+
+          <section class="approval-shell">
+            <div class="approval-head"><h3>Next draft awaiting approval</h3><span class="freshness-pill">Fresh source</span></div>
+            <article class="approval-card">
+              <div class="approval-card-head">
+                <h4>Scottish Government Funding Boost for Fire Alarm Upgrades</h4>
+                <span class="status-pill">draft</span>
+              </div>
+              <div class="context">
+                <div class="context-row"><strong>Date</strong><span>8 June 2026</span></div>
+                <div class="context-row"><strong>Source</strong><span>Cladding Remediation Programme Next Phase Plan Action</span></div>
+                <div class="context-row"><strong>Use</strong><span>Review the platform copy, copy text if needed, then approve or decline.</span></div>
+              </div>
+              <div class="platform-tabs"><button class="platform-tab active">Facebook</button><button class="platform-tab">LinkedIn</button><button class="platform-tab">X</button></div>
+              <div class="post-preview">The Scottish Government's Cladding Remediation Programme is boosting building safety with a funding allocation for fire alarm upgrades in multi-owner buildings with cladding.
+
+This is a useful reminder that fire alarm systems should be checked early, especially where building work or remediation is planned.</div>
+              <button class="copy">Copy Facebook text</button>
+              <div class="decision-row"><button class="approve">Approve</button><button class="decline">Decline</button></div>
+            </article>
+            <div class="history">
+              <div class="history-card"><h4>Approved</h4><p>Summer hospitality readiness</p></div>
+              <div class="history-card"><h4>Draft</h4><p>Care settings summer checks</p></div>
+              <div class="history-card"><h4>Future</h4><p>Approved posts enter the Social Media Agent queue.</p></div>
+            </div>
+          </section>
+        </div>
+        <div class="callout"><strong>Content Radar</strong><span>This now follows the live preview: review calendar, month controls, platform copy, freshness/source context, approve/decline, and future guarded auto-posting.</span></div>
+      </div>
+
+      <div class="cursor" id="cursor" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none"><path d="M5 3l20 18-10 1-5 8L5 3z" fill="#fff" stroke="#111820" stroke-width="2"/></svg>
+      </div>
+    </section>
+
+    <div class="caption">
+      <div>
+        <p id="caption">The AI Lead Scout walkthrough now reflects the live dashboard surface and workflow.</p>
+        <div class="voice-note" id="voice-note">Voice: Moira, soft female narration</div>
+      </div>
+      <audio id="audio" controls src="audio/lead-scout-female.wav?v=moira2"></audio>
+    </div>
+  </main>
+
+  <script>
+    const stage = document.getElementById("stage");
+    const cursor = document.getElementById("cursor");
+    const caption = document.getElementById("caption");
+    const audio = document.getElementById("audio");
+    const play = document.getElementById("play");
+    const buttons = [...document.querySelectorAll("[data-video]")];
+    const scenes = [...document.querySelectorAll(".scene")];
+
+    const videos = {
+      lead: {
+        scene: "lead",
+        audio: "audio/lead-scout-female.wav?v=moira2",
+        caption: "The AI Lead Scout walkthrough now reflects the live dashboard surface and workflow.",
+        path: [[11,8],[44,18],[16,36],[22,55],[42,64],[53,74],[80,31],[84,54],[31,76]]
+      },
+      radar: {
+        scene: "radar",
+        audio: "audio/content-radar-female.wav?v=moira2",
+        caption: "The Content Radar walkthrough now reflects the live review calendar and approval workflow.",
+        path: [[12,8],[73,9],[41,16],[22,36],[67,28],[78,55],[73,69],[84,78]]
+      }
+    };
+
+    let active = "lead";
+    let timer;
+
+    function moveCursor(key) {
+      clearInterval(timer);
+      const rect = stage.getBoundingClientRect();
+      const path = videos[key].path;
+      let i = 0;
+      const move = () => {
+        const [px, py] = path[i % path.length];
+        cursor.style.transform = `translate(${rect.left + rect.width * px / 100}px, ${rect.top + rect.height * py / 100}px)`;
+        i += 1;
+      };
+      move();
+      timer = setInterval(move, 5000);
+    }
+
+    function switchVideo(key, shouldPlay = false) {
+      active = key;
+      buttons.forEach((button) => button.classList.toggle("active", button.dataset.video === key));
+      scenes.forEach((scene) => scene.classList.toggle("active", scene.dataset.scene === videos[key].scene));
+      caption.textContent = videos[key].caption;
+      audio.src = videos[key].audio;
+      audio.load();
+      moveCursor(key);
+      if (shouldPlay) audio.play().catch(() => {});
+    }
+
+    buttons.forEach((button) => button.addEventListener("click", () => switchVideo(button.dataset.video, true)));
+    play.addEventListener("click", () => {
+      audio.currentTime = 0;
+      switchVideo(active, true);
+    });
+    window.addEventListener("resize", () => moveCursor(active));
+    window.addEventListener("load", () => moveCursor(active));
+  </script>
+</body>
+</html>
