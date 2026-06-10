@@ -1,17 +1,23 @@
-This is the MacFire Lead Scout dashboard.
+This is the AI Lead Scout dashboard as it is today.
 
-The idea is simple. Instead of waiting for referrals, or working from a broad contact list, the scout looks for businesses that are likely to need fire protection work soon.
+Start with the summary cards at the top. Total Leads is the full database. High Priority shows the stronger matches. Qualified and Ready is the queue to check first.
 
-It watches sources like Companies House and planning applications, then filters out anything that does not look relevant. Residential projects, weak matches, and duplicate records are pushed down or removed.
+Click Qualified. This is the working list for leads that look worth reviewing.
 
-The useful commercial opportunities are scored and brought into this list.
+On each lead card, start with the company name and score. Then check the sector, postcode, source, contact information, and the short reasoning line.
 
-For each lead, you can see the key details. Who the business is, where they are, why they were found, and what contact information is available.
+If you want to sense check the premises, use Maps or Street View before doing anything else.
 
-The dashboard is meant to be a working list, not another database to maintain.
+When you have reached out to the business, click Mark Contacted. That keeps the lead in the pipeline, but shows it is no longer untouched.
 
-You review the best leads, mark what is worth following up, reject anything that is not a fit, and keep the outreach focused on a handful of good prospects each week.
+If the conversation becomes a meeting, click Meeting Booked. That lets the dashboard track which leads are turning into real opportunities.
 
-In future, the same system can go further. It can draft an email in MacFire's tone, wait for approval, and help follow up when the timing is right.
+If the lead is clearly not a fit, click Not Relevant. That drops it out of the working queue, so you do not keep reviewing the same bad lead.
 
-The goal is more good conversations with the right businesses, without Dougie having to manually search through hundreds of possible names.
+Nothing is permanently lost. Open the Not Relevant tab to see what has been removed.
+
+If something was moved there by mistake, click Add back to queue. The lead returns to the review queue.
+
+Contact Needed is separate. Use that tab for strong leads where the system still needs better phone, email, or website details.
+
+The weekly routine is simple. Check Qualified first, use Maps or Street View if needed, mark contacted leads, drop poor fits into Not Relevant, and keep the queue clean.

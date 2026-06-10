@@ -211,6 +211,12 @@
       border-color: rgba(195,30,31,.55);
       color: #fecaca;
     }
+    .lead-tab.demo-active {
+      background: rgba(195,30,31,.26);
+      border-color: rgba(195,30,31,.78);
+      color: #fff;
+      box-shadow: 0 0 0 2px rgba(195,30,31,.2);
+    }
     .pane,
     .panel {
       background: var(--card);
@@ -261,6 +267,16 @@
       font-weight: 800;
       font-size: 11px;
     }
+    .lead-link.demo-click,
+    .lead-action.demo-click,
+    .calendar-post.demo-click,
+    .platform-tab.demo-click,
+    .copy.demo-click,
+    .decision-row button.demo-click {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 3px rgba(195,30,31,.28);
+      filter: brightness(1.08);
+    }
     .lead-link.maps { color: #5dade2; border-color: rgba(41,128,185,.5); }
     .lead-meta { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin-bottom: 7px; }
     .priority {
@@ -299,6 +315,15 @@
     .contacted { color: #fbbf24; border-color: rgba(245,158,11,.4); }
     .meeting { color: #c084fc; border-color: rgba(125,60,152,.48); }
     .notrel { color: var(--muted); border-color: rgba(148,163,184,.3); }
+    .addback { color: #a5b4fc; border-color: rgba(99,102,241,.45); }
+    .lead-pane { display: none; }
+    .lead-pane.active { display: block; }
+    .demo-state-note {
+      margin-top: 8px;
+      color: #a5b4fc;
+      font-size: 12px;
+      font-weight: 800;
+    }
     .chart-bars { display: grid; gap: 8px; }
     .bar-row {
       display: grid;
@@ -490,6 +515,7 @@
     .calendar-post.selected { border-color: rgba(17,17,17,.18); background: #fff; }
     .calendar-post.approved { border-left-color: var(--green); }
     .calendar-post.published { border-left-color: var(--fb); }
+    .calendar-post.demo-click { border-color: rgba(17,17,17,.32); background: #fff; }
     .approval-card {
       border: 1px solid rgba(17,17,17,.1);
       background: var(--surface);
@@ -539,6 +565,7 @@
       border-color: rgba(17,17,17,.14);
     }
     .platform-tab.active { background: #111; color: #fff; }
+    .platform-tab.demo-active { background: #111; color: #fff; }
     .post-preview {
       border: 1px solid rgba(0,0,0,.1);
       border-radius: 8px;
@@ -632,22 +659,22 @@
           <div class="main-grid">
             <div>
               <div class="lead-tabs">
-                <button class="lead-tab active">🏆 Qualified</button>
-                <button class="lead-tab">🔎 Contact Needed</button>
+                <button class="lead-tab active" id="lead-tab-qualified">🏆 Qualified</button>
+                <button class="lead-tab" id="lead-tab-contact">🔎 Contact Needed</button>
                 <button class="lead-tab">📋 Recent</button>
                 <button class="lead-tab">✅ Contracted</button>
                 <button class="lead-tab">All Leads</button>
-                <button class="lead-tab">🚫 Not Relevant</button>
+                <button class="lead-tab" id="lead-tab-notrel">🚫 Not Relevant</button>
               </div>
-              <section class="pane">
+              <section class="pane lead-pane active" id="lead-pane-qualified">
                 <div class="section-head">
                   <div class="section-title">High priority & outreach-ready</div>
                   <div class="section-badge">12</div>
                 </div>
-                <article class="lead-card">
+                <article class="lead-card" id="primary-lead-card">
                   <div class="lead-top-row">
                     <div class="lead-name">Clyde Kitchens Ltd</div>
-                    <div class="lead-links"><span class="lead-link maps">📍 Maps</span><span class="lead-link">📷 Street</span></div>
+                    <div class="lead-links"><span class="lead-link maps" id="lead-maps">📍 Maps</span><span class="lead-link" id="lead-street">📷 Street</span></div>
                   </div>
                   <div class="lead-meta"><span class="priority">High</span><span class="score">91</span><span class="badge">New Lead</span><span class="badge queue">Ready</span></div>
                   <div class="lead-detail">
@@ -658,7 +685,8 @@
                     <div><strong>Reasoning:</strong> Commercial premises, kitchen works, target area.</div>
                     <div><strong>Profile:</strong> minimum profile complete</div>
                   </div>
-                  <div class="lead-actions"><span class="lead-action contacted">Mark Contacted</span><span class="lead-action meeting">Meeting Booked</span><span class="lead-action notrel">Not Relevant</span></div>
+                  <div class="lead-actions"><span class="lead-action contacted" id="lead-contacted">Mark Contacted</span><span class="lead-action meeting" id="lead-meeting">Meeting Booked</span><span class="lead-action notrel" id="lead-notrel">Not Relevant</span></div>
+                  <div class="demo-state-note" id="lead-state-note">Status: New Lead</div>
                 </article>
                 <article class="lead-card">
                   <div class="lead-top-row">
@@ -673,6 +701,43 @@
                     <div><strong>Contact:</strong> Phone found</div>
                   </div>
                   <div class="lead-actions"><span class="lead-action contacted">Mark Contacted</span><span class="lead-action meeting">Meeting Booked</span><span class="lead-action notrel">Not Relevant</span></div>
+                </article>
+              </section>
+              <section class="pane lead-pane" id="lead-pane-notrel">
+                <div class="section-head">
+                  <div class="section-title">Marked not relevant</div>
+                  <div class="section-badge">1</div>
+                </div>
+                <article class="lead-card">
+                  <div class="lead-top-row">
+                    <div class="lead-name">Clyde Kitchens Ltd</div>
+                    <div class="lead-links"><span class="lead-link maps">📍 Maps</span><span class="lead-link">📷 Street</span></div>
+                  </div>
+                  <div class="lead-meta"><span class="priority">High</span><span class="score">91</span><span class="badge">Not Relevant</span><span class="badge queue">Removed</span></div>
+                  <div class="lead-detail">
+                    <div><strong>Reason:</strong> Removed from the working queue</div>
+                    <div><strong>Undo:</strong> Can be returned if marked by mistake</div>
+                  </div>
+                  <div class="lead-actions"><span class="lead-action addback" id="lead-addback">Add back to queue</span></div>
+                </article>
+              </section>
+              <section class="pane lead-pane" id="lead-pane-contact">
+                <div class="section-head">
+                  <div class="section-title">High priority — needs contact discovery</div>
+                  <div class="section-badge">8</div>
+                </div>
+                <article class="lead-card">
+                  <div class="lead-top-row">
+                    <div class="lead-name">Argyle Bakery Group</div>
+                    <div class="lead-links"><span class="lead-link maps">📍 Maps</span></div>
+                  </div>
+                  <div class="lead-meta"><span class="priority">High</span><span class="score">79</span><span class="badge">New Lead</span><span class="badge">Research</span></div>
+                  <div class="lead-detail">
+                    <div><strong>Sector:</strong> Food production</div>
+                    <div><strong>Postcode:</strong> PA3</div>
+                    <div><strong>Missing:</strong> Direct email and phone</div>
+                    <div><strong>Next:</strong> Contact discovery needed</div>
+                  </div>
                 </article>
               </section>
             </div>
@@ -722,7 +787,7 @@
             <div class="calendar-grid">
               <div class="weekday">Mon</div><div class="weekday">Tue</div><div class="weekday">Wed</div><div class="weekday">Thu</div><div class="weekday">Fri</div><div class="weekday">Sat</div><div class="weekday">Sun</div>
               <div class="day muted"><div class="num">1</div></div><div class="day"><div class="num">2</div></div><div class="day"><div class="num">3</div></div><div class="day"><div class="num">4</div></div><div class="day"><div class="num">5</div></div><div class="day"><div class="num">6</div></div><div class="day"><div class="num">7</div></div>
-              <div class="day"><div class="num">8</div><button class="calendar-post selected">Scottish Government Funding Boost for Fire Alarm Upgrades</button></div><div class="day"><div class="num">9</div></div><div class="day"><div class="num">10</div></div><div class="day"><div class="num">11</div></div><div class="day"><div class="num">12</div><button class="calendar-post approved">Summer hospitality readiness</button></div><div class="day"><div class="num">13</div></div><div class="day"><div class="num">14</div></div>
+              <div class="day"><div class="num">8</div><button class="calendar-post selected" id="radar-calendar-post">Scottish Government Funding Boost for Fire Alarm Upgrades</button></div><div class="day"><div class="num">9</div></div><div class="day"><div class="num">10</div></div><div class="day"><div class="num">11</div></div><div class="day"><div class="num">12</div><button class="calendar-post approved">Summer hospitality readiness</button></div><div class="day"><div class="num">13</div></div><div class="day"><div class="num">14</div></div>
               <div class="day"><div class="num">15</div></div><div class="day"><div class="num">16</div></div><div class="day"><div class="num">17</div></div><div class="day"><div class="num">18</div><button class="calendar-post">Care settings: a few summer fire-safety checks</button></div><div class="day"><div class="num">19</div></div><div class="day"><div class="num">20</div></div><div class="day"><div class="num">21</div></div>
               <div class="day"><div class="num">22</div></div><div class="day"><div class="num">23</div></div><div class="day"><div class="num">24</div></div><div class="day"><div class="num">25</div></div><div class="day"><div class="num">26</div></div><div class="day"><div class="num">27</div></div><div class="day"><div class="num">28</div></div>
               <div class="day"><div class="num">29</div></div><div class="day"><div class="num">30</div></div><div class="day muted"><div class="num">1</div></div><div class="day muted"><div class="num">2</div></div><div class="day muted"><div class="num">3</div></div><div class="day muted"><div class="num">4</div></div><div class="day muted"><div class="num">5</div></div>
@@ -741,12 +806,12 @@
                 <div class="context-row"><strong>Source</strong><span>Cladding Remediation Programme Next Phase Plan Action</span></div>
                 <div class="context-row"><strong>Use</strong><span>Review the platform copy, copy text if needed, then approve or decline.</span></div>
               </div>
-              <div class="platform-tabs"><button class="platform-tab active">Facebook</button><button class="platform-tab">LinkedIn</button><button class="platform-tab">X</button></div>
+              <div class="platform-tabs"><button class="platform-tab active" id="platform-facebook">Facebook</button><button class="platform-tab" id="platform-linkedin">LinkedIn</button><button class="platform-tab" id="platform-x">X</button></div>
               <div class="post-preview">The Scottish Government's Cladding Remediation Programme is boosting building safety with a funding allocation for fire alarm upgrades in multi-owner buildings with cladding.
 
 This is a useful reminder that fire alarm systems should be checked early, especially where building work or remediation is planned.</div>
-              <button class="copy">Copy Facebook text</button>
-              <div class="decision-row"><button class="approve">Approve</button><button class="decline">Decline</button></div>
+              <button class="copy" id="radar-copy">Copy Facebook text</button>
+              <div class="decision-row"><button class="approve" id="radar-approve">Approve</button><button class="decline" id="radar-decline">Decline</button></div>
             </article>
             <div class="history">
               <div class="history-card"><h4>Approved</h4><p>Summer hospitality readiness</p></div>
@@ -766,7 +831,7 @@ This is a useful reminder that fire alarm systems should be checked early, espec
     <div class="caption">
       <div>
         <p id="caption">The AI Lead Scout walkthrough now reflects the live dashboard surface and workflow.</p>
-        <div class="voice-note" id="voice-note">Voice: Moira, soft female narration</div>
+        <div class="voice-note" id="voice-note">Voice: Moira female draft. Replace with ElevenLabs or OpenAI TTS for final human-like delivery.</div>
       </div>
       <audio id="audio" controls src="audio/lead-scout-female.wav?v=moira2"></audio>
     </div>
@@ -784,44 +849,147 @@ This is a useful reminder that fire alarm systems should be checked early, espec
     const videos = {
       lead: {
         scene: "lead",
-        audio: "audio/lead-scout-female.wav?v=moira2",
-        caption: "The AI Lead Scout walkthrough now reflects the live dashboard surface and workflow.",
-        path: [[11,8],[44,18],[16,36],[22,55],[42,64],[53,74],[80,31],[84,54],[31,76]]
+        audio: "audio/lead-scout-human-demo.wav?v=demo1",
+        caption: "A practical handover: how to use the AI Lead Scout dashboard today."
       },
       radar: {
         scene: "radar",
-        audio: "audio/content-radar-female.wav?v=moira2",
-        caption: "The Content Radar walkthrough now reflects the live review calendar and approval workflow.",
-        path: [[12,8],[73,9],[41,16],[22,36],[67,28],[78,55],[73,69],[84,78]]
+        audio: "audio/content-radar-human-demo.wav?v=demo1",
+        caption: "A practical handover: how to review, approve, decline, and copy Content Radar posts."
       }
     };
 
     let active = "lead";
-    let timer;
+    let demoTimers = [];
 
-    function moveCursor(key) {
-      clearInterval(timer);
+    const leadTimeline = [
+      { t: 0, x: 15, y: 9 },
+      { t: 6000, x: 21, y: 27 },
+      { t: 11000, x: 47, y: 27 },
+      { t: 16000, x: 11, y: 48, leadPane: "qualified", tab: "lead-tab-qualified" },
+      { t: 22000, x: 18, y: 63 },
+      { t: 29000, x: 46, y: 64 },
+      { t: 35000, x: 45, y: 78, click: "lead-maps" },
+      { t: 42000, x: 14, y: 78, click: "lead-contacted", note: "Status: Contacted" },
+      { t: 49000, x: 26, y: 78, click: "lead-meeting", note: "Status: Meeting Booked" },
+      { t: 57000, x: 39, y: 78, click: "lead-notrel", note: "Status: Not Relevant" },
+      { t: 63500, x: 20, y: 49, leadPane: "notrel", tab: "lead-tab-notrel" },
+      { t: 70000, x: 20, y: 65, click: "lead-addback", leadPane: "qualified", tab: "lead-tab-qualified", note: "Status: New Lead" },
+      { t: 79000, x: 21, y: 49, leadPane: "contact", tab: "lead-tab-contact" },
+      { t: 89000, x: 42, y: 49, leadPane: "qualified", tab: "lead-tab-qualified" }
+    ];
+
+    const radarTimeline = [
+      { t: 0, x: 17, y: 10 },
+      { t: 6000, x: 22, y: 26 },
+      { t: 13000, x: 12, y: 45, click: "radar-calendar-post" },
+      { t: 21000, x: 61, y: 24 },
+      { t: 29000, x: 68, y: 48, click: "platform-facebook", platform: "facebook" },
+      { t: 35000, x: 76, y: 48, click: "platform-linkedin", platform: "linkedin" },
+      { t: 41000, x: 84, y: 48, click: "platform-x", platform: "x" },
+      { t: 48000, x: 67, y: 77, click: "radar-copy" },
+      { t: 56000, x: 64, y: 84, click: "radar-approve" },
+      { t: 65000, x: 82, y: 84, click: "radar-decline" },
+      { t: 76000, x: 75, y: 12 },
+      { t: 88000, x: 57, y: 24 }
+    ];
+
+    function clearDemoTimers() {
+      demoTimers.forEach((timer) => clearTimeout(timer));
+      demoTimers = [];
+    }
+
+    function clearDemoClasses() {
+      document.querySelectorAll(".demo-click,.demo-active").forEach((node) => {
+        node.classList.remove("demo-click", "demo-active");
+      });
+    }
+
+    function moveCursorTo(x, y) {
       const rect = stage.getBoundingClientRect();
-      const path = videos[key].path;
-      let i = 0;
-      const move = () => {
-        const [px, py] = path[i % path.length];
-        cursor.style.transform = `translate(${rect.left + rect.width * px / 100}px, ${rect.top + rect.height * py / 100}px)`;
-        i += 1;
+      cursor.style.transform = `translate(${rect.left + rect.width * x / 100}px, ${rect.top + rect.height * y / 100}px)`;
+    }
+
+    function setLeadPane(name) {
+      const panes = {
+        qualified: document.getElementById("lead-pane-qualified"),
+        notrel: document.getElementById("lead-pane-notrel"),
+        contact: document.getElementById("lead-pane-contact")
       };
-      move();
-      timer = setInterval(move, 5000);
+      Object.values(panes).forEach((pane) => pane && pane.classList.remove("active"));
+      panes[name]?.classList.add("active");
+    }
+
+    function setLeadTab(id) {
+      document.querySelectorAll(".lead-tab").forEach((tab) => tab.classList.remove("active", "demo-active"));
+      const tab = document.getElementById(id);
+      if (tab) tab.classList.add("active", "demo-active");
+    }
+
+    function setPlatform(platform) {
+      const labels = {
+        facebook: ["platform-facebook", "Copy Facebook text"],
+        linkedin: ["platform-linkedin", "Copy LinkedIn text"],
+        x: ["platform-x", "Copy X text"]
+      };
+      document.querySelectorAll(".platform-tab").forEach((tab) => tab.classList.remove("active", "demo-active"));
+      const [id, copy] = labels[platform] || labels.facebook;
+      document.getElementById(id)?.classList.add("active", "demo-active");
+      const copyButton = document.getElementById("radar-copy");
+      if (copyButton) copyButton.textContent = copy;
+    }
+
+    function demoClick(id) {
+      const node = document.getElementById(id);
+      if (!node) return;
+      node.classList.add("demo-click");
+      demoTimers.push(setTimeout(() => node.classList.remove("demo-click"), 900));
+    }
+
+    function resetDemoState() {
+      clearDemoClasses();
+      setLeadPane("qualified");
+      setLeadTab("lead-tab-qualified");
+      setPlatform("facebook");
+      const note = document.getElementById("lead-state-note");
+      if (note) note.textContent = "Status: New Lead";
+    }
+
+    function runTimeline(key) {
+      clearDemoTimers();
+      clearDemoClasses();
+      resetDemoState();
+      const timeline = key === "lead" ? leadTimeline : radarTimeline;
+      timeline.forEach((step) => {
+        demoTimers.push(setTimeout(() => {
+          moveCursorTo(step.x, step.y);
+          if (step.leadPane) setLeadPane(step.leadPane);
+          if (step.tab) setLeadTab(step.tab);
+          if (step.platform) setPlatform(step.platform);
+          if (step.click) demoClick(step.click);
+          if (step.note) {
+            const note = document.getElementById("lead-state-note");
+            if (note) note.textContent = step.note;
+          }
+        }, step.t));
+      });
     }
 
     function switchVideo(key, shouldPlay = false) {
       active = key;
+      clearDemoTimers();
+      clearDemoClasses();
       buttons.forEach((button) => button.classList.toggle("active", button.dataset.video === key));
       scenes.forEach((scene) => scene.classList.toggle("active", scene.dataset.scene === videos[key].scene));
       caption.textContent = videos[key].caption;
       audio.src = videos[key].audio;
       audio.load();
-      moveCursor(key);
-      if (shouldPlay) audio.play().catch(() => {});
+      resetDemoState();
+      moveCursorTo(key === "lead" ? 15 : 17, key === "lead" ? 9 : 10);
+      if (shouldPlay) {
+        audio.play().catch(() => {});
+        runTimeline(key);
+      }
     }
 
     buttons.forEach((button) => button.addEventListener("click", () => switchVideo(button.dataset.video, true)));
@@ -829,8 +997,10 @@ This is a useful reminder that fire alarm systems should be checked early, espec
       audio.currentTime = 0;
       switchVideo(active, true);
     });
-    window.addEventListener("resize", () => moveCursor(active));
-    window.addEventListener("load", () => moveCursor(active));
+    audio.addEventListener("pause", clearDemoTimers);
+    audio.addEventListener("ended", clearDemoTimers);
+    window.addEventListener("resize", () => moveCursorTo(active === "lead" ? 15 : 17, active === "lead" ? 9 : 10));
+    window.addEventListener("load", () => switchVideo(active, false));
   </script>
 </body>
 </html>

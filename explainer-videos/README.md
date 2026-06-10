@@ -8,20 +8,24 @@ This folder contains produced first-pass explainer walkthroughs for:
 Open `index.html` in a browser to play the walkthroughs. Each walkthrough has:
 
 - a live-dashboard-matched screen
-- animated mouse/cursor movement
-- UK voiceover narration
+- timed mouse/cursor movement married to the talk track
+- practical handover narration
 - a play control
 - separate tabs for Lead Scout and Content Radar
 
 The current `index.html` was rebuilt against the live AI Lead Scout dashboard and the live Content Radar preview dashboard, rather than the first generic mockup version.
+
+The current scripts are written as "how to use this today" handovers. For final delivery, replace the local macOS draft voice with a higher-quality voice from ElevenLabs or OpenAI TTS after choosing the voice style.
 
 ## Files
 
 - `index.html` - the playable explainer-video page
 - `lead-scout-voiceover.txt` - narration script for the Lead Scout video
 - `content-radar-voiceover.txt` - narration script for the Content Radar video
-- `audio/lead-scout-female.wav` - Moira female voiceover used by the browser player
-- `audio/content-radar-female.wav` - Moira female voiceover used by the browser player
+- `audio/lead-scout-human-demo.wav` - current practical handover narration used by the browser player
+- `audio/content-radar-human-demo.wav` - current practical handover narration used by the browser player
+- `audio/lead-scout-female.wav` - earlier Moira female voiceover
+- `audio/content-radar-female.wav` - earlier Moira female voiceover
 - `audio/lead-scout-soft.wav` - earlier soft voice attempt
 - `audio/content-radar-soft.wav` - earlier soft voice attempt
 - `audio/lead-scout.wav` - earlier generated voiceover audio

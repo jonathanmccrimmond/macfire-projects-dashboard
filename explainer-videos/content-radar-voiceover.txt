@@ -1,19 +1,21 @@
-This is the MacFire Content Radar.
+This is the Content Radar review calendar as it is today.
 
-The problem it solves is consistency. MacFire already has useful things to say, but staying active online takes time, and it is easy for social media to go quiet when real work gets busy.
+The calendar shows draft posts that are waiting for review. Each item is tied to a date, so you can see what is coming up and what still needs approval.
 
-The Content Radar watches for relevant topics, such as fire safety updates, building standards, compliance reminders, training opportunities, and seasonal advice customers should know about.
+Click a draft on the calendar to review it.
 
-It turns those topics into draft posts for Facebook, LinkedIn, or X.
+On the right, check the title, the date, the source, and the freshness label before approving anything.
 
-The key point is that these are drafts. Nothing needs to go live without approval.
+Then check the platform tabs. Facebook is written a little more casually. LinkedIn is more professional. X is shorter.
 
-The current workflow is simple. Review the draft, approve it if it sounds right, make edits if needed, then add it to the calendar.
+If you are posting manually, click Copy text for the platform you want.
 
-From there, posting can be handled manually on the day, or triggered by an email or reminder to Jonathan or Doogie.
+If the wording is right, click Approve. That means the post is safe to move forward.
 
-The future workflow is more automated. Once a post is approved and scheduled, it can sit in a publishing queue.
+If it does not sound right, click Decline. That stops it from going into the posting flow.
 
-On the scheduled date, the system posts it automatically to the right channel.
+For now, approved posts can be copied and posted manually, or used as the trigger for Jonathan or Doogie to post on the scheduled day.
 
-That means Dougie still controls what MacFire says, but the system handles the routine work. Finding ideas, preparing drafts, keeping a calendar, and making sure approved posts actually go out.
+Later, the Social Media Agent can take approved posts from this calendar and publish them automatically on the selected date.
+
+The important point is control. Nothing should go out just because the system wrote it. The review step is where MacFire decides what is safe to publish.
