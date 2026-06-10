@@ -65,7 +65,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 82,
+    progress: 88,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
     summary:
@@ -85,15 +85,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-10", text: "Review workflow improved with clearer approval and scheduling controls" },
+      { date: "2026-06-10", text: "Calendar review page built: approve, decline and copy actions in one place" },
+      { date: "2026-06-10", text: "Review decisions saved centrally so status is visible without opening each post" },
       { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
       { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
-      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
-      { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
+      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" }
     ],
     activityLog: [
-      { date: "2026-06-10", text: "Review workflow improved with clearer approval, decline and scheduling controls" },
-      { date: "2026-06-10", text: "Approval card layout tightened so draft review is easier to scan" },
+      { date: "2026-06-10", text: "Calendar review page built: month grid colour-coded by status, approve and decline buttons, per-platform copy, source freshness indicator" },
+      { date: "2026-06-10", text: "Review decisions now saved centrally so approval status persists across sessions" },
+      { date: "2026-06-10", text: "Review card layout tightened: Facebook as the lead preview, LinkedIn and X available via toggle" },
       { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
       { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
       { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
@@ -102,12 +103,12 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Test approve, decline and schedule actions with the next draft batch" },
-      { owner: "jonathan", text: "Keep manual posting available while publishing stays approval-led" },
+      { owner: "jonathan", text: "Apply the review-status schema to the production database" },
+      { owner: "jonathan", text: "Configure the review page with the live database connection" },
       { owner: "jonathan", text: "Confirm platform priorities with Dougie before enabling auto-posting" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Approval workflow tested on the next draft batch"
+    nextMilestone: "Review page connected to the production database and tested with Dougie"
   },
   {
     id: "macfire-website-redesign",
