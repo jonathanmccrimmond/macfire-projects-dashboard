@@ -8,8 +8,10 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
     summary:
-      "Identifies new businesses likely to need fire safety work, scored and delivered weekly for review.",
-    functionLine: "Automated lead discovery",
+      "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and delivered weekly.",
+    functionLine: "Weekly lead pipeline from Companies House and council planning portals",
+    notes:
+      "Every new company registration and every fresh planning application across Falkirk, Stirling, Clackmannanshire, Fife, Edinburgh, Glasgow and the central belt is captured, scored against fire-risk business categories, then enriched with director history, premises imagery and website signals so MacFire can prioritise the strongest opportunities.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -59,8 +61,10 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
     summary:
-      "Monitors Scottish fire safety updates weekly and drafts social posts for approval. Nothing is published without sign-off.",
-    functionLine: "AI-drafted social content, human approved",
+      "Watches Scottish fire safety and building standards sources weekly, then drafts LinkedIn, Facebook and X posts for approval.",
+    functionLine: "Weekly social drafts from official sources, human approved",
+    notes:
+      "Government, regulator, council and industry sources are checked every Monday for anything relevant to MacFire. New stories become a LinkedIn, Facebook and X draft, each with the source link attached, ready to review in one place. Nothing publishes without sign-off.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
@@ -104,8 +108,10 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
     summary:
-      "Two demo versions of a refreshed macfireltd.co.uk, a light update and a full redesign, ready for comparison.",
-    functionLine: "Two demo directions for the new site",
+      "Two live demo versions of macfireltd.co.uk side by side: a light refresh and a full redesign, ready for direct comparison.",
+    functionLine: "Two refresh options, ready to compare",
+    notes:
+      "Both demos are mobile-friendly, faster than the current site, and use clearer service descriptions with a simpler enquiry flow. The content is identical across both, so the only variable on the table is design direction.",
     repoUrl: "",
     outputLinks: [
       {
