@@ -6,10 +6,10 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 88,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-09",
+    lastUpdated: "2026-06-10",
     summary:
-      "Automated weekly lead generation for MacFire. Monitors Companies House and planning portals across Scotland, capturing every new company registration and every fresh planning application (new builds, fit-outs, change-of-use) in the regions that matter (Falkirk, Stirling, Clackmannanshire, Fife, Edinburgh, Glasgow and the central belt postcodes). Each lead is scored for fire safety relevance using SIC codes that flag likely work (hospitality, retail, care, leisure, manufacturing, fit-out trades), then enriched with director appointment history, Google Places verification, Street View imagery and website detection, so MacFire can focus on the businesses most likely to need a fire safety contractor next.",
-    functionLine: "",
+      "Identifies new businesses likely to need fire safety work, scored and delivered weekly for review.",
+    functionLine: "Automated lead discovery",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
@@ -22,19 +22,19 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-09", text: "Production Scout architecture designed: GitHub Actions server-side runner replaces the laptop-dependent launchd setup, writing directly into Supabase public.leads on a daily Companies House cron and a weekly planning cron — no machine dependency" },
-      { date: "2026-06-09", text: "Notion → Supabase migration complete: 483 leads exported, 15 missing-CH-number pages and 25 duplicates archived, 443 active leads ready to import once schema is applied in Supabase" },
-      { date: "2026-06-09", text: "Lead detail drawer + shareable URLs: click any lead for a Street View image, full confidence breakdown, director history and website intel; filters and individual leads now save to the URL for bookmarking and sharing" },
-      { date: "2026-06-09", text: "Director appointment history added: every lead shows how many other companies the lead director has run (and how many were dissolved), flagging serial company-formers" },
-      { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" }
+      { date: "2026-06-09", text: "Cloud migration designed: the scout will run daily with no manual involvement" },
+      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" },
+      { date: "2026-06-09", text: "Lead detail view added: imagery, score breakdown and director history at a click" },
+      { date: "2026-06-09", text: "Each lead now shows its director's other companies, flagging repeat formations" },
+      { date: "2026-06-09", text: "Website detection live: each lead's site is checked for signs of trading" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Apply supabase/schema.sql in the Supabase SQL editor then run the migration script with --apply to import the 443 cleaned Notion leads into production" },
-      { owner: "jonathan", text: "Port the Companies House signal to scout/runner.py (Phase 2 of production build) and do a local dry-run writing into the Supabase leads table" },
-      { owner: "jonathan", text: "Set up the GitHub Actions daily CI workflow with repo secrets for the first live server-side scout run (Phase 3 of production build)" }
+      { owner: "jonathan", text: "Import the 443 leads into the production database" },
+      { owner: "jonathan", text: "Run a full test of the daily check in the cloud" },
+      { owner: "jonathan", text: "Launch the first live daily run" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "First live server-side scout run via GitHub Actions"
+    nextMilestone: "First live daily run in the cloud"
   },
   {
     id: "macfire-content-radar",
@@ -43,10 +43,10 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 75,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-09",
+    lastUpdated: "2026-06-10",
     summary:
-      "Watches Scottish fire safety, building standards and legislation sources every week, then turns new updates into LinkedIn, Facebook and X drafts automatically using Gemini, with source links and a human review step before anything is published.",
-    functionLine: "",
+      "Monitors Scottish fire safety updates weekly and drafts social posts for approval. Nothing is published without sign-off.",
+    functionLine: "AI-drafted social content, human approved",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
@@ -59,19 +59,19 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-09", text: "Stage 2 weekly source monitor live: every Monday the radar checks the Scottish Building Standards blog, gov.scot building standards updates, and new Scottish statutory instruments for fire and building, then auto-triggers draft generation for anything new" },
-      { date: "2026-06-09", text: "First auto-generated draft committed by the bot (20m Single Open Call funding increase post), end-to-end source pull through to channel-ready copy with no manual writing step" },
-      { date: "2026-06-08", text: "Stage 1 AI draft generator shipped: one-click GitHub Action takes a source URL plus notes and writes LinkedIn, Facebook and X drafts using Gemini 2.5 Flash, committing straight to the preview" },
-      { date: "2026-05-29", text: "Content drafting process built with a live preview page that renders every draft as a Facebook, X and LinkedIn-style card" },
-      { date: "2026-05-29", text: "Every draft now includes source links and a confidence note so the human reviewer can verify before publishing" }
+      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
+      { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
+      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
+      { date: "2026-05-29", text: "Preview page shows each draft exactly as it would appear when posted" },
+      { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Stage 3 publish pipeline: push approved drafts straight to LinkedIn and Facebook on a schedule, with status moving from draft to approved to published in the post frontmatter" },
-      { owner: "jonathan", text: "Widen the monitored source list (SFRS news, more gov.scot policy feeds) and tune per-source notes templates so drafts hit the right angle for each channel" },
-      { owner: "jonathan", text: "Confirm with Dougie which platforms matter most and whether Stage 3 should auto-post or always wait for manual approval" }
+      { owner: "jonathan", text: "Rebuild the review page: posting calendar, one card per post, one-tap approval" },
+      { owner: "jonathan", text: "Add copy buttons for straightforward manual posting" },
+      { owner: "jonathan", text: "Confirm platform priorities with Dougie before automating publishing" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Stage 3 publish pipeline to LinkedIn and Facebook"
+    nextMilestone: "New review page with one-tap approval"
   },
   {
     id: "macfire-website-redesign",
@@ -80,10 +80,10 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 70,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-08",
+    lastUpdated: "2026-06-10",
     summary:
-      "Moves macfireltd.co.uk towards a production-ready website by using the completed audit and two demo directions — a minimal update and a full redesign — to choose the direction that feels right for MacFire.",
-    functionLine: "",
+      "Two demo versions of a refreshed macfireltd.co.uk, a light update and a full redesign, ready for comparison.",
+    functionLine: "Two demo directions for the new site",
     repoUrl: "",
     outputLinks: [
       {
@@ -100,16 +100,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1Ayp1Qx_4AD1OQEJdlcxNhn0_prxY7JpU/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-08", text: "Phase 2 complete: two website demo directions are now built and published for comparison" },
-      { date: "2026-05-30", text: "Full redesign demo built with mobile layout, clearer service structure, contact form flow and stronger search foundations" },
-      { date: "2026-05-30", text: "Minimal website demo built as a cleaner, lower-change option for comparison" },
-      { date: "2026-05-26", text: "Phase 1 full audit complete: search, speed, ease of use and enquiry issues documented" }
+      { date: "2026-06-08", text: "Both demo sites built and published for comparison" },
+      { date: "2026-05-30", text: "Full redesign demo: mobile-friendly, clearer services and a simpler contact flow" },
+      { date: "2026-05-30", text: "Light refresh demo built as the lower-change option" },
+      { date: "2026-05-26", text: "Full audit of the current site complete, covering speed, search and enquiries" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Phase 3: confirm thoughts and next steps, including whether to keep the current site and fix the HTTPS problem" },
-      { owner: "jonathan", text: "Turn the chosen next step into a practical handoff or fix plan" }
+      { owner: "jonathan", text: "Review both demos with Dougie and agree a direction" },
+      { owner: "jonathan", text: "Turn the agreed direction into a delivery plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Confirm thoughts and next steps, including the HTTPS fix option"
+    nextMilestone: "Direction agreed, including the security certificate decision"
   }
 ];
