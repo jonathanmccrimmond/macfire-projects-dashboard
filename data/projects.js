@@ -24,6 +24,8 @@ window.MACFIRE_PROJECTS = [
     recentWins: [
       { date: "2026-06-09", text: "Instagram added to the social enrichment plan and support code, joining Facebook, X and LinkedIn as evidence/contact discovery sources" },
       { date: "2026-06-09", text: "Scout run health surfaced in the dashboard from Supabase scout_runs, showing freshness plus fetched, qualified and written counts" },
+      { date: "2026-06-10", text: "Planning application signal ported into the production runner with weekly workflow support and migration-key dedupe" },
+      { date: "2026-06-10", text: "Website contact scraping added: public website HTML can now fill email and phone fields when available" },
       { date: "2026-06-09", text: "Lead detail drawer + shareable URLs: click any lead for a Street View image, full confidence breakdown, director history and website intel; filters and individual leads now save to the URL for bookmarking and sharing" },
       { date: "2026-06-09", text: "Director appointment history added: every lead shows how many other companies the lead director has run (and how many were dissolved), flagging serial company-formers" },
       { date: "2026-06-09", text: "Website auto-detection live: scout now finds and reads lead company websites, pulling page title plus opening, booking and hiring signals to confirm a business is becoming active" },
@@ -32,7 +34,7 @@ window.MACFIRE_PROJECTS = [
     ],
     nextSteps: [
       { owner: "jonathan", text: "Wire social enrichment into the production scout and Supabase rows: Facebook, X, LinkedIn and Instagram evidence links, matched confidence, and contact clues" },
-      { owner: "jonathan", text: "Finish POC parity in production: planning applications, website phone/email scraping, re-enrichment queue and gated outreach drafts" },
+      { owner: "jonathan", text: "Finish remaining POC parity in production: re-enrichment queue, gated outreach drafts and optional paid contact enrichment" },
       { owner: "jonathan", text: "Add contact discovery outcome state and a re-enrichment queue view to the live dashboard" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
