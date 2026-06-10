@@ -24,13 +24,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-10", text: "Dashboard upgrade: sector quick-filters, saved views, sticky filter bar, queue and sort controls" },
+      { date: "2026-06-10", text: "New Not Relevant tab with one-click 'Add back to queue' to undo a mis-marked lead" },
+      { date: "2026-06-10", text: "Latest-run summary moved into the header (run date, lead count, priority breakdown)" },
       { date: "2026-06-10", text: "Re-enrichment queue added for older high-value leads missing contact details" },
-      { date: "2026-06-09", text: "Weekly planning scans added alongside the daily Companies House run" },
-      { date: "2026-06-09", text: "Website and social signals now enrich each lead before scoring" },
-      { date: "2026-06-09", text: "Cloud workflow hardened with dry-run controls before live database writes" },
-      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" }
+      { date: "2026-06-09", text: "Weekly planning scans added alongside the daily Companies House run" }
     ],
     activityLog: [
+      { date: "2026-06-10", text: "Dashboard upgrade: sector quick-filter chips, saved views, sticky filter toolbar, queue and sort dropdowns, clear-all button, shareable filtered URLs" },
+      { date: "2026-06-10", text: "New Not Relevant tab with one-click 'Add back to queue' restoration" },
+      { date: "2026-06-10", text: "Latest-run summary moved from full-width banner into a compact header chip" },
       { date: "2026-06-10", text: "Re-enrichment queue added for older high-value leads missing website, phone or email" },
       { date: "2026-06-09", text: "Weekly planning scans added alongside the daily Companies House run" },
       { date: "2026-06-09", text: "Schema-lag safety added so optional social fields cannot block lead writes" },
