@@ -92,12 +92,12 @@
     /* ── Stats ──────────────────────────────────────────────── */
     .stats {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 20px;
     }
 
-    @media (max-width: 920px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 920px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 580px) { .stats { grid-template-columns: 1fr; } }
 
     .stat {
@@ -243,7 +243,6 @@
     .badge.active { background: var(--navy); color: var(--panel); }
     .badge.pilot  { background: var(--accent); color: var(--panel); }
     .badge.planned { background: var(--accent-soft); color: var(--planned); }
-    .badge.paused { background: #E6E2D8; color: #4B5563; }
 
     .project-updated {
       color: var(--muted);
@@ -670,95 +669,11 @@
     let lockedScrollY = 0;
 
     const projects = Array.isArray(window.MACFIRE_PROJECTS) ? window.MACFIRE_PROJECTS : [];
-    const ANALYTICS = {
-      url: "https://vruphucsmzpehybtijja.supabase.co",
-      key: "sb_publishable_2ZisTv6fjNDMXzPbLH1RzA_t2g-FlpT",
-      clientId: "macfire",
-      dashboardId: "projects-dashboard",
-      table: "dashboard_events"
-    };
-    const VISITOR_KEY = "macfire_analytics_visitor_id";
-    const SESSION_KEY = "macfire_analytics_session_id";
-    const SESSION_STARTED_KEY = "macfire_analytics_session_started_at";
-
-    function stableUuid(storage, key) {
-      let value = storage.getItem(key);
-      if (!value) {
-        value = window.crypto?.randomUUID ? window.crypto.randomUUID() : "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
-          const r = Math.random() * 16 | 0;
-          const v = c === "x" ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
-        storage.setItem(key, value);
-      }
-      return value;
-    }
-
-    function visitorId() {
-      return stableUuid(localStorage, VISITOR_KEY);
-    }
-
-    function sessionId() {
-      const id = stableUuid(sessionStorage, SESSION_KEY);
-      if (!sessionStorage.getItem(SESSION_STARTED_KEY)) {
-        sessionStorage.setItem(SESSION_STARTED_KEY, new Date().toISOString());
-      }
-      return id;
-    }
-
-    function projectMeta(project) {
-      if (!project) return {};
-      return {
-        project_id: project.id || null,
-        project_name: project.name || null,
-        status: project.status || null,
-        progress: Number(project.progress) || 0,
-        category: project.category || null
-      };
-    }
-
-    async function trackEvent(eventName, metadata = {}) {
-      const payload = {
-        client_id: ANALYTICS.clientId,
-        dashboard_id: ANALYTICS.dashboardId,
-        event_name: eventName,
-        visitor_id: visitorId(),
-        session_id: sessionId(),
-        page_path: `${location.pathname}${location.search}`,
-        page_title: document.title,
-        referrer: document.referrer || null,
-        user_agent: navigator.userAgent,
-        language: navigator.language || null,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || null,
-        screen_width: window.screen?.width || null,
-        screen_height: window.screen?.height || null,
-        viewport_width: window.innerWidth,
-        viewport_height: window.innerHeight,
-        metadata
-      };
-
-      try {
-        const response = await fetch(`${ANALYTICS.url}/rest/v1/${ANALYTICS.table}`, {
-          method: "POST",
-          headers: {
-            apikey: ANALYTICS.key,
-            authorization: `Bearer ${ANALYTICS.key}`,
-            "content-type": "application/json",
-            prefer: "return=minimal"
-          },
-          body: JSON.stringify(payload)
-        });
-        if (!response.ok) console.warn("Analytics disabled:", await response.text());
-      } catch (e) {
-        console.warn("Analytics disabled:", e.message || e);
-      }
-    }
 
     const filters = [
       { key: "all",     label: "All" },
       { key: "active",  label: "Active" },
       { key: "pilot",   label: "Pilot" },
-      { key: "paused",  label: "Paused" },
       { key: "planned", label: "Planned" }
     ];
 
@@ -793,7 +708,6 @@
     function buildStats(list) {
       const active  = list.filter(p => formatStatus(p.status) === "active").length;
       const pilot   = list.filter(p => formatStatus(p.status) === "pilot").length;
-      const paused  = list.filter(p => formatStatus(p.status) === "paused").length;
       const avgProg = list.length
         ? Math.round(list.reduce((s, p) => s + (Number(p.progress) || 0), 0) / list.length)
         : 0;
@@ -802,7 +716,6 @@
         { label: "Projects",     value: list.length },
         { label: "Active",       value: active },
         { label: "Pilot",        value: pilot },
-        { label: "Paused",       value: paused },
         { label: "Avg Progress", value: avgProg + "%" }
       ];
 
@@ -814,9 +727,9 @@
     }
 
     // ── Link chips ────────────────────────────────────────────────────────────
-    function linkChip(label, url, project, linkType = "output") {
+    function linkChip(label, url) {
       if (!url || !url.trim()) return `<span class="link-disabled">${esc(label)}</span>`;
-      return `<a class="link-chip" href="${esc(url)}" target="_blank" rel="noreferrer" data-analytics-event="project_link_opened" data-project-id="${esc(project?.id || "")}" data-link-type="${esc(linkType)}">${esc(label)}</a>`;
+      return `<a class="link-chip" href="${esc(url)}" target="_blank" rel="noreferrer">${esc(label)}</a>`;
     }
 
     // ── Recent wins ───────────────────────────────────────────────────────────
@@ -858,7 +771,6 @@
     function openProjectDrawer(id) {
       const project = projectById(id);
       if (!project) return;
-      trackEvent("project_drawer_opened", projectMeta(project));
 
       const status = formatStatus(project.status);
       const wins = Array.isArray(project.activityLog) ? project.activityLog : project.recentWins;
@@ -938,15 +850,14 @@
     }
 
     // ── Feedback link ─────────────────────────────────────────────────────────
-    function renderFeedback(project) {
-      const projectName = project?.name || "Project";
+    function renderFeedback(projectName, feedbackEmail) {
       const email = "j@mccrimmond.org.uk";
       const subj  = encodeURIComponent(`Feedback: ${projectName}`);
       const body  = encodeURIComponent(`Hi Jonathan,\n\nMy feedback on ${projectName}:\n\n`);
       const href  = `mailto:${esc(email)}?subject=${subj}&body=${body}`;
       return `
         <div class="feedback-row">
-          <a class="feedback-link" href="${href}" data-analytics-event="project_feedback_clicked" data-project-id="${esc(project?.id || "")}">Leave feedback on this project →</a>
+          <a class="feedback-link" href="${href}">Leave feedback on this project →</a>
         </div>`;
     }
 
@@ -1003,11 +914,11 @@
 
             <div class="card-actions">
               <div class="links">
-                ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "", project, "deck")}
-                ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "", project, "output")).join("")}
+                ${linkChip(project.deckLink?.label || "Deck", project.deckLink?.url || "")}
+                ${outputLinks.map(o => linkChip(o.label || "Output", o.url || "")).join("")}
               </div>
 
-              ${renderFeedback(project)}
+              ${renderFeedback(project.name, project.feedbackEmail)}
             </div>
           </article>`;
       }).join("");
@@ -1037,35 +948,16 @@
           const key = btn.getAttribute("data-filter");
           filtersEl.querySelectorAll("button").forEach(b => b.classList.remove("active"));
           btn.classList.add("active");
-          trackEvent("project_filter_changed", { filter: key });
           renderProjects(key);
         });
       });
     }
 
-    document.addEventListener("click", event => {
-      const tracked = event.target.closest("[data-analytics-event]");
-      if (!tracked) return;
-      const project = projectById(tracked.getAttribute("data-project-id"));
-      trackEvent(tracked.getAttribute("data-analytics-event"), {
-        ...projectMeta(project),
-        label: tracked.textContent.trim() || null,
-        href: tracked.getAttribute("href") || null,
-        link_type: tracked.getAttribute("data-link-type") || null
-      });
-    });
-
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") trackEvent("page_hidden");
-    });
-
     // ── Boot ──────────────────────────────────────────────────────────────────
-    trackEvent("dashboard_opened", { source: "github_pages" });
     renderLastUpdated();
     buildStats(projects);
     renderFilters("all");
     renderProjects("all");
-    trackEvent("dashboard_loaded", { project_count: projects.length });
     drawerBg.addEventListener("click", closeProjectDrawer);
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") closeProjectDrawer();

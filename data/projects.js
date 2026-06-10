@@ -4,7 +4,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 92,
+    progress: 88,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
     summary:
@@ -24,21 +24,13 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-10", text: "Dashboard upgrade: sector quick-filters, saved views, sticky filter bar, queue and sort controls" },
-      { date: "2026-06-10", text: "New Not Relevant tab with one-click 'Add back to queue' to undo a mis-marked lead" },
-      { date: "2026-06-10", text: "Latest-run summary moved into the header (run date, lead count, priority breakdown)" },
-      { date: "2026-06-10", text: "Re-enrichment queue added for older high-value leads missing contact details" },
-      { date: "2026-06-09", text: "Weekly planning scans added alongside the daily Companies House run" }
+      { date: "2026-06-09", text: "Cloud migration designed: the scout will run daily with no manual involvement" },
+      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" },
+      { date: "2026-06-09", text: "Lead detail view added: imagery, score breakdown and director history at a click" },
+      { date: "2026-06-09", text: "Each lead now shows its director's other companies, flagging repeat formations" },
+      { date: "2026-06-09", text: "Website detection live: each lead's site is checked for signs of trading" }
     ],
     activityLog: [
-      { date: "2026-06-10", text: "Dashboard upgrade: sector quick-filter chips, saved views, sticky filter toolbar, queue and sort dropdowns, clear-all button, shareable filtered URLs" },
-      { date: "2026-06-10", text: "New Not Relevant tab with one-click 'Add back to queue' restoration" },
-      { date: "2026-06-10", text: "Latest-run summary moved from full-width banner into a compact header chip" },
-      { date: "2026-06-10", text: "Re-enrichment queue added for older high-value leads missing website, phone or email" },
-      { date: "2026-06-09", text: "Weekly planning scans added alongside the daily Companies House run" },
-      { date: "2026-06-09", text: "Schema-lag safety added so optional social fields cannot block lead writes" },
-      { date: "2026-06-09", text: "Social enrichment added for Facebook, X, LinkedIn and Instagram evidence" },
-      { date: "2026-06-09", text: "Website contact extraction added to find public emails and phone numbers" },
       { date: "2026-06-09", text: "Cloud migration designed: the scout will run daily with no manual involvement" },
       { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" },
       { date: "2026-06-09", text: "Lead detail view added: imagery, score breakdown and director history at a click" },
@@ -53,12 +45,12 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-06", text: "Outreach email drafts created automatically for each relevant lead" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Apply the optional social-field schema migration in Supabase" },
-      { owner: "jonathan", text: "Run a dry-run cloud check for companies, planning and re-enrichment" },
-      { owner: "jonathan", text: "Watch the first live scheduled runs and tune priority rules" }
+      { owner: "jonathan", text: "Import the 443 leads into the production database" },
+      { owner: "jonathan", text: "Run a full test of the daily check in the cloud" },
+      { owner: "jonathan", text: "Launch the first live daily run" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Production daily and re-enrichment runs verified"
+    nextMilestone: "First live daily run in the cloud"
   },
   {
     id: "macfire-content-radar",
@@ -85,15 +77,15 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-10", text: "Review workflow improved with clearer approval and scheduling controls" },
+      { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
+      { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
       { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
-      { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
       { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
-      { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
+      { date: "2026-05-29", text: "Preview page shows each draft exactly as it would appear when posted" }
     ],
     activityLog: [
-      { date: "2026-06-10", text: "Review workflow improved with clearer approval, decline and scheduling controls" },
-      { date: "2026-06-10", text: "Approval card layout tightened so draft review is easier to scan" },
+      { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
+      { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
       { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
       { date: "2026-06-09", text: "First post drafted end to end with no manual writing" },
       { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" },
@@ -102,18 +94,18 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-29", text: "Every draft carries its source for verification before posting" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Test approve, decline and schedule actions with the next draft batch" },
-      { owner: "jonathan", text: "Keep manual posting available while publishing stays approval-led" },
-      { owner: "jonathan", text: "Confirm platform priorities with Dougie before enabling auto-posting" }
+      { owner: "jonathan", text: "Turn approved posts into automatic publishing to LinkedIn and Facebook" },
+      { owner: "jonathan", text: "Confirm platform priorities with Dougie before automating publishing" },
+      { owner: "jonathan", text: "Refresh each seasonal post for its date before it goes out" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Approval workflow tested on the next draft batch"
+    nextMilestone: "Automatic publishing of approved posts"
   },
   {
     id: "macfire-website-redesign",
     name: "MacFire Website Redesign",
     category: "Brand & Web",
-    status: "paused",
+    status: "pilot",
     progress: 70,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-10",
@@ -121,7 +113,7 @@ window.MACFIRE_PROJECTS = [
       "Two live demo versions of macfireltd.co.uk side by side: a light refresh and a full redesign, ready for direct comparison.",
     functionLine: "Two refresh options, ready to compare",
     notes:
-      "Both demos are mobile-friendly, faster than the current site, and use clearer service descriptions with a simpler enquiry flow. The work is paused while AI Scout and Content Radar take priority; the next website decision is still which direction Dougie prefers.",
+      "Both demos are mobile-friendly, faster than the current site, and use clearer service descriptions with a simpler enquiry flow. The content is identical across both, so the only variable on the table is design direction.",
     repoUrl: "",
     outputLinks: [
       {
@@ -150,10 +142,10 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Full audit of the current site complete, covering speed, search and enquiries" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Keep the demos live while AI Scout and Content Radar take priority" },
-      { owner: "jonathan", text: "Review both demos with Dougie when website work resumes" }
+      { owner: "jonathan", text: "Review both demos with Dougie and agree a direction" },
+      { owner: "jonathan", text: "Turn the agreed direction into a delivery plan" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Paused until Dougie is ready to choose a website direction"
+    nextMilestone: "Direction agreed, including the security certificate decision"
   }
 ];
