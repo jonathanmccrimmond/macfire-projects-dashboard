@@ -833,7 +833,7 @@ This is a useful reminder that fire alarm systems should be checked early, espec
         <p id="caption">The AI Lead Scout walkthrough now reflects the live dashboard surface and workflow.</p>
         <div class="voice-note" id="voice-note">Voice: ElevenLabs final narration</div>
       </div>
-      <audio id="audio" controls src="audio/lead-scout-elevenlabs.mp3?v=eleven1"></audio>
+      <audio id="audio" controls src="audio/lead-scout-elevenlabs.mp3?v=lean1"></audio>
     </div>
   </main>
 
@@ -849,7 +849,7 @@ This is a useful reminder that fire alarm systems should be checked early, espec
     const videos = {
       lead: {
         scene: "lead",
-        audio: "audio/lead-scout-elevenlabs.mp3?v=eleven1",
+        audio: "audio/lead-scout-elevenlabs.mp3?v=lean1",
         caption: "A practical handover: how to use the AI Lead Scout dashboard today."
       },
       radar: {
@@ -864,28 +864,20 @@ This is a useful reminder that fire alarm systems should be checked early, espec
 
     const leadTimeline = [
       { t: 0, target: "lead-header" },
-      { t: 5200, target: "kpi-total" },
-      { t: 9200, target: "kpi-high" },
-      { t: 12800, target: "kpi-ready" },
-      { t: 17400, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" },
-      { t: 21400, target: "lead-pane-qualified" },
-      { t: 25800, target: "lead-company" },
-      { t: 28900, target: "lead-score" },
-      { t: 32300, target: "lead-sector" },
-      { t: 35000, target: "lead-postcode" },
-      { t: 37600, target: "lead-source" },
-      { t: 40500, target: "lead-contact-info" },
-      { t: 43300, target: "lead-reasoning" },
-      { t: 48000, target: "lead-maps", click: "lead-maps" },
-      { t: 50700, target: "lead-street", click: "lead-street" },
-      { t: 56600, target: "lead-contacted", click: "lead-contacted", note: "Status: Contacted" },
-      { t: 63600, target: "lead-meeting", click: "lead-meeting", note: "Status: Meeting Booked" },
-      { t: 69600, target: "lead-notrel", click: "lead-notrel", note: "Status: Not Relevant" },
-      { t: 73800, target: "lead-tab-notrel", leadPane: "notrel", tab: "lead-tab-notrel" },
-      { t: 77500, target: "lead-addback", click: "lead-addback", note: "Status: New Lead" },
-      { t: 79200, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" },
-      { t: 81100, target: "lead-tab-contact", leadPane: "contact", tab: "lead-tab-contact" },
-      { t: 83500, target: "kpi-contact-needed" }
+      { t: 3600, target: "kpi-ready" },
+      { t: 8200, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" },
+      { t: 11200, target: "lead-pane-qualified" },
+      { t: 14500, target: "lead-company" },
+      { t: 16600, target: "lead-score" },
+      { t: 18600, target: "lead-contact-info" },
+      { t: 23000, target: "lead-maps", click: "lead-maps" },
+      { t: 25500, target: "lead-street", click: "lead-street" },
+      { t: 29600, target: "lead-contacted", click: "lead-contacted", note: "Status: Contacted" },
+      { t: 33300, target: "lead-meeting", click: "lead-meeting", note: "Status: Meeting Booked" },
+      { t: 36500, target: "lead-notrel", click: "lead-notrel", note: "Status: Not Relevant" },
+      { t: 38600, target: "lead-tab-notrel", leadPane: "notrel", tab: "lead-tab-notrel" },
+      { t: 40500, target: "lead-addback", click: "lead-addback", note: "Status: New Lead" },
+      { t: 41700, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" }
     ];
 
     const radarTimeline = [

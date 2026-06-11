@@ -1,23 +1,21 @@
-This is the AI Lead Scout dashboard as it is today.
+This is the AI Lead Scout dashboard.
 
-Start with the summary cards at the top. Total Leads is the full database. High Priority shows the stronger matches. Qualified and Ready is the queue to check first.
+For day to day use, start with Qualified and Ready. These are the leads worth checking first.
 
-Click Qualified. This is the working list for leads that look worth reviewing.
+Click Qualified.
 
-On each lead card, start with the company name and score. Then check the sector, postcode, source, contact information, and the short reasoning line.
+This opens the working queue.
 
-If you want to sense check the premises, use Maps or Street View before doing anything else.
+Pick a lead and check the basics. Look at the company name, the score, and the contact details.
 
-When you have reached out to the business, click Mark Contacted. That keeps the lead in the pipeline, but shows it is no longer untouched.
+If you want to check the premises, click Maps, or Street View.
 
-If the conversation becomes a meeting, click Meeting Booked. That lets the dashboard track which leads are turning into real opportunities.
+If you contact the business, click Mark Contacted.
 
-If the lead is clearly not a fit, click Not Relevant. That drops it out of the working queue, so you do not keep reviewing the same bad lead.
+If a meeting is arranged, click Meeting Booked.
 
-Nothing is permanently lost. Open the Not Relevant tab to see what has been removed.
+If the lead is not a fit, click Not Relevant. That removes it from the working queue.
 
-If something was moved there by mistake, click Add back to queue. The lead returns to the review queue.
+If that was a mistake, open Not Relevant, then click Add back to queue.
 
-Contact Needed is separate. Use that tab for strong leads where the system still needs better phone, email, or website details.
-
-The weekly routine is simple. Check Qualified first, use Maps or Street View if needed, mark contacted leads, drop poor fits into Not Relevant, and keep the queue clean.
+That is the routine. Check Qualified. Contact the good leads. Remove the poor fits. Keep the queue clean.
