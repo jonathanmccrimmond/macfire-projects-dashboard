@@ -619,7 +619,7 @@
 
     <section class="stage" id="stage">
       <div class="scene lead-scene active" data-scene="lead">
-        <header class="lead-header">
+        <header class="lead-header" id="lead-header">
           <div class="lead-header-left">
             <svg class="macfire-logo" viewBox="0 0 270 100" aria-label="MacFire Ltd" xmlns="http://www.w3.org/2000/svg">
               <rect width="270" height="100" fill="#1A1F3C"/>
@@ -644,16 +644,16 @@
 
         <div class="lead-container">
           <div class="kpis">
-            <div class="stat accent"><div class="label">Total Leads</div><div class="value">384</div><div class="sub">Across 18 scout runs</div></div>
-            <div class="stat"><div class="label">High Priority</div><div class="value" style="color:#e74c3c">47</div><div class="sub">Score 75+</div></div>
-            <div class="stat"><div class="label">Qualified & Ready</div><div class="value" style="color:#10b981">12</div><div class="sub">Ready to contact</div></div>
-            <div class="stat"><div class="label">Contacted</div><div class="value">9</div><div class="sub">3 responded</div></div>
+            <div class="stat accent" id="kpi-total"><div class="label">Total Leads</div><div class="value">384</div><div class="sub">Across 18 scout runs</div></div>
+            <div class="stat" id="kpi-high"><div class="label">High Priority</div><div class="value" style="color:#e74c3c">47</div><div class="sub">Score 75+</div></div>
+            <div class="stat" id="kpi-ready"><div class="label">Qualified & Ready</div><div class="value" style="color:#10b981">12</div><div class="sub">Ready to contact</div></div>
+            <div class="stat" id="kpi-contacted"><div class="label">Contacted</div><div class="value">9</div><div class="sub">3 responded</div></div>
           </div>
           <div class="kpis">
-            <div class="stat"><div class="label">Meetings Booked</div><div class="value" style="color:#e74c3c">2</div><div class="sub">From pipeline</div></div>
-            <div class="stat"><div class="label">Contracted</div><div class="value" style="color:#10b981">1</div><div class="sub">Signed customers</div></div>
-            <div class="stat"><div class="label">Contact Info Needed</div><div class="value" style="color:#f0b429">8</div><div class="sub">High priority, no contact</div></div>
-            <div class="stat"><div class="label">Needs Profile Data</div><div class="value" style="color:#8f9ab0">15</div><div class="sub">High priority, incomplete</div></div>
+            <div class="stat" id="kpi-meetings"><div class="label">Meetings Booked</div><div class="value" style="color:#e74c3c">2</div><div class="sub">From pipeline</div></div>
+            <div class="stat" id="kpi-contracted"><div class="label">Contracted</div><div class="value" style="color:#10b981">1</div><div class="sub">Signed customers</div></div>
+            <div class="stat" id="kpi-contact-needed"><div class="label">Contact Info Needed</div><div class="value" style="color:#f0b429">8</div><div class="sub">High priority, no contact</div></div>
+            <div class="stat" id="kpi-profile-needed"><div class="label">Needs Profile Data</div><div class="value" style="color:#8f9ab0">15</div><div class="sub">High priority, incomplete</div></div>
           </div>
 
           <div class="main-grid">
@@ -673,17 +673,17 @@
                 </div>
                 <article class="lead-card" id="primary-lead-card">
                   <div class="lead-top-row">
-                    <div class="lead-name">Clyde Kitchens Ltd</div>
+                    <div class="lead-name" id="lead-company">Clyde Kitchens Ltd</div>
                     <div class="lead-links"><span class="lead-link maps" id="lead-maps">📍 Maps</span><span class="lead-link" id="lead-street">📷 Street</span></div>
                   </div>
-                  <div class="lead-meta"><span class="priority">High</span><span class="score">91</span><span class="badge">New Lead</span><span class="badge queue">Ready</span></div>
-                  <div class="lead-detail">
-                    <div><strong>Sector:</strong> Hospitality / restaurant fit-out</div>
-                    <div><strong>Postcode:</strong> G32</div>
-                    <div><strong>Source:</strong> Planning application</div>
-                    <div><strong>Contact:</strong> Website and email found</div>
-                    <div><strong>Reasoning:</strong> Commercial premises, kitchen works, target area.</div>
-                    <div><strong>Profile:</strong> minimum profile complete</div>
+                  <div class="lead-meta"><span class="priority">High</span><span class="score" id="lead-score">91</span><span class="badge">New Lead</span><span class="badge queue">Ready</span></div>
+                  <div class="lead-detail" id="lead-details">
+                    <div id="lead-sector"><strong>Sector:</strong> Hospitality / restaurant fit-out</div>
+                    <div id="lead-postcode"><strong>Postcode:</strong> G32</div>
+                    <div id="lead-source"><strong>Source:</strong> Planning application</div>
+                    <div id="lead-contact-info"><strong>Contact:</strong> Website and email found</div>
+                    <div id="lead-reasoning"><strong>Reasoning:</strong> Commercial premises, kitchen works, target area.</div>
+                    <div id="lead-profile"><strong>Profile:</strong> minimum profile complete</div>
                   </div>
                   <div class="lead-actions"><span class="lead-action contacted" id="lead-contacted">Mark Contacted</span><span class="lead-action meeting" id="lead-meeting">Meeting Booked</span><span class="lead-action notrel" id="lead-notrel">Not Relevant</span></div>
                   <div class="demo-state-note" id="lead-state-note">Status: New Lead</div>
@@ -863,20 +863,29 @@ This is a useful reminder that fire alarm systems should be checked early, espec
     let demoTimers = [];
 
     const leadTimeline = [
-      { t: 0, x: 15, y: 9 },
-      { t: 6000, x: 21, y: 27 },
-      { t: 11000, x: 47, y: 27 },
-      { t: 16000, x: 11, y: 48, leadPane: "qualified", tab: "lead-tab-qualified" },
-      { t: 22000, x: 18, y: 63 },
-      { t: 29000, x: 46, y: 64 },
-      { t: 35000, x: 45, y: 78, click: "lead-maps" },
-      { t: 42000, x: 14, y: 78, click: "lead-contacted", note: "Status: Contacted" },
-      { t: 49000, x: 26, y: 78, click: "lead-meeting", note: "Status: Meeting Booked" },
-      { t: 57000, x: 39, y: 78, click: "lead-notrel", note: "Status: Not Relevant" },
-      { t: 63500, x: 20, y: 49, leadPane: "notrel", tab: "lead-tab-notrel" },
-      { t: 70000, x: 20, y: 65, click: "lead-addback", leadPane: "qualified", tab: "lead-tab-qualified", note: "Status: New Lead" },
-      { t: 79000, x: 21, y: 49, leadPane: "contact", tab: "lead-tab-contact" },
-      { t: 89000, x: 42, y: 49, leadPane: "qualified", tab: "lead-tab-qualified" }
+      { t: 0, target: "lead-header" },
+      { t: 5200, target: "kpi-total" },
+      { t: 9200, target: "kpi-high" },
+      { t: 12800, target: "kpi-ready" },
+      { t: 17400, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" },
+      { t: 21400, target: "lead-pane-qualified" },
+      { t: 25800, target: "lead-company" },
+      { t: 28900, target: "lead-score" },
+      { t: 32300, target: "lead-sector" },
+      { t: 35000, target: "lead-postcode" },
+      { t: 37600, target: "lead-source" },
+      { t: 40500, target: "lead-contact-info" },
+      { t: 43300, target: "lead-reasoning" },
+      { t: 48000, target: "lead-maps", click: "lead-maps" },
+      { t: 50700, target: "lead-street", click: "lead-street" },
+      { t: 56600, target: "lead-contacted", click: "lead-contacted", note: "Status: Contacted" },
+      { t: 63600, target: "lead-meeting", click: "lead-meeting", note: "Status: Meeting Booked" },
+      { t: 69600, target: "lead-notrel", click: "lead-notrel", note: "Status: Not Relevant" },
+      { t: 73800, target: "lead-tab-notrel", leadPane: "notrel", tab: "lead-tab-notrel" },
+      { t: 77500, target: "lead-addback", click: "lead-addback", note: "Status: New Lead" },
+      { t: 79200, target: "lead-tab-qualified", leadPane: "qualified", tab: "lead-tab-qualified" },
+      { t: 81100, target: "lead-tab-contact", leadPane: "contact", tab: "lead-tab-contact" },
+      { t: 83500, target: "kpi-contact-needed" }
     ];
 
     const radarTimeline = [
@@ -908,6 +917,13 @@ This is a useful reminder that fire alarm systems should be checked early, espec
     function moveCursorTo(x, y) {
       const rect = stage.getBoundingClientRect();
       cursor.style.transform = `translate(${rect.left + rect.width * x / 100}px, ${rect.top + rect.height * y / 100}px)`;
+    }
+
+    function moveCursorToElement(id) {
+      const node = document.getElementById(id);
+      if (!node) return;
+      const rect = node.getBoundingClientRect();
+      cursor.style.transform = `translate(${rect.left + rect.width * 0.55}px, ${rect.top + rect.height * 0.55}px)`;
     }
 
     function setLeadPane(name) {
@@ -962,10 +978,11 @@ This is a useful reminder that fire alarm systems should be checked early, espec
       const timeline = key === "lead" ? leadTimeline : radarTimeline;
       timeline.forEach((step) => {
         demoTimers.push(setTimeout(() => {
-          moveCursorTo(step.x, step.y);
           if (step.leadPane) setLeadPane(step.leadPane);
           if (step.tab) setLeadTab(step.tab);
           if (step.platform) setPlatform(step.platform);
+          if (step.target) moveCursorToElement(step.target);
+          else moveCursorTo(step.x, step.y);
           if (step.click) demoClick(step.click);
           if (step.note) {
             const note = document.getElementById("lead-state-note");
