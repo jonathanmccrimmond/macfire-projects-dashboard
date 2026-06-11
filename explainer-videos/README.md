@@ -22,8 +22,12 @@ The current scripts are written as "how to use this today" handovers. For final 
 - `index.html` - the playable explainer-video page
 - `lead-scout-voiceover.txt` - narration script for the Lead Scout video
 - `content-radar-voiceover.txt` - narration script for the Content Radar video
-- `audio/lead-scout-human-demo.wav` - current practical handover narration used by the browser player
-- `audio/content-radar-human-demo.wav` - current practical handover narration used by the browser player
+- `generate_elevenlabs_audio.py` - generates final MP3 voiceovers from ElevenLabs
+- `elevenlabs-notes.md` - voice direction, sample text, and suggested settings
+- `audio/lead-scout-elevenlabs.mp3` - current final ElevenLabs narration used by the browser player
+- `audio/content-radar-elevenlabs.mp3` - current final ElevenLabs narration used by the browser player
+- `audio/lead-scout-human-demo.wav` - earlier practical handover timing draft
+- `audio/content-radar-human-demo.wav` - earlier practical handover timing draft
 - `audio/lead-scout-female.wav` - earlier Moira female voiceover
 - `audio/content-radar-female.wav` - earlier Moira female voiceover
 - `audio/lead-scout-soft.wav` - earlier soft voice attempt
