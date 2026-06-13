@@ -4,9 +4,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 92,
+    progress: 93,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-11",
+    lastUpdated: "2026-06-13",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
@@ -24,13 +24,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-13", text: "Dashboard polished: table rows now open lead details, tab counts now visible" },
       { date: "2026-06-11", text: "Live: the daily run now harvests and fully enriches new leads in the cloud, hands-free" },
       { date: "2026-06-11", text: "Premises checks switched on in the cloud: Google listing, Street View and confidence score on every qualifying lead" },
       { date: "2026-06-11", text: "Planning coverage extended to 14 councils, including Renfrewshire, scanned weekly" },
-      { date: "2026-06-11", text: "Leads now re-checked automatically over the following weeks as each business builds a footprint" },
-      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" }
+      { date: "2026-06-11", text: "Leads now re-checked automatically over the following weeks as each business builds a footprint" }
     ],
     activityLog: [
+      { date: "2026-06-13", text: "Dashboard polished: clickable table rows, live tab counts, capped-list indicator, connection settings button" },
       { date: "2026-06-11", text: "First live daily run launched: leads harvested and enriched automatically" },
       { date: "2026-06-11", text: "Premises and confidence enrichment confirmed running on the daily cloud job" },
       { date: "2026-06-11", text: "Weekly planning scrape enabled across 14 councils, Renfrewshire portal added" },
@@ -61,9 +62,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 85,
+    progress: 87,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-11",
+    lastUpdated: "2026-06-13",
     summary:
       "Watches Scottish fire safety and building standards sources weekly, then drafts LinkedIn, Facebook and X posts for approval.",
     functionLine: "Weekly social drafts from official sources, human approved",
@@ -81,13 +82,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-13", text: "Source coverage extended: five new official feeds added, including SFRS and UK legislation" },
       { date: "2026-06-11", text: "First post queued for sign-off: the fire alarm funding post set for Monday 15 June as Dougie's first approval" },
       { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
       { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
-      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
-      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" }
+      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" }
     ],
     activityLog: [
+      { date: "2026-06-13", text: "Source coverage extended to 8 feeds: SFRS news, gov.scot fire and rescue policy, planning policy, UK SIs and HSE added" },
       { date: "2026-06-11", text: "Fire alarm funding post scheduled for 15 June as the first approval for Dougie" },
       { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
       { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
@@ -100,7 +102,7 @@ window.MACFIRE_PROJECTS = [
     ],
     nextSteps: [
       { owner: "jonathan", text: "Support Dougie as he gets familiar with the calendar and approves or declines the first posts" },
-      { owner: "jonathan", text: "Once he's happy with the wording, plumb in automatic publishing to his social channels" },
+      { owner: "jonathan", text: "Build the automatic publishing step once Dougie is comfortable with approvals" },
       { owner: "jonathan", text: "Refresh each seasonal post for its date before it goes out" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
