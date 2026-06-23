@@ -66,9 +66,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 85,
+    progress: 86,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-11",
+    lastUpdated: "2026-06-23",
     summary:
       "Watches Scottish fire safety and building standards sources weekly, then drafts LinkedIn, Facebook and X posts for approval.",
     functionLine: "Weekly social drafts from official sources, human approved",
@@ -86,13 +86,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-23", text: "Calendar limited to December: posts beyond the year end no longer shown" },
       { date: "2026-06-11", text: "First post queued for sign-off: the fire alarm funding post set for Monday 15 June as Dougie's first approval" },
       { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
       { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
-      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" },
-      { date: "2026-06-08", text: "One-click drafting live: a source link becomes LinkedIn, Facebook and X drafts" }
+      { date: "2026-06-09", text: "Weekly monitoring live: official sources checked every Monday automatically" }
     ],
     activityLog: [
+      { date: "2026-06-23", text: "Calendar capped at 31 December: posts after year end excluded from the preview" },
       { date: "2026-06-11", text: "Fire alarm funding post scheduled for 15 June as the first approval for Dougie" },
       { date: "2026-06-10", text: "Review calendar live: posts shown on their dates for one-tap approval" },
       { date: "2026-06-10", text: "Content now planned for every month of the year ahead" },
@@ -106,7 +107,8 @@ window.MACFIRE_PROJECTS = [
     nextSteps: [
       { owner: "jonathan", text: "Support Dougie as he gets familiar with the calendar and approves or declines the first posts" },
       { owner: "jonathan", text: "Once he's happy with the wording, plumb in automatic publishing to his social channels" },
-      { owner: "jonathan", text: "Refresh each seasonal post for its date before it goes out" }
+      { owner: "jonathan", text: "Refresh each seasonal post for its date before it goes out" },
+      { owner: "jonathan", text: "Decide whether to extend content into next year as a paid service" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
     nextMilestone: "Automatic publishing once Dougie is happy with the drafts"
