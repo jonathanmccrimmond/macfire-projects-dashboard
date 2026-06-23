@@ -112,18 +112,18 @@ window.MACFIRE_PROJECTS = [
     nextMilestone: "Automatic publishing once Dougie is happy with the drafts"
   },
   {
-    id: "macfire-website-redesign",
-    name: "MacFire Website Redesign",
+    id: "macfire-website-review",
+    name: "MacFire Website Review",
     category: "Brand & Web",
-    status: "pilot",
-    progress: 72,
+    status: "complete",
+    progress: 100,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-11",
+    lastUpdated: "2026-06-23",
     summary:
-      "Two live demo versions of macfireltd.co.uk side by side: a light refresh and a full redesign, ready for direct comparison.",
-    functionLine: "Two refresh options, ready to compare",
+      "Website review complete. Dougie has resolved the SSL concerns and the agreed website changes have been made.",
+    functionLine: "Website reviewed, SSL resolved, changes made",
     notes:
-      "Both demos are mobile-friendly, faster than the current site, and use clearer service descriptions with a simpler enquiry flow. The content is identical across both, so the only variable on the table is design direction.",
+      "The website work is no longer an active redesign project. The review assets remain available for reference, but the SSL concern has been resolved by Dougie and the website changes have been made.",
     repoUrl: "",
     outputLinks: [
       {
@@ -131,7 +131,7 @@ window.MACFIRE_PROJECTS = [
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-minimal/"
       },
       {
-        label: "Full Redesign",
+        label: "Full Review Demo",
         url: "https://jonathanmccrimmond.github.io/macfire-projects-dashboard/macfire-website-demo/"
       }
     ],
@@ -140,13 +140,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1Ayp1Qx_4AD1OQEJdlcxNhn0_prxY7JpU/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-23", text: "Website review marked complete; SSL concerns resolved and site changes made" },
       { date: "2026-06-11", text: "Demos reviewed with Dougie; he's taking the site changes forward himself" },
       { date: "2026-06-08", text: "Both demo sites built and published for comparison" },
       { date: "2026-05-30", text: "Full redesign demo: mobile-friendly, clearer services and a simpler contact flow" },
-      { date: "2026-05-30", text: "Light refresh demo built as the lower-change option" },
-      { date: "2026-05-26", text: "Full audit of the current site complete, covering speed, search and enquiries" }
+      { date: "2026-05-30", text: "Light refresh demo built as the lower-change option" }
     ],
     activityLog: [
+      { date: "2026-06-23", text: "Website review marked complete; SSL concerns resolved by Dougie and website changes made" },
       { date: "2026-06-11", text: "Reviewed both demos with Dougie; he's progressing the site himself, files offered" },
       { date: "2026-06-08", text: "Both demo sites built and published for comparison" },
       { date: "2026-05-30", text: "Full redesign demo: mobile-friendly, clearer services and a simpler contact flow" },
@@ -154,10 +155,9 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-05-26", text: "Full audit of the current site complete, covering speed, search and enquiries" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Share the demo files and concepts with Dougie if useful" },
-      { owner: "jonathan", text: "Stay available as Dougie progresses the site changes himself" }
+      { owner: "jonathan", text: "No active website action; keep the review/demo assets available for future maintenance" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Dougie progressing the site, files shared on request"
+    nextMilestone: "Complete; monitor only"
   }
 ];
