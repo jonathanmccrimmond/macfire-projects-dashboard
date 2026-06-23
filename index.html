@@ -243,6 +243,7 @@
     .badge.active { background: var(--navy); color: var(--panel); }
     .badge.pilot  { background: var(--accent); color: var(--panel); }
     .badge.planned { background: var(--accent-soft); color: var(--planned); }
+    .badge.complete { background: var(--ok); color: var(--panel); }
 
     .project-updated {
       color: var(--muted);
@@ -674,6 +675,7 @@
       { key: "all",     label: "All" },
       { key: "active",  label: "Active" },
       { key: "pilot",   label: "Pilot" },
+      { key: "complete", label: "Complete" },
       { key: "planned", label: "Planned" }
     ];
 
@@ -708,6 +710,7 @@
     function buildStats(list) {
       const active  = list.filter(p => formatStatus(p.status) === "active").length;
       const pilot   = list.filter(p => formatStatus(p.status) === "pilot").length;
+      const complete = list.filter(p => formatStatus(p.status) === "complete").length;
       const avgProg = list.length
         ? Math.round(list.reduce((s, p) => s + (Number(p.progress) || 0), 0) / list.length)
         : 0;
@@ -716,6 +719,7 @@
         { label: "Projects",     value: list.length },
         { label: "Active",       value: active },
         { label: "Pilot",        value: pilot },
+        { label: "Complete",     value: complete },
         { label: "Avg Progress", value: avgProg + "%" }
       ];
 
