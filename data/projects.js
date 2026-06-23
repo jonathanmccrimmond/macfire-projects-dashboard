@@ -6,7 +6,7 @@ window.MACFIRE_PROJECTS = [
     status: "pilot",
     progress: 92,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-11",
+    lastUpdated: "2026-06-23",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
@@ -15,8 +15,12 @@ window.MACFIRE_PROJECTS = [
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-ai-lead-scout",
     outputLinks: [
       {
-        label: "Live Lead Dashboard",
+        label: "Lead Dashboard",
         url: "https://jonathanmccrimmond.github.io/macfire-ai-lead-scout/"
+      },
+      {
+        label: "Lead Dashboard (new design)",
+        url: "https://jonathanmccrimmond.github.io/macfire-ai-lead-scout/dashboard-v2.html"
       }
     ],
     deckLink: {
@@ -24,13 +28,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-23", text: "New light-theme dashboard live at a second URL, fully wired to live data" },
       { date: "2026-06-11", text: "Live: the daily run now harvests and fully enriches new leads in the cloud, hands-free" },
       { date: "2026-06-11", text: "Premises checks switched on in the cloud: Google listing, Street View and confidence score on every qualifying lead" },
       { date: "2026-06-11", text: "Planning coverage extended to 14 councils, including Renfrewshire, scanned weekly" },
-      { date: "2026-06-11", text: "Leads now re-checked automatically over the following weeks as each business builds a footprint" },
-      { date: "2026-06-09", text: "443 active leads cleaned and prepared for the production database" }
+      { date: "2026-06-11", text: "Leads now re-checked automatically over the following weeks as each business builds a footprint" }
     ],
     activityLog: [
+      { date: "2026-06-23", text: "Second dashboard built in clean light design: white background, red brand, all features present" },
       { date: "2026-06-11", text: "First live daily run launched: leads harvested and enriched automatically" },
       { date: "2026-06-11", text: "Premises and confidence enrichment confirmed running on the daily cloud job" },
       { date: "2026-06-11", text: "Weekly planning scrape enabled across 14 councils, Renfrewshire portal added" },
