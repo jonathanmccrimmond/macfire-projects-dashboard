@@ -4,7 +4,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 93,
+    progress: 94,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-24",
     summary:
@@ -28,13 +28,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-24", text: "One click drafts a ready-to-send outreach email, worded for that type of business" },
+      { date: "2026-06-24", text: "Any lead can be sent back to the active queue in a single click" },
       { date: "2026-06-24", text: "Dashboard now shows whether each lead is best reached by email or phone" },
       { date: "2026-06-24", text: "Email Sent added as a distinct status, tracked separately from a phone call" },
-      { date: "2026-06-23", text: "New light-theme dashboard live at a second URL, fully wired to live data" },
-      { date: "2026-06-11", text: "Live: the daily run now harvests and fully enriches new leads in the cloud, hands-free" },
-      { date: "2026-06-11", text: "Premises checks switched on in the cloud: Google listing, Street View and confidence score on every qualifying lead" }
+      { date: "2026-06-23", text: "New light-theme dashboard live at a second URL, fully wired to live data" }
     ],
     activityLog: [
+      { date: "2026-06-24", text: "Draft email button added: opens a pre-filled message tailored to the business type, sender stays in full control" },
+      { date: "2026-06-24", text: "Mark as sent confirmation added so a lead is recorded as emailed only once the message has gone" },
+      { date: "2026-06-24", text: "Return to queue button added to every lead, for quick correction or recycling" },
       { date: "2026-06-24", text: "Channel filter added: leads marked Ready to email, Ready to phone, or Needs data based on contact details available" },
       { date: "2026-06-24", text: "Email Sent status added to pipeline: email and phone outreach now tracked separately" },
       { date: "2026-06-23", text: "Second dashboard built in clean light design: white background, red brand, all features present" },
@@ -56,13 +59,13 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-06", text: "Outreach email drafts created automatically for each relevant lead" }
     ],
     nextSteps: [
+      { owner: "dougie", text: "Review and approve the wording of the outreach emails" },
       { owner: "jonathan", text: "Wire up automatic posting to LinkedIn, Facebook and X" },
-      { owner: "jonathan", text: "Draft outreach emails by business type, share with Dougie for approval" },
-      { owner: "dougie", text: "Work through the lead list, marking contacted and not relevant with reasons" },
+      { owner: "dougie", text: "Work through the lead list, drafting emails and marking progress" },
       { owner: "dougie", text: "Start a list of 15 to 20 businesses that could benefit from this kind of help" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Automated outreach emails approved and ready to send"
+    nextMilestone: "Outreach email wording signed off, automatic posting live"
   },
   {
     id: "macfire-content-radar",
