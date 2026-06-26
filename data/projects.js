@@ -4,9 +4,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 94,
+    progress: 95,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-24",
+    lastUpdated: "2026-06-26",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
@@ -28,13 +28,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" },
+      { date: "2026-06-26", text: "Both dashboards fully aligned: same actions, same lead detail, same counts" },
       { date: "2026-06-24", text: "One click drafts a ready-to-send outreach email, worded for that type of business" },
       { date: "2026-06-24", text: "Any lead can be sent back to the active queue in a single click" },
-      { date: "2026-06-24", text: "Dashboard now shows whether each lead is best reached by email or phone" },
-      { date: "2026-06-24", text: "Email Sent added as a distinct status, tracked separately from a phone call" },
-      { date: "2026-06-23", text: "New light-theme dashboard live at a second URL, fully wired to live data" }
+      { date: "2026-06-24", text: "Dashboard now shows whether each lead is best reached by email or phone" }
     ],
     activityLog: [
+      { date: "2026-06-26", text: "Email drafting added to both dashboards with sector-specific templates and a send confirmation step" },
+      { date: "2026-06-26", text: "V2 dashboard brought to full feature parity with V1: all lead actions, detail fields and status flows" },
+      { date: "2026-06-26", text: "Lead count consistency fixed: KPI card and tab badge now always show the same total" },
       { date: "2026-06-24", text: "Draft email button added: opens a pre-filled message tailored to the business type, sender stays in full control" },
       { date: "2026-06-24", text: "Mark as sent confirmation added so a lead is recorded as emailed only once the message has gone" },
       { date: "2026-06-24", text: "Return to queue button added to every lead, for quick correction or recycling" },
@@ -59,13 +62,12 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-06", text: "Outreach email drafts created automatically for each relevant lead" }
     ],
     nextSteps: [
-      { owner: "dougie", text: "Review and approve the wording of the outreach emails" },
-      { owner: "jonathan", text: "Wire up automatic posting to LinkedIn, Facebook and X" },
       { owner: "dougie", text: "Work through the lead list, drafting emails and marking progress" },
-      { owner: "dougie", text: "Start a list of 15 to 20 businesses that could benefit from this kind of help" }
+      { owner: "jonathan", text: "Sharpen targeting and scoring based on the Dougie review outcomes" },
+      { owner: "jonathan", text: "Track responses and update lead statuses as calls and emails go out" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Outreach email wording signed off, automatic posting live"
+    nextMilestone: "First outreach calls and emails to top-priority leads"
   },
   {
     id: "macfire-content-radar",
