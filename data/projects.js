@@ -4,9 +4,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 92,
+    progress: 95,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-23",
+    lastUpdated: "2026-06-26",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
@@ -28,13 +28,16 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" },
+      { date: "2026-06-26", text: "Both dashboards fully aligned: same actions, same lead detail, same counts" },
       { date: "2026-06-23", text: "New light-theme dashboard live at a second URL, fully wired to live data" },
       { date: "2026-06-11", text: "Live: the daily run now harvests and fully enriches new leads in the cloud, hands-free" },
-      { date: "2026-06-11", text: "Premises checks switched on in the cloud: Google listing, Street View and confidence score on every qualifying lead" },
-      { date: "2026-06-11", text: "Planning coverage extended to 14 councils, including Renfrewshire, scanned weekly" },
-      { date: "2026-06-11", text: "Leads now re-checked automatically over the following weeks as each business builds a footprint" }
+      { date: "2026-06-11", text: "Premises checks switched on in the cloud: Google listing, Street View and confidence score on every qualifying lead" }
     ],
     activityLog: [
+      { date: "2026-06-26", text: "Email drafting added to both dashboards with sector-specific templates and a send confirmation step" },
+      { date: "2026-06-26", text: "V2 dashboard brought to full feature parity with V1: all lead actions, detail fields and status flows" },
+      { date: "2026-06-26", text: "Lead count consistency fixed: KPI card and tab badge now always show the same total" },
       { date: "2026-06-23", text: "Second dashboard built in clean light design: white background, red brand, all features present" },
       { date: "2026-06-11", text: "First live daily run launched: leads harvested and enriched automatically" },
       { date: "2026-06-11", text: "Premises and confidence enrichment confirmed running on the daily cloud job" },
@@ -54,12 +57,12 @@ window.MACFIRE_PROJECTS = [
       { date: "2026-06-06", text: "Outreach email drafts created automatically for each relevant lead" }
     ],
     nextSteps: [
-      { owner: "jonathan", text: "Let the leads build through the fortnight, then review them with Dougie on 23 to 24 June" },
-      { owner: "jonathan", text: "Sharpen the targeting and the look of the list off the back of that review" },
-      { owner: "jonathan", text: "Work out the best way to contact the strongest leads" }
+      { owner: "jonathan", text: "Begin outreach on the strongest leads using the prepared call and email scripts" },
+      { owner: "jonathan", text: "Sharpen targeting and scoring based on the Dougie review outcomes" },
+      { owner: "jonathan", text: "Track responses and update lead statuses as calls and emails go out" }
     ],
     feedbackEmail: "j@mccrimmond.org.uk",
-    nextMilestone: "Joint lead review with Dougie, 23 to 24 June"
+    nextMilestone: "First outreach calls and emails to top-priority leads"
   },
   {
     id: "macfire-content-radar",
