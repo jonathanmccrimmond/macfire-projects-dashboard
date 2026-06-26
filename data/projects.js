@@ -94,13 +94,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-26", text: "All generated card photos now show clearly behind the brand copy" },
       { date: "2026-06-26", text: "Image alternatives can now be checked before approval" },
       { date: "2026-06-26", text: "Review screen now keeps approval actions clear and context below" },
       { date: "2026-06-26", text: "Every post now carries an on-brand MacFire image, created automatically" },
       { date: "2026-06-26", text: "All planned posts given matching images, including seasonal ones like Bonfire Night" },
-      { date: "2026-06-26", text: "Approvals now save reliably, with a clear alert if the page loses connection" }
     ],
     activityLog: [
+      { date: "2026-06-26", text: "All generated card photos now show clearly behind the brand copy" },
       { date: "2026-06-26", text: "Image alternatives can now be checked before approval" },
       { date: "2026-06-26", text: "Review screen now keeps approval actions clear and context below" },
       { date: "2026-06-26", text: "Every post now carries an on-brand MacFire image, created automatically" },
