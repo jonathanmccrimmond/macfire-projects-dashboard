@@ -28,13 +28,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-28", text: "Both dashboards now show the full MacFire logo in the header" },
       { date: "2026-06-28", text: "Outreach emails now offer a reply or a quick call, the reader chooses" },
       { date: "2026-06-28", text: "Email wording refreshed and tidied across every type of business" },
       { date: "2026-06-28", text: "Pipeline view now focuses on the highest priority leads" },
-      { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" },
-      { date: "2026-06-26", text: "Both dashboards fully aligned: same actions, same lead detail, same counts" }
+      { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Header logo updated to the full MacFire wordmark on both dashboards" },
       { date: "2026-06-28", text: "Outreach email call to action now offers a reply or a five minute call, naturally worded" },
       { date: "2026-06-28", text: "Email templates tidied across all business types, punctuation standardised" },
       { date: "2026-06-28", text: "Pipeline status now reports the highest priority leads rather than all leads" },
@@ -79,7 +80,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 92,
+    progress: 94,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-28",
     summary:
@@ -99,13 +100,17 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-28", text: "Approve and decline now save reliably as you review" },
+      { date: "2026-06-28", text: "Any post image can be refreshed and the new one stays" },
+      { date: "2026-06-28", text: "Post cards now carry the full MacFire logo" },
       { date: "2026-06-28", text: "Post images refreshed to a cleaner, more premium look" },
-      { date: "2026-06-28", text: "Safety posts show a clear photo, sales posts add a tidy branded line" },
-      { date: "2026-06-28", text: "Each post is sorted automatically into a safety or a sales style" },
-      { date: "2026-06-28", text: "Post images are created automatically at no cost" },
-      { date: "2026-06-26", text: "Every post now carries an on-brand MacFire image, created automatically" }
+      { date: "2026-06-28", text: "Safety posts show a clear photo, sales posts add a branded line" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Approve and decline now save reliably to the review record" },
+      { date: "2026-06-28", text: "Any post image can be refreshed to a new version, and the choice is kept" },
+      { date: "2026-06-28", text: "Post cards now show the full MacFire logo in place of the small badge" },
+      { date: "2026-06-28", text: "Review page given its own MacFire icon for the browser tab" },
       { date: "2026-06-28", text: "Post images redesigned to a cleaner, more premium standard" },
       { date: "2026-06-28", text: "Image style now matches the message: a clear photo for safety posts, a tidy branded line for sales posts" },
       { date: "2026-06-28", text: "Posts now sorted automatically into safety or sales, each with the right image style" },
