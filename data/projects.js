@@ -4,7 +4,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 96,
+    progress: 97,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-28",
     summary:
@@ -28,13 +28,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-28", text: "Phone-only leads are now re-checked weekly for an email address" },
       { date: "2026-06-28", text: "Both dashboards now show the full MacFire logo in the header" },
       { date: "2026-06-28", text: "Outreach emails now offer a reply or a quick call, the reader chooses" },
       { date: "2026-06-28", text: "Email wording refreshed and tidied across every type of business" },
-      { date: "2026-06-28", text: "Pipeline view now focuses on the highest priority leads" },
-      { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" }
+      { date: "2026-06-28", text: "Pipeline view now focuses on the highest priority leads" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Phone-only leads now re-checked weekly for an email, moving to the email queue when one is found" },
       { date: "2026-06-28", text: "Header logo updated to the full MacFire wordmark on both dashboards" },
       { date: "2026-06-28", text: "Outreach email call to action now offers a reply or a five minute call, naturally worded" },
       { date: "2026-06-28", text: "Email templates tidied across all business types, punctuation standardised" },
