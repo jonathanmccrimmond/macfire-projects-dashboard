@@ -4,9 +4,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
     status: "pilot",
-    progress: 95,
+    progress: 96,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-28",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
@@ -28,13 +28,18 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1vZx67rB0DllHKJ5NHOMATL9y94_SGmV4/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-28", text: "Outreach emails now offer a reply or a quick call, the reader chooses" },
+      { date: "2026-06-28", text: "Email wording refreshed and tidied across every type of business" },
+      { date: "2026-06-28", text: "Pipeline view now focuses on the highest priority leads" },
       { date: "2026-06-26", text: "Email drafts open ready to send from any lead card on both dashboards" },
-      { date: "2026-06-26", text: "Both dashboards fully aligned: same actions, same lead detail, same counts" },
-      { date: "2026-06-24", text: "One click drafts a ready-to-send outreach email, worded for that type of business" },
-      { date: "2026-06-24", text: "Any lead can be sent back to the active queue in a single click" },
-      { date: "2026-06-24", text: "Dashboard now shows whether each lead is best reached by email or phone" }
+      { date: "2026-06-26", text: "Both dashboards fully aligned: same actions, same lead detail, same counts" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Outreach email call to action now offers a reply or a five minute call, naturally worded" },
+      { date: "2026-06-28", text: "Email templates tidied across all business types, punctuation standardised" },
+      { date: "2026-06-28", text: "Pipeline status now reports the highest priority leads rather than all leads" },
+      { date: "2026-06-28", text: "Lead action buttons restyled for a cleaner, more premium feel" },
+      { date: "2026-06-28", text: "Quick link added between the classic and new dashboard designs" },
       { date: "2026-06-26", text: "Email drafting added to both dashboards with sector-specific templates and a send confirmation step" },
       { date: "2026-06-26", text: "V2 dashboard brought to full feature parity with V1: all lead actions, detail fields and status flows" },
       { date: "2026-06-26", text: "Lead count consistency fixed: KPI card and tab badge now always show the same total" },
@@ -74,11 +79,11 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 90,
+    progress: 92,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-28",
     summary:
-      "Watches Scottish fire safety sources weekly, then drafts LinkedIn, Facebook and X posts, each with a branded image, for approval.",
+      "Watches Scottish fire safety sources weekly, then drafts LinkedIn, Facebook and X posts, each with a fitting image, for approval.",
     functionLine: "Weekly social drafts with branded images, human approved",
     notes:
       "Government, regulator, council and industry sources are checked every Monday for anything relevant to MacFire. New stories become a LinkedIn, Facebook and X draft, each with the source link attached, ready to review in one place. Nothing publishes without sign-off.",
@@ -94,13 +99,17 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
-      { date: "2026-06-26", text: "All generated card photos now show clearly behind the brand copy" },
-      { date: "2026-06-26", text: "Image alternatives can now be checked before approval" },
-      { date: "2026-06-26", text: "Review screen now keeps approval actions clear and context below" },
-      { date: "2026-06-26", text: "Every post now carries an on-brand MacFire image, created automatically" },
-      { date: "2026-06-26", text: "All planned posts given matching images, including seasonal ones like Bonfire Night" },
+      { date: "2026-06-28", text: "Post images refreshed to a cleaner, more premium look" },
+      { date: "2026-06-28", text: "Safety posts show a clear photo, sales posts add a tidy branded line" },
+      { date: "2026-06-28", text: "Each post is sorted automatically into a safety or a sales style" },
+      { date: "2026-06-28", text: "Post images are created automatically at no cost" },
+      { date: "2026-06-26", text: "Every post now carries an on-brand MacFire image, created automatically" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Post images redesigned to a cleaner, more premium standard" },
+      { date: "2026-06-28", text: "Image style now matches the message: a clear photo for safety posts, a tidy branded line for sales posts" },
+      { date: "2026-06-28", text: "Posts now sorted automatically into safety or sales, each with the right image style" },
+      { date: "2026-06-28", text: "Confirmed post images are produced automatically at no cost" },
       { date: "2026-06-26", text: "All generated card photos now show clearly behind the brand copy" },
       { date: "2026-06-26", text: "Image alternatives can now be checked before approval" },
       { date: "2026-06-26", text: "Review screen now keeps approval actions clear and context below" },
