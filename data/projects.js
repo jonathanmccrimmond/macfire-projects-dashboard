@@ -86,10 +86,10 @@ window.MACFIRE_PROJECTS = [
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-28",
     summary:
-      "Watches Scottish fire safety sources weekly, then drafts LinkedIn, Facebook and X posts, each with a fitting image, for approval.",
-    functionLine: "Weekly social drafts with branded images, human approved",
+      "Turns weekly fire safety news and seasonal reminders into LinkedIn, Facebook and X drafts, each with an image, for approval.",
+    functionLine: "Weekly news and seasonal social drafts with images, human approved",
     notes:
-      "Government, regulator, council and industry sources are checked every Monday for anything relevant to MacFire. New stories become a LinkedIn, Facebook and X draft, each with the source link attached, ready to review in one place. Nothing publishes without sign-off.",
+      "Government, regulator, council and industry sources are checked every Monday for anything relevant to MacFire, and new stories become a LinkedIn, Facebook and X draft with the source attached. Alongside the news, a year-round calendar of seasonal safety messages is prepared ahead of time, covering moments like summer checks for care homes, barbecue safety, bonfire night and the Christmas shutdown. Everything sits in one place to review, and nothing publishes without sign-off.",
     repoUrl: "https://github.com/jonathanmccrimmond/macfire-content-radar",
     outputLinks: [
       {
