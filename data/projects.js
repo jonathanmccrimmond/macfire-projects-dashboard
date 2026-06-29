@@ -3,10 +3,10 @@ window.MACFIRE_PROJECTS = [
     id: "macfire-ai-scout",
     name: "MacFire AI Lead Scout",
     category: "Lead Finder",
-    status: "pilot",
+    status: "active",
     progress: 97,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-28",
+    lastUpdated: "2026-06-29",
     summary:
       "Sources new businesses from Companies House and planning portals across Scotland, scored for fire safety relevance and now running on its own every day.",
     functionLine: "Weekly lead pipeline from Companies House and council planning portals",
