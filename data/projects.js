@@ -82,7 +82,7 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 94,
+    progress: 95,
     owner: "Jonathan McCrimmond",
     lastUpdated: "2026-06-28",
     summary:
@@ -102,13 +102,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-28", text: "Content stepped up to a post or two every week" },
       { date: "2026-06-28", text: "Approve and decline now save reliably as you review" },
       { date: "2026-06-28", text: "Any post image can be refreshed and the new one stays" },
       { date: "2026-06-28", text: "Post cards now carry the full MacFire logo" },
-      { date: "2026-06-28", text: "Post images refreshed to a cleaner, more premium look" },
-      { date: "2026-06-28", text: "Safety posts show a clear photo, sales posts add a branded line" }
+      { date: "2026-06-28", text: "Post images refreshed to a cleaner, more premium look" }
     ],
     activityLog: [
+      { date: "2026-06-28", text: "Posting rhythm increased to one or two a week, with a bank of everyday fire-safety reminders added" },
       { date: "2026-06-28", text: "Approve and decline now save reliably to the review record" },
       { date: "2026-06-28", text: "Any post image can be refreshed to a new version, and the choice is kept" },
       { date: "2026-06-28", text: "Post cards now show the full MacFire logo in place of the small badge" },
