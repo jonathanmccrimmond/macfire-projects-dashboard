@@ -82,9 +82,9 @@ window.MACFIRE_PROJECTS = [
     name: "MacFire Content Radar",
     category: "Marketing Support",
     status: "pilot",
-    progress: 95,
+    progress: 97,
     owner: "Jonathan McCrimmond",
-    lastUpdated: "2026-06-28",
+    lastUpdated: "2026-06-29",
     summary:
       "Turns weekly fire safety news and seasonal reminders into LinkedIn, Facebook and X drafts, each with an image, for approval.",
     functionLine: "Weekly news and seasonal social drafts with images, human approved",
@@ -102,13 +102,14 @@ window.MACFIRE_PROJECTS = [
       url: "https://docs.google.com/presentation/d/1sY58hZyYPyaHllfa_cGpEo5EQuWXBdgc/edit?usp=sharing&ouid=114154757220276176557&rtpof=true&sd=true"
     },
     recentWins: [
+      { date: "2026-06-29", text: "Full year of evergreen fire-safety posts now drafted and ready" },
+      { date: "2026-06-29", text: "Eight new posts added: October, November and December" },
       { date: "2026-06-28", text: "Content stepped up to a post or two every week" },
-      { date: "2026-06-28", text: "Approve and decline now save reliably as you review" },
       { date: "2026-06-28", text: "Any post image can be refreshed and the new one stays" },
-      { date: "2026-06-28", text: "Post cards now carry the full MacFire logo" },
       { date: "2026-06-28", text: "Post images refreshed to a cleaner, more premium look" }
     ],
     activityLog: [
+      { date: "2026-06-29", text: "Evergreen topic bank complete: fire doors, electrical safety, hot work, smoking areas, landlord basics, waste and arson, e-bike charging, and the fire log book all drafted" },
       { date: "2026-06-28", text: "Posting rhythm increased to one or two a week, with a bank of everyday fire-safety reminders added" },
       { date: "2026-06-28", text: "Approve and decline now save reliably to the review record" },
       { date: "2026-06-28", text: "Any post image can be refreshed to a new version, and the choice is kept" },
